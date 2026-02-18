@@ -1,0 +1,536 @@
+{
+    "settings": {
+        "language": "Espa\u00f1ol"
+    },
+    "header_info": {
+        "name": "Mario Noriega Zamora",
+        "city": "Madrid",
+        "country": "Espa\u00f1a",
+        "email": "mnoriegazamora@gmail.com",
+        "phone": "699651797",
+        "linkedin": "https://www.linkedin.com/in/mario-noriega-zamora/"
+    },
+    "sections": {
+        "personal_info": {
+            "id": "personal",
+            "title": "Informaci\u00f3n Personal",
+            "type": "personal",
+            "modules": [
+                {
+                    "id": "832d7a74-250f-4b8e-aba8-fc0db7143e49",
+                    "is_active": true,
+                    "type": "PersonalInfoModule",
+                    "title": "Bio",
+                    "text_extended": "Soy una persona curiosa y orientada a la resoluci\u00f3n de problemas, con gran capacidad de adaptaci\u00f3n y trabajo en equipo. Me apasiona el desarrollo de soluciones creativas a trav\u00e9s de la programaci\u00f3n, combinando mi experiencia en entornos 3D y simulaci\u00f3n con el uso de lenguajes como Python, C++ y programaci\u00f3n orientada a objetos. Mi objetivo es seguir creciendo en el \u00e1mbito del desarrollo de software y la programaci\u00f3n, adquiriendo nuevas competencias que me permitan afrontar proyectos cada vez m\u00e1s complejos en simulaci\u00f3n, automatizaci\u00f3n y generaci\u00f3n procedural.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                }
+            ]
+        },
+        "experience": {
+            "id": "experience",
+            "title": "Experiencia Profesional",
+            "type": "experience",
+            "modules": [
+                {
+                    "id": "49834115-0966-4ab4-930c-2dece1aa6b8d",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Operador de c\u00e1mara",
+                    "text_extended": "Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\". http://platerosmultimedia.com/documentales/",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Plateros producciones - Salamanca, Espa\u00f1a",
+                    "date_range": "05/2008 \u2013 06/2008",
+                    "tags": [
+                        "Grabaci\u00f3n de v\u00eddeo"
+                    ]
+                },
+                {
+                    "id": "1ab5c97a-2fe9-491c-9d22-2fec05bf9861",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Redactor de noticias",
+                    "text_extended": "Redactor en pr\u00e1cticas cubriendo las noticias locales con redacci\u00f3n de noticias, reportajes y cr\u00f3nicas.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Regi\u00f3n digital - M\u00e9rida, Espa\u00f1a",
+                    "date_range": "08/2008 \u2013 09/2008",
+                    "tags": [
+                        "Prensa escrita"
+                    ]
+                },
+                {
+                    "id": "5ac81e8c-b0e5-4543-9294-4291e298c825",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Redactor de deportes",
+                    "text_extended": "Redactor en pr\u00e1cticas. Redacci\u00f3n de cr\u00f3nicas, noticias y entrevistas para el peri\u00f3dico, as\u00ed como la cobertura de los resultados de las categor\u00edas inferiores.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "La Gaceta de Salamanca - Salamanca, Espa\u00f1a",
+                    "date_range": "10/2008 \u2013 05/2009",
+                    "tags": [
+                        "Prensa escrita"
+                    ]
+                },
+                {
+                    "id": "b3604399-3d69-4e85-a7c8-7b0033bc983e",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Becario en Departamento de televisi\u00f3n",
+                    "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                    "date_range": "10/2007 \u2013 06/2009",
+                    "tags": [
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Edici\u00f3n"
+                    ]
+                },
+                {
+                    "id": "eae92658-3084-4404-965e-7f3742875d6c",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Redactor de deportes",
+                    "text_extended": "Redactor de deportes en pr\u00e1cticas cubriendo el periodo de fichajes y el ascenso de los equipos extreme\u00f1os a 2\u00aaB. Redacci\u00f3n de cr\u00f3nicas y entrevistas de diversos deportes.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "El Peri\u00f3dico Extremadura - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "07/2009 \u2013 08/2009",
+                    "tags": [
+                        "Prensa escrita"
+                    ]
+                },
+                {
+                    "id": "b90796e0-9184-4c60-b16f-4a482621768e",
+                    "is_active": true,
+                    "type": "ExperienceModule",
+                    "title": "Becario de Dise\u00f1o Gr\u00e1fico",
+                    "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "07/2010 \u2013 08/2010",
+                    "tags": [
+                        "Branding",
+                        "Adobe Photoshop",
+                        "Photoshop",
+                        "Dise\u00f1o gr\u00e1fico"
+                    ]
+                },
+                {
+                    "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Atenci\u00f3n al cliente en Redes Sociales",
+                    "text_extended": "Atenci\u00f3n en Twitter y Facebook de clientes a trav\u00e9s de gestores de redes sociales. Recopilaci\u00f3n y an\u00e1lisis de datos de tr\u00e1fico y feedback para la elaboraci\u00f3n de la estrategia Social Media.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Atento Comunicaciones - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "01/2012 \u2013 09/2017",
+                    "tags": [
+                        "Medios sociales"
+                    ]
+                },
+                {
+                    "id": "bbdaffa8-3e8a-463c-b275-d864932188be",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Gestor de recepci\u00f3n de alarmas",
+                    "text_extended": "Recepcio\u0301n de saltos de alarma en turno de noche y toma de decisiones inmediata en funcio\u0301n de la situacio\u0301n especi\u0301fica.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Securitas Seguridad Espa\u00f1a - Madrid, Espa\u00f1a",
+                    "date_range": "05/2018 - 08/2018",
+                    "tags": []
+                },
+                {
+                    "id": "2ca10ba4-d5a5-4883-aa94-d18580354889",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Teleoperador",
+                    "text_extended": "Cierre de citas en los centros de Quir\u00f3n Salud de toda Espa\u00f1a.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Quir\u00f3n Salud - Madrid, Espa\u00f1a",
+                    "date_range": "05/2020 - 03/2021",
+                    "tags": [
+                        "Gesti\u00f3n de agendas m\u00e9dicas"
+                    ]
+                },
+                {
+                    "id": "7c830451-eede-411d-ab50-4c745b6cc12a",
+                    "is_active": true,
+                    "type": "ExperienceModule",
+                    "title": "Procedural 3D artist",
+                    "text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para proyectos de conducci\u00f3n aut\u00f3noma basada en IA. Desarrollo propio de widgets y blueprints en Unreal y assets en Houdini FX. Co-autor en el dataset: \"All for One, and One for All: UrbanSyn Dataset, the third Musketeer of Synthetic Driving Scenes\" https://www.urbansyn.org.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
+                    "date_range": "10/2020 - 03/2024",
+                    "tags": [
+                        "Posproducci\u00f3n de v\u00eddeo",
+                        "Adobe Premiere Pro",
+                        "3D",
+                        "Unreal Engine 4.27",
+                        "Houdini FX",
+                        "C++",
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Python",
+                        "Edici\u00f3n de v\u00eddeo"
+                    ]
+                },
+                {
+                    "id": "f9f7a262-4e42-45e1-8651-ef530f994bfb",
+                    "is_active": true,
+                    "type": "ExperienceModule",
+                    "title": "Procedural 3D artist",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "company": "Universidade da Coru\u00f1a (CITIC) - A Coru\u00f1a, Espa\u00f1a",
+                    "date_range": "04/2025 - 05/2025",
+                    "tags": [
+                        "Houdini FX",
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Python",
+                        "Rendering for autonomous driving"
+                    ]
+                }
+            ]
+        },
+        "education": {
+            "id": "education",
+            "title": "Formaci\u00f3n",
+            "type": "education",
+            "modules": [
+                {
+                    "id": "b4c2dbf2-8f55-463e-805b-64848f210d84",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Licenciado en Comunicaci\u00f3n Audiovisual",
+                    "text_extended": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a (2003 \u2013 2009)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "08ad84be-b8ae-4cbf-9452-e1d929099ab0",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
+                    "text_extended": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a (2009 \u2013 2009)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
+                    "text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Curso Superior en Community Manager",
+                    "text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (10/2017 - 12/2017)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Curso Superior en Posicionamiento Web",
+                    "text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (12/2017 - 02/2018)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Curso Superior en e-Commerce y Marketing",
+                    "text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (02/2018 - 04/2018)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
+                    "text_extended": "Escuela Trazos - Madrid, Espa\u00f1a (10/2018 - 08/2019)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
+                    "text_extended": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid (10/2024 - 03/2025)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "e720636e-fdfb-4b7c-a35f-8fe2a401a707",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Programaci\u00f3n con lenguajes orientados a objetos y bases de datos relacionales (710h)",
+                    "text_extended": "Merinero - Madrid, Espa\u00f1a (07/2025 - 12/2025)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Inteligencia Artificial Generativa (22h)",
+                    "text_extended": "Mantia - Madrid, Espa\u00f1a (09/2025 - 10/2025)",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                }
+            ]
+        },
+        "knowledge": {
+            "id": "knowledge",
+            "title": "Conocimientos",
+            "type": "generic",
+            "modules": [
+                {
+                    "id": "2b075ee6-a647-486a-9582-426164a91247",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Grabaci\u00f3n de v\u00eddeo",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "fa432d93-0faf-4845-b3e4-dd96459166ef",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Prensa escrita",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "7faac449-b133-47a7-b60c-63356f9f0e9b",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Dise\u00f1o gr\u00e1fico",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "cc1284c3-040c-4dc2-aa62-96476d666ddb",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Edici\u00f3n de v\u00eddeo",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "93144b9d-b88a-478c-8d6d-5c644b76f857",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Branding",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "18178a0f-d677-4acc-bb51-4736b188019b",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Medios sociales",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "5c8d0063-38b7-4982-9889-dbd16a77cd57",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Gesti\u00f3n de agendas m\u00e9dicas",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "91e59496-e214-4306-8b28-11fdd8d5d7a5",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Posproducci\u00f3n de v\u00eddeo",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "a6c11ab6-ed73-47b3-95c9-6ff985867138",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "3D",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                },
+                {
+                    "id": "f065ee1e-0327-4187-86d9-f255263e975c",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Rendering for autonomous driving",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": []
+                }
+            ]
+        },
+        "software": {
+            "id": "software",
+            "title": "Software",
+            "type": "software",
+            "modules": [
+                {
+                    "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
+                    "is_active": false,
+                    "type": "ImageModule",
+                    "name": "Adobe Photoshop",
+                    "image_path": ""
+                },
+                {
+                    "id": "0aad998d-8f2e-40b0-ac91-8b6df0dacbf3",
+                    "is_active": false,
+                    "type": "ImageModule",
+                    "name": "Adobe Premiere Pro",
+                    "image_path": ""
+                },
+                {
+                    "id": "a2623da4-afe2-4777-b322-ae8224dd215c",
+                    "is_active": false,
+                    "type": "ImageModule",
+                    "name": "Unreal Engine 4.27",
+                    "image_path": ""
+                },
+                {
+                    "id": "c840a062-60d2-4293-a310-8fb3078b1ce0",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "Houdini FX",
+                    "image_path": ""
+                },
+                {
+                    "id": "7708f4fb-01cc-45d0-a929-1b42d5e5c6e0",
+                    "is_active": false,
+                    "type": "ImageModule",
+                    "name": "Sony Vegas",
+                    "image_path": ""
+                },
+                {
+                    "id": "aa23d2a0-4cf3-49b5-b74e-91e5864ae42d",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "Avid Liquid",
+                    "image_path": ""
+                },
+                {
+                    "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "Unreal Engine 5.6",
+                    "image_path": ""
+                },
+                {
+                    "id": "23aa1b06-4dd6-4596-b666-a577feed3dd7",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "Power BI",
+                    "image_path": ""
+                },
+                {
+                    "id": "8cbb3d7c-1b8c-401b-ad3b-b73f3f561032",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "Excel",
+                    "image_path": ""
+                }
+            ]
+        },
+        "languages": {
+            "id": "languages",
+            "title": "Lenguajes de Programaci\u00f3n",
+            "type": "language",
+            "modules": [
+                {
+                    "id": "3aaeb570-4aa2-446b-95b2-a1941f77aefc",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "Python",
+                    "image_path": ""
+                },
+                {
+                    "id": "a466d5ee-5d00-4f74-ba59-9869b12b49b3",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "C++",
+                    "image_path": ""
+                },
+                {
+                    "id": "66843f3e-0256-485b-9578-7edc19d07b94",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "C#",
+                    "image_path": ""
+                },
+                {
+                    "id": "7dde9755-ae85-4c24-9e48-b807223d056e",
+                    "is_active": true,
+                    "type": "ImageModule",
+                    "name": "SQL",
+                    "image_path": ""
+                }
+            ]
+        }
+    }
+}
