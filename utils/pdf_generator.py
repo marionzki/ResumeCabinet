@@ -37,7 +37,7 @@ class PDFGenerator:
         return self.trans.get(k, key)
 
     def _get_text(self, module, field_name, default_value=""):
-        """Get text from module, preferring translation if available. Auto-translates if missing."""
+        """Get text from module, preferring translation if available. Auto-translates if missing or stale."""
         # 1. Check if language is default
         is_default = self.language == "Español" 
         
@@ -54,15 +54,57 @@ class PDFGenerator:
             
         lang_trans = module.translations[self.language]
         
-        if field_name in lang_trans and lang_trans[field_name]:
-            return lang_trans[field_name]
+        # Check for Stale Translation
+        # logic: if we have a translation, check if the source text it was based on matches current text
+        source_key = f"_source_{field_name}"
+        stored_source = lang_trans.get(source_key)
+        
+        # If we have a translation BUT stored_source doesn't match original_text, it's stale.
+        # Exception: if stored_source is None (legacy data), we might assume it's valid OR invalid.
+        # Let's assume valid to prevent overwriting manual work, BUT update the source now?
+        # No, if we assume valid, we lock it. 
+        # User request: "Detect if changes happened".
+        # So if stored_source is missing, we can't be sure. 
+        # Strategy: If missing, set it to current? No, next time it will match.
+        # Let's simple comparison: if stored_source is set and != original, INVALIDATE.
+        # If stored_source is NOT set, we assume it matches (fallback for legacy), 
+        # UNLESS we want to force re-translate? 
+        # Use Case: User adds link to Spanish text. Legacy translation has no link.
+        # If we don't re-translate, link is missing in English PDF.
+        # So maybe if missing, we SHOULD re-translate? 
+        # But that overwrites manual edits from before this feature.
+        # Compromise: Only invalidate if stored_source IS present and differs. 
+        # (This means first time after update, it won't detect. But future edits will).
+        # WAIIIT. If I change text now, `_source_` won't be there.
+        # So I need to start saving `_source_` when generating.
+        
+        is_stale = False
+        if source_key in lang_trans:
+            if lang_trans[source_key] != original_text:
+                is_stale = True
+                print(f"Translation for '{field_name}' is stale (source changed). Re-translating...")
+        else:
+            # Source key missing (legacy data or manual edit pre-tracking).
+            # We must assume it might be stale to ensure correctness.
+            # This might overwrite manual legacy translations, but ensures consistency for the user's workflow.
+            is_stale = True
+            print(f"Translation for '{field_name}' lacks source tracking. Re-translating...")
+        
+        # If valid translation exists and not stale, return it
+        if not is_stale and field_name in lang_trans and lang_trans[field_name]:
+             return lang_trans[field_name]
             
-        # 3. Auto-translate if missing
+        # 3. Auto-translate if missing or stale
         if original_text:
-            print(f"Auto-translating '{field_name}' to {self.language}...")
+            if field_name not in lang_trans:
+                 print(f"Auto-translating '{field_name}' to {self.language}...")
+                 
+            print(f"DEBUG: Translating '{original_text}'...")
             translated = self.translator.translate_text(original_text, self.language)
+            print(f"DEBUG: Result: '{translated}'")
             # Store it
             lang_trans[field_name] = translated
+            lang_trans[source_key] = original_text # Store source for future checks
             return translated
             
         return original_text
@@ -161,15 +203,45 @@ class PDFGenerator:
             c.drawString(col1_x, y_left, info.email)
             y_left -= 12
         if info.linkedin:
-            c.setFont(FONT_BODY, 8)
-            c.setFillColor(COLOR_LINK)
-            # Basic wrap for link
-            link = info.linkedin
-            if c.stringWidth(link, FONT_BODY, 8) > col1_w:
-                link = link.replace("https://www.", "").replace("http://www.", "")
-            c.drawString(col1_x, y_left, link)
-            c.setFillColor(COLOR_TEXT_MAIN)
+            # Check if it's a markdown link or just a url
+            link_text = info.linkedin
+            # If it looks like a URL but not a markdown link, make it one?
+            # Or assume user enters [Link](url) in the field?
+            # User request said: "generate link mechanism for any part of the curriculum".
+            # For header info, user might just paste URL. 
+            # If it detects URL, wrap it?
+            # But specific request was "PERFIL LINKEDIN" instead of URL.
+            # So user will likely change the input in the field to "[PERFIL LINKEDIN](url)".
+            
+            # If input is just a URL, autocreate link? No, user wants custom text.
+            # If user puts "[Profile](url)", we render it using Paragraph.
+            
+            processed_link = self._process_text_formatting(link_text)
+            
+            # Create Paragraph
+            style_link = ParagraphStyle(
+                'Link',
+                parent=self.style_body,
+                fontSize=8,
+                textColor=COLOR_TEXT_MAIN
+            )
+            
+            # Wrap in paragraph tag if no font tag present (regex added one)
+            # Actually _process_text_formatting adds <font color="blue">
+            
+            p = Paragraph(processed_link, style_link)
+            w, h = p.wrap(col1_w, 50)
+            p.drawOn(c, col1_x, y_left - h + 2) # Adjust y (Paragraph draws from top-left, string from baseline)
+            # String baseline is y_left. Paragraph top is y_left. 
+            # If we draw at y_left, text will be below y_left.
+            # drawString draws at baseline.
+            # Paragraph needs to be drawn so its baseline matches approx?
+            # Paragraph height includes ascender/descender.
+            # Let's align top.
+            
             y_left -= 12
+        else:
+             y_left -= 0 # No link
             
         y_left -= 20
         
@@ -184,9 +256,10 @@ class PDFGenerator:
         for m in self.cv_data.personal_info.modules:
             if m.is_active and not isinstance(m, AvatarModule):
                 # Resolve text
-                summary = self._get_text(m, "text_summary")
-                extended = self._get_text(m, "text_extended")
-                text = summary if m.use_summary else extended
+                if hasattr(m, 'use_summary') and m.use_summary:
+                    text = self._get_text(m, "text_summary")
+                else:
+                    text = self._get_text(m, "text_extended")
                 
                 y_left = self._draw_paragraph(c, text, col1_x, y_left, col1_w)
                 y_left -= 10
@@ -342,9 +415,10 @@ class PDFGenerator:
             
             # Text
             # Text
-            summary = self._get_text(m, "text_summary")
-            extended = self._get_text(m, "text_extended")
-            text = summary if hasattr(m, 'use_summary') and m.use_summary else extended
+            if hasattr(m, 'use_summary') and m.use_summary:
+                text = self._get_text(m, "text_summary")
+            else:
+                text = self._get_text(m, "text_extended")
             
             y = self._draw_paragraph(c, text, x, y, width)
             y -= 15
@@ -403,11 +477,33 @@ class PDFGenerator:
 
     def _draw_paragraph(self, c, text, x, y, width):
         if not text: return y
+        
+        # Process Markdown Links [text](url) -> <a href="url"><font color="blue">text</font></a>
+        text = self._process_text_formatting(text)
+        
         text = text.replace('\n', '<br/>')
         p = Paragraph(text, self.style_body)
         w, h = p.wrap(width, PAGE_HEIGHT_A4)
         p.drawOn(c, x, y - h)
         return y - h
+
+    def _process_text_formatting(self, text):
+        if not text: return ""
+        import re
+        # Pattern: [text](url)
+        # Avoid matching greedy if multiple links on line? [^\]]+ helps.
+        pattern = r'\[([^\]]+)\]\((https?://[^)]+)\)'
+        
+        def replace_match(match):
+            display_text = match.group(1)
+            url = match.group(2)
+            # Translate display text
+            translated_text = self._t(display_text)
+            
+            # Use blue color for link
+            return f'<a href="{url}"><font color="blue">{translated_text}</font></a>'
+            
+        return re.sub(pattern, replace_match, text)
 
     def _get_module_date(self, module):
         # Extract a comparable date value (End Date) from module

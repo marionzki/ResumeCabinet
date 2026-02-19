@@ -8,7 +8,7 @@
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
         "phone": "699651797",
-        "linkedin": "https://www.linkedin.com/in/mario-noriega-zamora/"
+        "linkedin": "[PERFIL LINKEDIN](https://www.linkedin.com/in/mario-noriega-zamora/)"
     },
     "sections": {
         "personal_info": {
@@ -27,7 +27,11 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "text_extended": "I am a curious and problem-solving oriented person, with great capacity for adaptation and teamwork. I am passionate about developing creative solutions through programming, combining my experience in 3D environments and simulation with the use of languages such as Python, C++ and object-oriented programming. My goal is to continue growing in the field of software development and programming, acquiring new skills that allow me to face increasingly complex projects in simulation, automation and procedural generation."
+                            "text_extended": "I am a curious and problem-solving oriented person, with great capacity for adaptation and teamwork. I am passionate about developing creative solutions through programming, combining my experience in 3D environments and simulation with the use of languages such as Python, C++ and object-oriented programming. My goal is to continue growing in the field of software development and programming, acquiring new skills that allow me to face increasingly complex projects in simulation, automation and procedural generation.",
+                            "_source_text_extended": "Soy una persona curiosa y orientada a la resoluci\u00f3n de problemas, con gran capacidad de adaptaci\u00f3n y trabajo en equipo. Me apasiona el desarrollo de soluciones creativas a trav\u00e9s de la programaci\u00f3n, combinando mi experiencia en entornos 3D y simulaci\u00f3n con el uso de lenguajes como Python, C++ y programaci\u00f3n orientada a objetos. Mi objetivo es seguir creciendo en el \u00e1mbito del desarrollo de software y la programaci\u00f3n, adquiriendo nuevas competencias que me permitan afrontar proyectos cada vez m\u00e1s complejos en simulaci\u00f3n, automatizaci\u00f3n y generaci\u00f3n procedural."
+                        },
+                        "Gallego": {
+                            "text_extended": "Son unha persoa curiosa e orientada \u00e1 resoluci\u00f3n de problemas, con gran capacidade de adaptaci\u00f3n e traballo en equipo. Enc\u00e1ntame desenvolver soluci\u00f3ns creativas a trav\u00e9s da programaci\u00f3n, combinando a mi\u00f1a experiencia en ambientes 3D e simulaci\u00f3n co uso de linguaxes como Python, C++ e programaci\u00f3n orientada a obxectos. O meu obxectivo \u00e9 seguir crecendo no \u00e1mbito do desenvolvemento e programaci\u00f3n de software, adquirindo novas competencias que me permitan afrontar proxectos cada vez m\u00e1is complexos en simulaci\u00f3n, automatizaci\u00f3n e xeraci\u00f3n procesual."
                         }
                     }
                 },
@@ -195,17 +199,20 @@
                     "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Procedural 3D artist",
-                    "text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para proyectos de conducci\u00f3n aut\u00f3noma. Desarrollo propio de widgets y blueprints en Unreal y assets en Houdini FX. Co-autor en el dataset: \"All for One, and One for All: UrbanSyn Dataset, the third Musketeer of Synthetic Driving Scenes\" https://www.urbansyn.org.",
-                    "text_summary": "Generaci\u00f3n de entornos procedurales para escenarios de conducci\u00f3n aut\u00f3noma. Desarrollo de widgets y blueprints en Unreal integrados con Houdini. Co-autor del proyecto Urbansyn.",
+                    "text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
+                    "text_summary": "Generaci\u00f3n de entornos procedurales para escenarios de conducci\u00f3n aut\u00f3noma en [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/). Desarrollo de widgets y blueprints en Unreal integrados con Houdini. Co-autor del proyecto [Urbansyn](https://www.urbansyn.org).",
                     "use_summary": false,
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
                             "title": "Procedural 3D artist",
+                            "_source_title": "Procedural 3D artist",
                             "company": "Computer Vision Center - Madrid, Spain",
+                            "_source_company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
                             "date_range": "10/2020 - 03/2024",
-                            "text_summary": "Generation of procedural environments for autonomous driving scenarios. Development of widgets and blueprints in Unreal integrated with Houdini. Co-author of the Urbansyn project.",
-                            "text_extended": "Procedural generation of urban and natural environments for autonomous driving projects. Own development of widgets and blueprints in Unreal and assets in Houdini FX. Co-author on the dataset: \"All for One, and One for All: UrbanSyn Dataset, the third Musketeer of Synthetic Driving Scenes\" https://www.urbansyn.org."
+                            "_source_date_range": "10/2020 - 03/2024",
+                            "text_extended": "Procedural generation of urban and natural environments for the autonomous driving project of [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) in version 0.9.15.\n\nDevelopment of own widgets and blueprints in Unreal and HDAs in Houdini FX.\n\nCo-author on the dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
+                            "_source_text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15.\n\nDesarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\"."
                         }
                     },
                     "company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
@@ -234,7 +241,19 @@
                             "company": "University of A Coru\u00f1a (CITIC) - A Coru\u00f1a, Spain",
                             "date_range": "04/2025 - 05/2025",
                             "text_summary": "Procedural 3D generation of a highway section from real data.",
-                            "text_extended": "Automatic generation of the 3D geometry of a highway section and its integration into the real terrain for image rendering for subsequent training and \rvalidation of automatic driving systems."
+                            "text_extended": "Automatic generation of the 3D geometry of a highway section and its integration into the real terrain for image rendering for subsequent training and \rvalidation of automatic driving systems.",
+                            "_source_title": "Procedural 3D artist",
+                            "_source_company": "Universidade da Coru\u00f1a (CITIC) - A Coru\u00f1a, Espa\u00f1a",
+                            "_source_date_range": "04/2025 - 05/2025",
+                            "_source_text_summary": "Generaci\u00f3n 3D procedural de un tramo de autopista a partir de datos reales.",
+                            "_source_text_extended": "Generaci\u00f3n autom\u00e1tica de la geometr\u00eda 3D de un tramo de autopista y su integraci\u00f3n en el terreno real para la renderizaci\u00f3n de im\u00e1genes para el posterior entrenamiento y \rvalidaci\u00f3n de sistemas autom\u00e1ticos de conducci\u00f3n."
+                        },
+                        "Gallego": {
+                            "title": "Artista procesual 3D",
+                            "company": "Universidade da Coru\u00f1a (CITIC) - A Coru\u00f1a, Espa\u00f1a",
+                            "date_range": "04/2025 - 05/2025",
+                            "text_summary": "Xeraci\u00f3n procesual 3D dun tramo de estrada a partir de datos reais.",
+                            "text_extended": "Xeraci\u00f3n autom\u00e1tica da xeometr\u00eda 3D dun tramo de estrada e a s\u00faa integraci\u00f3n no terreo real para a renderizaci\u00f3n de imaxes para o posterior adestramento e \rvalidaci\u00f3n de sistemas de conduci\u00f3n autom\u00e1tica."
                         }
                     },
                     "company": "Universidade da Coru\u00f1a (CITIC) - A Coru\u00f1a, Espa\u00f1a",
@@ -266,7 +285,15 @@
                         "Ingl\u00e9s": {
                             "title": "Graduate in Audiovisual Communication",
                             "company": "Pontifical University of Salamanca - Salamanca, Spain",
-                            "date_range": "2003 \u2013 2009"
+                            "date_range": "2003 \u2013 2009",
+                            "_source_title": "Licenciado en Comunicaci\u00f3n Audiovisual",
+                            "_source_company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                            "_source_date_range": "2003 \u2013 2009"
+                        },
+                        "Gallego": {
+                            "title": "Licenciada en Comunicaci\u00f3n Audiovisual",
+                            "company": "Universidade Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                            "date_range": "2003-2009"
                         }
                     },
                     "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
@@ -297,7 +324,13 @@
                     "translations": {
                         "Ingl\u00e9s": {
                             "title": "Graphic Design Course (500h)",
-                            "text_extended": "Innovartex Academy - C\u00e1ceres, Spain (2009 - 2010)"
+                            "text_extended": "Innovartex Academy - C\u00e1ceres, Spain (2009 - 2010)",
+                            "_source_title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
+                            "_source_text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)"
+                        },
+                        "Gallego": {
+                            "title": "Curso de Dese\u00f1o Gr\u00e1fico (500h)",
+                            "text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)"
                         }
                     },
                     "company": "",
@@ -328,7 +361,13 @@
                     "translations": {
                         "Ingl\u00e9s": {
                             "title": "Higher Course in Web Positioning",
-                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)"
+                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)",
+                            "_source_title": "Curso Superior en Posicionamiento Web",
+                            "_source_text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
+                        },
+                        "Gallego": {
+                            "title": "Curso Superior de Posicionamento Web",
+                            "text_extended": "Barcelona European Business School - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
                         }
                     },
                     "company": "",
@@ -361,7 +400,17 @@
                             "title": "Master in Composition and VFX (600h)",
                             "company": "Trazos School - Madrid, Spain",
                             "date_range": "10/2018 - 08/2019",
-                            "text_extended": "Video montage and editing with Premiere. Color and workflow with DaVinci Resolve. Video composition with NukeX. 3D procedural modeling and FX simulation with Houdini."
+                            "text_extended": "Video montage and editing with Premiere. Color and workflow with DaVinci Resolve. Video composition with NukeX. 3D procedural modeling and FX simulation with Houdini.",
+                            "_source_title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
+                            "_source_company": "Escuela Trazos - Madrid, Espa\u00f1a",
+                            "_source_date_range": "10/2018 - 08/2019",
+                            "_source_text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini."
+                        },
+                        "Gallego": {
+                            "title": "M\u00e1ster en Composici\u00f3n e VFX (600h)",
+                            "company": "Colexio Trazos - Madrid, Espa\u00f1a",
+                            "date_range": "10/2018 - 08/2019",
+                            "text_extended": "Montaxe e edici\u00f3n de v\u00eddeo con Premiere. Cor e fluxo de traballo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado procesual 3D e simulaci\u00f3n FX con Houdini."
                         }
                     },
                     "company": "Escuela Trazos - Madrid, Espa\u00f1a",
@@ -381,7 +430,17 @@
                             "title": "Video Game Creation with Unreal Engine (350h)",
                             "company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
                             "date_range": "10/2024 - 03/2025",
-                            "text_extended": "Modeling and texturing with Blender 4.2. Video game design, programming with Blueprints, VFX and Virtual Reality with Unreal Engine 5.4."
+                            "text_extended": "Modeling and texturing with Blender 4.2. Video game design, programming with Blueprints, VFX and Virtual Reality with Unreal Engine 5.4.",
+                            "_source_title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
+                            "_source_company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
+                            "_source_date_range": "10/2024 - 03/2025",
+                            "_source_text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4."
+                        },
+                        "Gallego": {
+                            "title": "Creaci\u00f3n de videoxogos con Unreal Engine (350h)",
+                            "company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
+                            "date_range": "10/2024 - 03/2025",
+                            "text_extended": "Modelado e texturado con Blender 4.2. Dese\u00f1o de videoxogos, programaci\u00f3n con Blueprints, VFX e Realidade Virtual con Unreal Engine 5.4."
                         }
                     },
                     "company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
@@ -402,7 +461,19 @@
                             "company": "Merinero Training - Madrid, Spain",
                             "date_range": "07/2025 - 12/2025",
                             "text_summary": "Database management with SQL and MySQL. Access scripts with C# and Python.",
-                            "text_extended": "Database management with SQL and MySQL. Use of object-oriented programming languages (C# and Python) for access and manipulation of databases."
+                            "text_extended": "Database management with SQL and MySQL. Use of object-oriented programming languages (C# and Python) for access and manipulation of databases.",
+                            "_source_title": "POO y bases de datos relacionales (710h)",
+                            "_source_company": "Merinero Formaci\u00f3n - Madrid, Espa\u00f1a",
+                            "_source_date_range": "07/2025 - 12/2025",
+                            "_source_text_summary": "Gesti\u00f3n de bbdd con SQL y MySQL. Scripts de acceso con C# y Python.",
+                            "_source_text_extended": "Gesti\u00f3n de bases de datos con SQL y MySQL. Uso de lenguajes de programaci\u00f3n orientados a objetos (C# y Python) para el acceso y manipulaci\u00f3n de las bbdd."
+                        },
+                        "Gallego": {
+                            "title": "POO e bases de datos relacionais (710h)",
+                            "company": "Merinero Training - Madrid, Espa\u00f1a",
+                            "date_range": "07/2025 - 12/2025",
+                            "text_summary": "Xesti\u00f3n de bases de datos con SQL e MySQL. Acceda a scripts con C# e Python.",
+                            "text_extended": "Xesti\u00f3n de bases de datos con SQL e MySQL. Uso de linguaxes de programaci\u00f3n orientada a obxectos (C# e Python) para o acceso e manipulaci\u00f3n de bases de datos."
                         }
                     },
                     "company": "Merinero Formaci\u00f3n - Madrid, Espa\u00f1a",
@@ -422,7 +493,17 @@
                             "title": "Generative Artificial Intelligence (22h)",
                             "company": "Mantia - Madrid, Spain",
                             "date_range": "09/2025 - 10/2025",
-                            "text_summary": "Use of the main IAG's, advanced prompting and automation."
+                            "text_summary": "Use of the main IAG's, advanced prompting and automation.",
+                            "_source_title": "Inteligencia Artificial Generativa (22h)",
+                            "_source_company": "Mantia - Madrid, Espa\u00f1a",
+                            "_source_date_range": "09/2025 - 10/2025",
+                            "_source_text_summary": "Uso de las principales IAG's, prompting avanzado y automatizaci\u00f3n."
+                        },
+                        "Gallego": {
+                            "title": "Intelixencia Artificial Xerativa (22h)",
+                            "company": "Mantia - Madrid, Espa\u00f1a",
+                            "date_range": "09/2025 - 10/2025",
+                            "text_summary": "Uso dos principais IAG, avisos avanzados e automatizaci\u00f3n."
                         }
                     },
                     "company": "Mantia - Madrid, Espa\u00f1a",
@@ -468,7 +549,11 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Graphic design"
+                            "title": "Graphic design",
+                            "_source_title": "Dise\u00f1o gr\u00e1fico"
+                        },
+                        "Gallego": {
+                            "title": "Dese\u00f1o gr\u00e1fico"
                         }
                     }
                 },
@@ -483,7 +568,11 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Video editing"
+                            "title": "Video editing",
+                            "_source_title": "Edici\u00f3n de v\u00eddeo"
+                        },
+                        "Gallego": {
+                            "title": "Edici\u00f3n de v\u00eddeo"
                         }
                     }
                 },
@@ -531,7 +620,11 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Video post-production"
+                            "title": "Video post-production",
+                            "_source_title": "Posproducci\u00f3n de v\u00eddeo"
+                        },
+                        "Gallego": {
+                            "title": "Postproduci\u00f3n de v\u00eddeo"
                         }
                     }
                 },
@@ -546,6 +639,10 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
+                            "title": "3D",
+                            "_source_title": "3D"
+                        },
+                        "Gallego": {
                             "title": "3D"
                         }
                     }

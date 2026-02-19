@@ -29,6 +29,12 @@ class FletController:
     def save_autosave(self):
         try:
             with open("user_data.json", "w", encoding="utf-8") as f:
+                # DEBUG: Check if translations are present before saving
+                for sec in [self.cv_data.experience, self.cv_data.education]:
+                    for m in sec.modules:
+                         if "Procedural" in getattr(m, 'title', ''):
+                             print(f"DEBUG SAVING: Module {m.title} translations: {getattr(m, 'translations', 'N/A')}")
+                
                 f.write(self.cv_data.to_json())
             print("Autosave updated")
         except Exception as e:

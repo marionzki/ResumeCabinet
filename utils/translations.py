@@ -22,7 +22,8 @@ TRANSLATIONS = {
         # Date keywords
         "current": "Present",
         "actualidad": "Present",
-        "hoy": "Today"
+        "hoy": "Today",
+        "perfil linkedin": "LINKEDIN PROFILE"
     },
     "Gallego": {
         "personal": "PERFIL",
