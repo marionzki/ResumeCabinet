@@ -1,5 +1,5 @@
 import flet as ft
-from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule
+from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule, EducationModule
 
 class ModuleForm:
     def __init__(self, page: ft.Page, module, available_tags=None, on_save=None, file_picker=None):
@@ -12,8 +12,6 @@ class ModuleForm:
         self.file_picker = file_picker
         
         # Controls references
-
-        # Controls references
         self.title_field = None
         self.name_field = None
         self.img_field = None
@@ -21,9 +19,17 @@ class ModuleForm:
         self.date_field = None
         self.text_ext_field = None
         self.text_sum_field = None
+        self.use_summary_chk = None
         self.tags_checks = []
+        
+        # Local file picker for this form
+        self.file_picker = file_picker
 
     def show(self):
+        # Set callback
+        if self.file_picker:
+            self.file_picker.on_result = self.on_file_picked
+            
         content_controls = self.build_form_fields()
         
         self.dialog = ft.AlertDialog(
@@ -37,6 +43,7 @@ class ModuleForm:
                 ft.ElevatedButton(content=ft.Text("Save"), on_click=self.save)
             ],
             actions_alignment=ft.MainAxisAlignment.END,
+            on_dismiss=lambda e: self.cleanup()
         )
         
         # Try page.show_dialog() as seen in dir(page)
@@ -47,9 +54,15 @@ class ModuleForm:
             self.dialog.open = True
             self.page.update()
 
+    def cleanup(self):
+        # Clear callback
+        if self.file_picker:
+            self.file_picker.on_result = None
+
     def close(self, e=None):
         self.dialog.open = False
         self.page.update()
+        self.cleanup()
 
     def build_form_fields(self):
         controls = []
@@ -73,7 +86,11 @@ class ModuleForm:
             
         # Experience
         if hasattr(self.module, 'company'):
-            self.company_field = ft.TextField(label="Company", value=self.module.company)
+            label_text = "Company"
+            if isinstance(self.module, EducationModule):
+                label_text = "Institution/School"
+                
+            self.company_field = ft.TextField(label=label_text, value=self.module.company)
             controls.append(self.company_field)
             
             self.date_field = ft.TextField(label="Date Range", value=self.module.date_range)
@@ -86,6 +103,10 @@ class ModuleForm:
             
             self.text_sum_field = ft.TextField(label="Summary Text", value=self.module.text_summary, multiline=True, min_lines=2)
             controls.append(self.text_sum_field)
+
+            if hasattr(self.module, 'use_summary'):
+                self.use_summary_chk = ft.Checkbox(label="Use Summary", value=self.module.use_summary)
+                controls.append(self.use_summary_chk)
             
         # Tags
         if hasattr(self.module, 'tags'):
@@ -99,11 +120,13 @@ class ModuleForm:
 
         return controls
 
-    async def pick_image(self, e):
-        result = await self.file_picker.pick_files(allow_multiple=False, allowed_extensions=["jpg", "png", "jpeg"])
-        if result:
+    def pick_image(self, e):
+        self.file_picker.pick_files(allow_multiple=False, allowed_extensions=["jpg", "png", "jpeg"])
+
+    def on_file_picked(self, e):
+        if e.files and len(e.files) > 0:
             if self.img_field:
-                self.img_field.value = result[0].path
+                self.img_field.value = e.files[0].path
                 self.img_field.update()
 
     def save(self, e):
@@ -116,6 +139,9 @@ class ModuleForm:
         if self.text_ext_field: 
             self.module.text_extended = self.text_ext_field.value
             self.module.text_summary = self.text_sum_field.value
+        
+        if self.use_summary_chk:
+            self.module.use_summary = self.use_summary_chk.value
         
         if hasattr(self.module, 'tags'):
             new_tags = [tag for tag, chk in self.tags_checks if chk.value]

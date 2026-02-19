@@ -19,7 +19,7 @@ class PDFGenerator:
             'Body',
             parent=self.styles['Normal'],
             fontName=FONT_BODY,
-            fontSize=10,
+            fontSize=9,
             leading=12,
             textColor=COLOR_TEXT_MAIN,
             alignment=TA_LEFT
@@ -30,7 +30,7 @@ class PDFGenerator:
         width, height = A4
         
         # 1. Sidebar (Left)
-        sidebar_width = width * 0.35
+        sidebar_width = width * 0.30
         # Draw Sidebar Background
         c.setFillColor(COLOR_HEADER_BG) 
         # Actually standard design often has dark sidebar, but let's stick to user request "headers like CVPrevia".
@@ -71,7 +71,7 @@ class PDFGenerator:
             except:
                 pass
 
-        # 2. Name and Contact (Moved to Left)
+        # 2. Name and Contact
         c.setFont(FONT_HEADING, 18)
         c.setFillColor(COLOR_HEADER_BG)
         name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
@@ -128,8 +128,8 @@ class PDFGenerator:
         y_left -= 20
         
         # Grid of logos
-        logo_size = 30
-        gap = 10
+        logo_size = 40
+        gap = 3
         x_off = 0
         
         for m in self.cv_data.software.modules:
@@ -194,7 +194,7 @@ class PDFGenerator:
         c.save()
 
     def _draw_sidebar_header(self, c, title, x, y, width):
-        c.setFont(FONT_HEADING, 12)
+        c.setFont(FONT_HEADING, 10)
         c.setFillColor(COLOR_HEADER_BG) 
         c.drawString(x, y, title.upper())
         # Optional underline
@@ -214,8 +214,12 @@ class PDFGenerator:
         c.setFillColor(COLOR_TEXT_MAIN) # Reset
         y -= 35
         
+        # Prepare modules (Sort by date descending)
+        # We need a helper to extract date from module
+        sorted_modules = sorted(section.modules, key=self._get_module_date, reverse=True)
+
         # Modules
-        for m in section.modules:
+        for m in sorted_modules:
             if not m.is_active: continue
             
             # Title / Role
@@ -243,9 +247,10 @@ class PDFGenerator:
                 y -= 12
             
             # Text
+            # Text
             text = m.text_summary if hasattr(m, 'use_summary') and m.use_summary else getattr(m, 'text_extended', "")
             y = self._draw_paragraph(c, text, x, y, width)
-            y -= 5
+            y -= 15
             
             # Tags (Smart Render)
             if hasattr(m, 'tags') and m.tags:
@@ -306,3 +311,47 @@ class PDFGenerator:
         w, h = p.wrap(width, PAGE_HEIGHT_A4)
         p.drawOn(c, x, y - h)
         return y - h
+
+    def _get_module_date(self, module):
+        # Extract a comparable date value (End Date) from module
+        # Returns tuple (year, month)
+        date_str = ""
+        source_text = ""
+        
+        if hasattr(module, 'date_range') and module.date_range:
+            source_text = module.date_range
+        elif hasattr(module, 'text_extended') and module.text_extended:
+            source_text = module.text_extended
+            
+        if source_text:
+            # Try to find date pattern in text (e.g. "(YYYY - YYYY)" or "MM/YYYY")
+            import re
+            # Look for YYYY or MM/YYYY patterns. 
+            # We want the LAST date mentioned (End Date)
+            matches = re.findall(r'(\d{1,2}/\d{4}|\d{4}|Present|Actualidad)', source_text, re.IGNORECASE)
+            if matches:
+                date_str = matches[-1] # Assume last match is end date
+        
+        if not date_str:
+            return (0, 0)
+            
+        return self._parse_date_string(date_str)
+
+    def _parse_date_string(self, date_str):
+        # Handle "Present", "Actualidad", "Current"
+        if any(x in date_str.lower() for x in ['present', 'actualidad', 'current', 'hoy']):
+            return (9999, 12) # Future date
+            
+        try:
+            # Try MM/YYYY
+            if '/' in date_str:
+                parts = date_str.split('/')
+                if len(parts) == 2:
+                    return (int(parts[1]), int(parts[0]))
+            # Try YYYY
+            elif len(date_str) == 4 and date_str.isdigit():
+                return (int(date_str), 12) # End of year if only year given
+        except:
+            pass
+            
+        return (0, 0)

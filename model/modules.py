@@ -54,6 +54,19 @@ class ExperienceModule(TextModule):
         return data
 
 @dataclass
+class EducationModule(TextModule):
+    company: str = "" # Institution
+    date_range: str = ""
+
+    def to_dict(self):
+        data = super().to_dict()
+        data.update({
+            "company": self.company,
+            "date_range": self.date_range
+        })
+        return data
+
+@dataclass
 class ImageModule(Module):
     name: str = ""
     image_path: str = ""

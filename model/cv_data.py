@@ -4,7 +4,7 @@ from typing import List, Dict, Type
 
 from .modules import (
     Module, TextModule, ExperienceModule, ImageModule, 
-    PersonalInfoModule, AvatarModule
+    PersonalInfoModule, AvatarModule, EducationModule
 )
 
 @dataclass
@@ -29,8 +29,22 @@ class Section:
         for m_data in data["modules"]:
             # Factory logic
             m_type = m_data.get("type")
+            
+            # Migration/Correction for Education section
+            if section.type == "education" and m_type != "EducationModule":
+                 # Upgrade old TextModule to EducationModule
+                 m_type = "EducationModule"
+
             if m_type == "ExperienceModule":
                 mod = ExperienceModule(**{k: v for k, v in m_data.items() if k != "type"})
+            elif m_type == "EducationModule":
+                 # Ensure we don't pass unexpected keys if source was TextModule (it shouldn't have extras, but let's be safe)
+                 # TextModule keys are subset.
+                 # Filter to valid fields for EducationModule? Dataclass init doesn't like extra keys.
+                 # Actually TextModule fields are subset.
+                 valid_keys = {"id", "is_active", "title", "text_extended", "text_summary", "use_summary", "hyperlinks", "company", "date_range"}
+                 filtered_data = {k: v for k, v in m_data.items() if k in valid_keys}
+                 mod = EducationModule(**filtered_data)
             elif m_type == "ImageModule":
                 mod = ImageModule(**{k: v for k, v in m_data.items() if k != "type"})
             elif m_type == "PersonalInfoModule":
@@ -158,16 +172,16 @@ class CVData:
         )
     ]))
     education: Section = field(default_factory=lambda: Section(id="education", title="Formación", type="education", modules=[
-        TextModule(title="Licenciado en Comunicación Audiovisual", text_extended="Universidad Pontificia de Salamanca - Salamanca, España (2003 – 2009)"),
-        TextModule(title="Posgrado de Experto en Locución Audiovisual", text_extended="Universidad Pontificia de Salamanca - Salamanca, España (2009 – 2009)"),
-        TextModule(title="Curso de Diseño Gráfico (500h)", text_extended="Academia Innovartex - Cáceres, España (2009 - 2010)"),
-        TextModule(title="Curso Superior en Community Manager", text_extended="Escuela de Negocios Europea de Barcelona - Barcelona, España (10/2017 - 12/2017)"),
-        TextModule(title="Curso Superior en Posicionamiento Web", text_extended="Escuela de Negocios Europea de Barcelona - Barcelona, España (12/2017 - 02/2018)"),
-        TextModule(title="Curso Superior en e-Commerce y Marketing", text_extended="Escuela de Negocios Europea de Barcelona - Barcelona, España (02/2018 - 04/2018)"),
-        TextModule(title="Máster en Composición y VFX (600h)", text_extended="Escuela Trazos - Madrid, España (10/2018 - 08/2019)"),
-        TextModule(title="Creación de Videojuegos con Unreal Engine (350h)", text_extended="CIFP José Luis Garci - Alcobendas, Madrid (10/2024 - 03/2025)"),
-        TextModule(title="Programación con lenguajes orientados a objetos y bases de datos relacionales (710h)", text_extended="Merinero - Madrid, España (07/2025 - 12/2025)"),
-        TextModule(title="Inteligencia Artificial Generativa (22h)", text_extended="Mantia - Madrid, España (09/2025 - 10/2025)")
+        EducationModule(title="Licenciado en Comunicación Audiovisual", company="Universidad Pontificia de Salamanca - Salamanca, España", date_range="2003 – 2009", text_extended=""),
+        EducationModule(title="Posgrado de Experto en Locución Audiovisual", company="Universidad Pontificia de Salamanca - Salamanca, España", date_range="2009 – 2009", text_extended=""),
+        EducationModule(title="Curso de Diseño Gráfico (500h)", company="Academia Innovartex - Cáceres, España", date_range="2009 - 2010", text_extended=""),
+        EducationModule(title="Curso Superior en Community Manager", company="Escuela de Negocios Europea de Barcelona - Barcelona, España", date_range="10/2017 - 12/2017", text_extended=""),
+        EducationModule(title="Curso Superior en Posicionamiento Web", company="Escuela de Negocios Europea de Barcelona - Barcelona, España", date_range="12/2017 - 02/2018", text_extended=""),
+        EducationModule(title="Curso Superior en e-Commerce y Marketing", company="Escuela de Negocios Europea de Barcelona - Barcelona, España", date_range="02/2018 - 04/2018", text_extended=""),
+        EducationModule(title="Máster en Composición y VFX (600h)", company="Escuela Trazos - Madrid, España", date_range="10/2018 - 08/2019", text_extended=""),
+        EducationModule(title="Creación de Videojuegos con Unreal Engine (350h)", company="CIFP José Luis Garci - Alcobendas, Madrid", date_range="10/2024 - 03/2025", text_extended=""),
+        EducationModule(title="Programación con lenguajes orientados a objetos y bases de datos relacionales (710h)", company="Merinero - Madrid, España", date_range="07/2025 - 12/2025", text_extended=""),
+        EducationModule(title="Inteligencia Artificial Generativa (22h)", company="Mantia - Madrid, España", date_range="09/2025 - 10/2025", text_extended="")
     ]))
     knowledge: Section = field(default_factory=lambda: Section(id="knowledge", title="Conocimientos", type="generic", modules=[
         TextModule(title="Grabación de vídeo"),

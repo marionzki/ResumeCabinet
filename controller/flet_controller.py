@@ -10,7 +10,6 @@ class FletController:
         self.page = page
         self.cv_data = CVData()
         self.view = FletMainWindow(page, self)
-        self.file_picker = None # Set by view
         self.current_action = None
         
         self.refresh_view()
@@ -88,9 +87,9 @@ class FletController:
             # Simple dialog choice? For now default to Text if personal
             # Or simplified: Alternating? 
             # Im implementing a simple choice here
-            def on_type_chosen(e):
+            def on_type_chosen(type_name):
                 nonlocal new_module
-                if e.control.text == "Avatar":
+                if type_name == "Avatar":
                     new_module = AvatarModule(image_path="path/to/image.jpg")
                 else:
                     new_module = PersonalInfoModule(title="Bio", text_extended="...")
@@ -106,8 +105,8 @@ class FletController:
             dlg = ft.AlertDialog(
                 title=ft.Text("Choose Type"),
                 actions=[
-                    ft.TextButton("Avatar", on_click=on_type_chosen),
-                    ft.TextButton("Bio", on_click=on_type_chosen)
+                    ft.TextButton("Avatar", on_click=lambda _: on_type_chosen("Avatar")),
+                    ft.TextButton("Bio", on_click=lambda _: on_type_chosen("Bio"))
                 ]
             )
             # Use show_dialog if available
@@ -158,7 +157,7 @@ class FletController:
             error_dlg = ft.AlertDialog(
                 title=ft.Text("Error"),
                 content=ft.Text(f"Could not open editor:\n{str(e)}"),
-                actions=[ft.TextButton("OK", on_click=lambda _: self.page.close_dialog())],
+                actions=[ft.TextButton("OK", on_click=lambda _: setattr(error_dlg, 'open', False) or self.page.update())],
             )
             if hasattr(self.page, "show_dialog"):
                 self.page.show_dialog(error_dlg)
