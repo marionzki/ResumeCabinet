@@ -24,8 +24,6 @@ class FletMainWindow:
                     items=[
                         ft.PopupMenuItem(content=ft.Text("New Template"), on_click=lambda _: controller.new_template()),
                         ft.PopupMenuItem(content=ft.Text("Open Template..."), on_click=lambda _: controller.load_template()),
-                        ft.PopupMenuItem(content=ft.Text("Save Template"), on_click=lambda _: controller.save_template()),
-                        ft.PopupMenuItem(content=ft.Text("Save Template As..."), on_click=lambda _: controller.save_template()), # Reuse for now
                         ft.PopupMenuItem(), # Divider
                         ft.PopupMenuItem(content=ft.Text("Preview PDF"), on_click=lambda _: controller.preview_pdf()),
                         ft.PopupMenuItem(content=ft.Text("Export to PDF"), on_click=lambda _: controller.export_pdf()),
@@ -72,6 +70,59 @@ class FletMainWindow:
 
     def get_current_tab_index(self):
         return self.current_tab_index
+
+    def add_templates_tab(self, templates_list):
+        # Implementation for templates tab
+        
+        def save_click(e):
+            if name_field.value:
+                self.controller.save_template_file(name_field.value)
+                name_field.value = ""
+                self.controller.refresh_view() # Refresh to show new template
+
+        name_field = ft.TextField(label="New Template Name", expand=True)
+        
+        # List of templates
+        template_items = []
+        for t_name in templates_list:
+            template_items.append(
+                ft.Container(
+                    ft.Row([
+                        ft.Text(t_name, expand=True, size=16),
+                        ft.ElevatedButton("Load", on_click=lambda _, n=t_name: self.controller.apply_template_file(n)),
+                        ft.IconButton(icon=ft.icons.Icons.DELETE, on_click=lambda _, n=t_name: self.controller.delete_template_file(n))
+                    ]),
+                    padding=10,
+                    border=ft.border.only(bottom=ft.border.BorderSide(1, ft.Colors.GREY_300))
+                )
+            )
+
+        content = ft.Column([
+            ft.Text("Manage Templates", size=20, weight=ft.FontWeight.BOLD),
+            ft.Text("Save current module configuration as a template. Loading a template will only affect which modules are active/inactive."),
+            ft.Divider(),
+            ft.Row([
+                name_field,
+                ft.ElevatedButton("Save Current State", on_click=save_click)
+            ]),
+            ft.Divider(),
+            ft.Text("Saved Templates:", size=16, weight=ft.FontWeight.BOLD),
+            ft.Column(template_items, scroll=ft.ScrollMode.AUTO, expand=True)
+        ], scroll=ft.ScrollMode.AUTO)
+        
+        index = len(self.views)
+        btn = ft.TextButton(
+            content=ft.Text("Templates"),
+            on_click=lambda _: self.set_tab(index)
+        )
+        self.tab_buttons.append(btn)
+        self.tab_row.controls.append(btn)
+        self.views.append(content)
+        
+        if index == 0:
+            self.set_tab(0, update_ui=False)
+        
+        self.page.update()
 
     def add_config_tab(self, cv_data):
         # Implementation for config tab

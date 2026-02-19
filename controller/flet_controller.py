@@ -51,6 +51,9 @@ class FletController:
         # Add Config Tab
         self.view.add_config_tab(self.cv_data)
         
+        # Add Templates Tab
+        self.view.add_templates_tab(self.get_templates())
+        
         # Add Section Tabs
         sections = [
             self.cv_data.personal_info,
@@ -198,6 +201,11 @@ class FletController:
         # We need to find the SectionView instance.
         self.refresh_view()
 
+    def show_snackbar(self, message):
+        self.page.snack_bar = ft.SnackBar(content=ft.Text(message))
+        self.page.snack_bar.open = True
+        self.page.update()
+
     # File Operations
     def new_template(self):
         self.cv_data = CVData()
@@ -211,9 +219,9 @@ class FletController:
                 with open(path, "r", encoding="utf-8") as f:
                     self.cv_data = CVData.from_json(f.read())
                 self.refresh_view()
-                self.page.show_snack_bar(ft.SnackBar(content=ft.Text("Template loaded successfully")))
+                self.show_snackbar("Template loaded successfully")
             except Exception as ex:
-                self.page.show_snack_bar(ft.SnackBar(content=ft.Text(f"Error loading: {ex}")))
+                self.show_snackbar(f"Error loading: {ex}")
 
     async def save_template(self):
         path = await self.file_picker.save_file(allowed_extensions=["json"], file_name="resume.json")
@@ -221,9 +229,9 @@ class FletController:
             try:
                 with open(path, "w", encoding="utf-8") as f:
                     f.write(self.cv_data.to_json())
-                self.page.show_snack_bar(ft.SnackBar(content=ft.Text("Template saved successfully")))
+                self.show_snackbar("Template saved successfully")
             except Exception as ex:
-                self.page.show_snack_bar(ft.SnackBar(content=ft.Text(f"Error saving: {ex}")))
+                self.show_snackbar(f"Error saving: {ex}")
 
     async def export_pdf(self):
         path = await self.file_picker.save_file(allowed_extensions=["pdf"], file_name="resume.pdf")
@@ -234,9 +242,9 @@ class FletController:
                 gen.generate(path)
                 # Auto-translations might have happened, save them
                 self.save_autosave()
-                self.page.show_snack_bar(ft.SnackBar(content=ft.Text("PDF exported successfully")))
+                self.show_snackbar("PDF exported successfully")
             except Exception as ex:
-                self.page.show_snack_bar(ft.SnackBar(content=ft.Text(f"Error exporting PDF: {ex}")))
+                self.show_snackbar(f"Error exporting PDF: {ex}")
 
     def preview_pdf(self):
         # Preview stays sync for now as it uses tempfile and os.startfile
@@ -253,5 +261,87 @@ class FletController:
             
             os.startfile(path)
         except Exception as ex:
-            self.page.show_snack_bar(ft.SnackBar(content=ft.Text(f"Error previewing PDF: {ex}")))
+            self.show_snackbar(f"Error previewing PDF: {ex}")
 
+
+    def save_template_file(self, name):
+        if not name: return
+        file_name = f"{name}.json"
+        # Sanitize filename?
+        import re
+        file_name = re.sub(r'[<>:"/\\|?*]', '', file_name)
+        
+        path = os.path.join("templates", file_name)
+        if not os.path.exists("templates"):
+            os.makedirs("templates")
+            
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(self.cv_data.to_json())
+            self.show_snackbar(f"Template '{name}' saved.")
+            self.refresh_view() # Refresh to show new template in list
+        except Exception as ex:
+             self.show_snackbar(f"Error saving template: {ex}")
+
+    def apply_template_file(self, name):
+        # Load the template JSON but only apply active states
+        path = os.path.join("templates", name)
+        if not os.path.exists(path):
+             self.show_snackbar("Template file not found.")
+             return
+
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                template_data = json.loads(f.read())
+            
+            # Helper to map modules by ID in a section
+            def map_modules(section_data):
+                return {m["id"]: m.get("is_active", True) for m in section_data.get("modules", [])}
+
+            template_sections = template_data.get("sections", {})
+            
+            # Apply to current data
+            # Map section ID -> Section Object
+            current_sections = {
+                "personal_info": self.cv_data.personal_info,
+                "experience": self.cv_data.experience,
+                "education": self.cv_data.education,
+                "knowledge": self.cv_data.knowledge,
+                "software": self.cv_data.software,
+                "languages": self.cv_data.languages
+            }
+            
+            count = 0
+            for sec_key, sec_obj in current_sections.items():
+                if sec_key in template_sections:
+                    # Get map of ID -> active state from template
+                    t_mod_states = map_modules(template_sections[sec_key])
+                    
+                    for m in sec_obj.modules:
+                        if m.id in t_mod_states:
+                            m.is_active = t_mod_states[m.id]
+                            count += 1
+            
+            self.save_autosave()
+            self.refresh_view()
+            self.show_snackbar(f"Template applied. Updated {count} modules.")
+            
+        except Exception as ex:
+            self.show_snackbar(f"Error applying template: {ex}")
+
+    def delete_template_file(self, name):
+        import os
+        path = os.path.join("templates", name)
+        if os.path.exists(path):
+            try:
+                os.remove(path)
+                self.refresh_view() # Refresh list
+                self.show_snackbar(f"Template '{name}' deleted.")
+            except Exception as ex:
+                self.show_snackbar(f"Error deleting: {ex}")
+
+    def get_templates(self):
+        if not os.path.exists("templates"):
+            return []
+        files = [f for f in os.listdir("templates") if f.endswith(".json")]
+        return files
