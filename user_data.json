@@ -24,7 +24,12 @@
                     "text_extended": "Soy una persona curiosa y orientada a la resoluci\u00f3n de problemas, con gran capacidad de adaptaci\u00f3n y trabajo en equipo. Me apasiona el desarrollo de soluciones creativas a trav\u00e9s de la programaci\u00f3n, combinando mi experiencia en entornos 3D y simulaci\u00f3n con el uso de lenguajes como Python, C++ y programaci\u00f3n orientada a objetos. Mi objetivo es seguir creciendo en el \u00e1mbito del desarrollo de software y la programaci\u00f3n, adquiriendo nuevas competencias que me permitan afrontar proyectos cada vez m\u00e1s complejos en simulaci\u00f3n, automatizaci\u00f3n y generaci\u00f3n procedural.",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "text_extended": "I am a curious and problem-solving oriented person, with great capacity for adaptation and teamwork. I am passionate about developing creative solutions through programming, combining my experience in 3D environments and simulation with the use of languages such as Python, C++ and object-oriented programming. My goal is to continue growing in the field of software development and programming, acquiring new skills that allow me to face increasingly complex projects in simulation, automation and procedural generation."
+                        }
+                    }
                 },
                 {
                     "id": "616fafc1-cdaf-4893-bf67-b4389a0a2632",
@@ -48,6 +53,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Plateros producciones - Salamanca, Espa\u00f1a",
                     "date_range": "05/2008 \u2013 06/2008",
                     "tags": [
@@ -63,6 +69,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Regi\u00f3n digital - M\u00e9rida, Espa\u00f1a",
                     "date_range": "08/2008 \u2013 09/2008",
                     "tags": [
@@ -78,6 +85,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "La Gaceta de Salamanca - Salamanca, Espa\u00f1a",
                     "date_range": "10/2008 \u2013 05/2009",
                     "tags": [
@@ -93,6 +101,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
                     "date_range": "10/2007 \u2013 06/2009",
                     "tags": [
@@ -109,6 +118,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "El Peri\u00f3dico Extremadura - C\u00e1ceres, Espa\u00f1a",
                     "date_range": "07/2009 \u2013 08/2009",
                     "tags": [
@@ -124,6 +134,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
                     "date_range": "07/2010 \u2013 08/2010",
                     "tags": [
@@ -142,6 +153,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Atento Comunicaciones - C\u00e1ceres, Espa\u00f1a",
                     "date_range": "01/2012 \u2013 09/2017",
                     "tags": [
@@ -157,6 +169,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Securitas Seguridad Espa\u00f1a - Madrid, Espa\u00f1a",
                     "date_range": "05/2018 - 08/2018",
                     "tags": []
@@ -170,6 +183,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "Quir\u00f3n Salud - Madrid, Espa\u00f1a",
                     "date_range": "05/2020 - 03/2021",
                     "tags": [
@@ -185,6 +199,15 @@
                     "text_summary": "Generaci\u00f3n de entornos procedurales para escenarios de conducci\u00f3n aut\u00f3noma. Desarrollo de widgets y blueprints en Unreal integrados con Houdini. Co-autor del proyecto Urbansyn.",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Procedural 3D artist",
+                            "company": "Computer Vision Center - Madrid, Spain",
+                            "date_range": "10/2020 - 03/2024",
+                            "text_summary": "Generation of procedural environments for autonomous driving scenarios. Development of widgets and blueprints in Unreal integrated with Houdini. Co-author of the Urbansyn project.",
+                            "text_extended": "Procedural generation of urban and natural environments for autonomous driving projects. Own development of widgets and blueprints in Unreal and assets in Houdini FX. Co-author on the dataset: \"All for One, and One for All: UrbanSyn Dataset, the third Musketeer of Synthetic Driving Scenes\" https://www.urbansyn.org."
+                        }
+                    },
                     "company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
                     "date_range": "10/2020 - 03/2024",
                     "tags": [
@@ -205,6 +228,15 @@
                     "text_summary": "Generaci\u00f3n 3D procedural de un tramo de autopista a partir de datos reales.",
                     "use_summary": true,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Procedural 3D artist",
+                            "company": "University of A Coru\u00f1a (CITIC) - A Coru\u00f1a, Spain",
+                            "date_range": "04/2025 - 05/2025",
+                            "text_summary": "Procedural 3D generation of a highway section from real data.",
+                            "text_extended": "Automatic generation of the 3D geometry of a highway section and its integration into the real terrain for image rendering for subsequent training and \rvalidation of automatic driving systems."
+                        }
+                    },
                     "company": "Universidade da Coru\u00f1a (CITIC) - A Coru\u00f1a, Espa\u00f1a",
                     "date_range": "04/2025 - 05/2025",
                     "tags": [
@@ -230,6 +262,13 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Graduate in Audiovisual Communication",
+                            "company": "Pontifical University of Salamanca - Salamanca, Spain",
+                            "date_range": "2003 \u2013 2009"
+                        }
+                    },
                     "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
                     "date_range": "2003 \u2013 2009"
                 },
@@ -242,6 +281,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "",
                     "date_range": ""
                 },
@@ -254,6 +294,12 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Graphic Design Course (500h)",
+                            "text_extended": "Innovartex Academy - C\u00e1ceres, Spain (2009 - 2010)"
+                        }
+                    },
                     "company": "",
                     "date_range": ""
                 },
@@ -266,6 +312,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "",
                     "date_range": ""
                 },
@@ -278,6 +325,12 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Higher Course in Web Positioning",
+                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)"
+                        }
+                    },
                     "company": "",
                     "date_range": ""
                 },
@@ -290,6 +343,7 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {},
                     "company": "",
                     "date_range": ""
                 },
@@ -302,6 +356,14 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Master in Composition and VFX (600h)",
+                            "company": "Trazos School - Madrid, Spain",
+                            "date_range": "10/2018 - 08/2019",
+                            "text_extended": "Video montage and editing with Premiere. Color and workflow with DaVinci Resolve. Video composition with NukeX. 3D procedural modeling and FX simulation with Houdini."
+                        }
+                    },
                     "company": "Escuela Trazos - Madrid, Espa\u00f1a",
                     "date_range": "10/2018 - 08/2019"
                 },
@@ -314,6 +376,14 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Video Game Creation with Unreal Engine (350h)",
+                            "company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
+                            "date_range": "10/2024 - 03/2025",
+                            "text_extended": "Modeling and texturing with Blender 4.2. Video game design, programming with Blueprints, VFX and Virtual Reality with Unreal Engine 5.4."
+                        }
+                    },
                     "company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
                     "date_range": "10/2024 - 03/2025"
                 },
@@ -326,6 +396,15 @@
                     "text_summary": "Gesti\u00f3n de bbdd con SQL y MySQL. Scripts de acceso con C# y Python.",
                     "use_summary": false,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "OOP and relational databases (710h)",
+                            "company": "Merinero Training - Madrid, Spain",
+                            "date_range": "07/2025 - 12/2025",
+                            "text_summary": "Database management with SQL and MySQL. Access scripts with C# and Python.",
+                            "text_extended": "Database management with SQL and MySQL. Use of object-oriented programming languages (C# and Python) for access and manipulation of databases."
+                        }
+                    },
                     "company": "Merinero Formaci\u00f3n - Madrid, Espa\u00f1a",
                     "date_range": "07/2025 - 12/2025"
                 },
@@ -338,6 +417,14 @@
                     "text_summary": "Uso de las principales IAG's, prompting avanzado y automatizaci\u00f3n.",
                     "use_summary": true,
                     "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Generative Artificial Intelligence (22h)",
+                            "company": "Mantia - Madrid, Spain",
+                            "date_range": "09/2025 - 10/2025",
+                            "text_summary": "Use of the main IAG's, advanced prompting and automation."
+                        }
+                    },
                     "company": "Mantia - Madrid, Espa\u00f1a",
                     "date_range": "09/2025 - 10/2025"
                 }
@@ -356,7 +443,8 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {}
                 },
                 {
                     "id": "fa432d93-0faf-4845-b3e4-dd96459166ef",
@@ -366,7 +454,8 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {}
                 },
                 {
                     "id": "7faac449-b133-47a7-b60c-63356f9f0e9b",
@@ -376,7 +465,12 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Graphic design"
+                        }
+                    }
                 },
                 {
                     "id": "cc1284c3-040c-4dc2-aa62-96476d666ddb",
@@ -386,7 +480,12 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Video editing"
+                        }
+                    }
                 },
                 {
                     "id": "93144b9d-b88a-478c-8d6d-5c644b76f857",
@@ -396,7 +495,8 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {}
                 },
                 {
                     "id": "18178a0f-d677-4acc-bb51-4736b188019b",
@@ -406,7 +506,8 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {}
                 },
                 {
                     "id": "5c8d0063-38b7-4982-9889-dbd16a77cd57",
@@ -416,7 +517,8 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {}
                 },
                 {
                     "id": "91e59496-e214-4306-8b28-11fdd8d5d7a5",
@@ -426,7 +528,12 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Video post-production"
+                        }
+                    }
                 },
                 {
                     "id": "a6c11ab6-ed73-47b3-95c9-6ff985867138",
@@ -436,17 +543,12 @@
                     "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
-                    "hyperlinks": []
-                },
-                {
-                    "id": "f065ee1e-0327-4187-86d9-f255263e975c",
-                    "is_active": true,
-                    "type": "TextModule",
-                    "title": "Rendering for autonomous driving",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": []
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "3D"
+                        }
+                    }
                 }
             ]
         },

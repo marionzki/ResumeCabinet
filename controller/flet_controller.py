@@ -226,6 +226,8 @@ class FletController:
             try:
                 gen = PDFGenerator(self.cv_data)
                 gen.generate(path)
+                # Auto-translations might have happened, save them
+                self.save_autosave()
                 self.page.show_snack_bar(ft.SnackBar(content=ft.Text("PDF exported successfully")))
             except Exception as ex:
                 self.page.show_snack_bar(ft.SnackBar(content=ft.Text(f"Error exporting PDF: {ex}")))

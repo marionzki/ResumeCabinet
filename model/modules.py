@@ -26,6 +26,7 @@ class TextModule(Module):
     text_summary: str = ""
     use_summary: bool = False # True = Summary, False = Extended
     hyperlinks: List[dict] = field(default_factory=list) # List of {start, end, url}
+    translations: dict = field(default_factory=dict) # {lang_code: {field: value}}
 
     def to_dict(self):
         data = super().to_dict()
@@ -34,7 +35,8 @@ class TextModule(Module):
             "text_extended": self.text_extended,
             "text_summary": self.text_summary,
             "use_summary": self.use_summary,
-            "hyperlinks": self.hyperlinks
+            "hyperlinks": self.hyperlinks,
+            "translations": self.translations
         })
         return data
 

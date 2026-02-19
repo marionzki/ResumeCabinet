@@ -42,7 +42,7 @@ class Section:
                  # TextModule keys are subset.
                  # Filter to valid fields for EducationModule? Dataclass init doesn't like extra keys.
                  # Actually TextModule fields are subset.
-                 valid_keys = {"id", "is_active", "title", "text_extended", "text_summary", "use_summary", "hyperlinks", "company", "date_range"}
+                 valid_keys = {"id", "is_active", "title", "text_extended", "text_summary", "use_summary", "hyperlinks", "company", "date_range", "translations"}
                  filtered_data = {k: v for k, v in m_data.items() if k in valid_keys}
                  mod = EducationModule(**filtered_data)
             elif m_type == "ImageModule":
