@@ -139,7 +139,7 @@ class PDFGenerator:
         width, height = A4
         
         # 1. Sidebar (Left)
-        sidebar_width = width * 0.30
+        sidebar_width = width * 0.27
         # Draw Sidebar Background
         c.setFillColor(COLOR_HEADER_BG) 
         
@@ -251,7 +251,7 @@ class PDFGenerator:
         # We used "personal" as key in TRANSLATIONS for section id "personal" which maps to "PERFIL"/"PROFILE"
         header_title = self._t(self.cv_data.personal_info.id) 
         self._draw_sidebar_header(c, header_title, col1_x, y_left, col1_w)
-        y_left -= 20
+        y_left -= 10
         
         for m in self.cv_data.personal_info.modules:
             if m.is_active and not isinstance(m, AvatarModule):
@@ -269,7 +269,7 @@ class PDFGenerator:
         # 4. Software
         header_title = self._t(self.cv_data.software.id)
         self._draw_sidebar_header(c, header_title, col1_x, y_left, col1_w)
-        y_left -= 20
+        y_left -= 10
         
         # Grid of logos
         logo_size = 40
@@ -299,7 +299,7 @@ class PDFGenerator:
         # 5. Languages
         header_title = self._t(self.cv_data.languages.id)
         self._draw_sidebar_header(c, header_title, col1_x, y_left, col1_w)
-        y_left -= 20
+        y_left -= 10
         x_off = 0
         for m in self.cv_data.languages.modules:
             if m.is_active:

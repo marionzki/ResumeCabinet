@@ -7,12 +7,8 @@ class FletMainWindow:
         self.page.title = "ResumeCabinet Flet"
         self.page.theme_mode = ft.ThemeMode.LIGHT
         
-        # File Picker for global operations
-        self.file_picker = ft.FilePicker()
-        # Workaround for "Unknown control" visual glitch: wrap in hidden Row and add to page
-        self.file_picker_wrapper = ft.Row([self.file_picker], visible=False)
-        self.page.add(self.file_picker_wrapper)
-        self.controller.file_picker = self.file_picker # Link back to controller
+        # Removed Flet FilePicker in favor of tkinter.filedialog for reliability
+        self.controller.file_picker = None 
         
         # App Bar
         self.page.appbar = ft.AppBar(
@@ -22,11 +18,8 @@ class FletMainWindow:
             actions=[
                 ft.PopupMenuButton(
                     items=[
-                        ft.PopupMenuItem(content=ft.Text("New Template"), on_click=lambda _: controller.new_template()),
-                        ft.PopupMenuItem(content=ft.Text("Open Template..."), on_click=lambda _: controller.load_template()),
-                        ft.PopupMenuItem(), # Divider
                         ft.PopupMenuItem(content=ft.Text("Preview PDF"), on_click=lambda _: controller.preview_pdf()),
-                        ft.PopupMenuItem(content=ft.Text("Export to PDF"), on_click=lambda _: controller.export_pdf()),
+                        ft.PopupMenuItem(content=ft.Text("Export to PDF"), on_click=controller.export_pdf),
                     ]
                 )
             ]

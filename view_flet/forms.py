@@ -9,7 +9,6 @@ class ModuleForm:
         self.on_save = on_save
         
         self.dialog = None
-        self.file_picker = file_picker
         
         # Controls references
         self.title_field = None
@@ -21,15 +20,8 @@ class ModuleForm:
         self.text_sum_field = None
         self.use_summary_chk = None
         self.tags_checks = []
-        
-        # Local file picker for this form
-        self.file_picker = file_picker
 
     def show(self):
-        # Set callback
-        if self.file_picker:
-            self.file_picker.on_result = self.on_file_picked
-            
         content_controls = self.build_form_fields()
         
         self.dialog = ft.AlertDialog(
@@ -55,9 +47,7 @@ class ModuleForm:
             self.page.update()
 
     def cleanup(self):
-        # Clear callback
-        if self.file_picker:
-            self.file_picker.on_result = None
+        pass
 
     def close(self, e=None):
         self.dialog.open = False
@@ -121,12 +111,17 @@ class ModuleForm:
         return controls
 
     def pick_image(self, e):
-        self.file_picker.pick_files(allow_multiple=False, allowed_extensions=["jpg", "png", "jpeg"])
-
-    def on_file_picked(self, e):
-        if e.files and len(e.files) > 0:
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        path = filedialog.askopenfilename(
+            title="Select Image",
+            filetypes=[("Image Files", "*.jpg *.png *.jpeg")]
+        )
+        if path:
             if self.img_field:
-                self.img_field.value = e.files[0].path
+                self.img_field.value = path
                 self.img_field.update()
 
     def save(self, e):

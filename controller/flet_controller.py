@@ -182,6 +182,7 @@ class FletController:
             self.refresh_view_section(section)
 
     def toggle_module(self, module, section):
+        from model.modules import AvatarModule
         # Enforce single selection for Personal Info
         if section.type == "personal" and module.is_active:
              # Check type of module (AvatarModule vs PersonalInfoModule)
@@ -211,10 +212,16 @@ class FletController:
         self.cv_data = CVData()
         self.refresh_view()
 
-    async def load_template(self):
-        result = await self.file_picker.pick_files(allow_multiple=False, allowed_extensions=["json"])
-        if result and result:
-            path = result[0].path
+    def load_template(self):
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        path = filedialog.askopenfilename(
+            title="Open Template",
+            filetypes=[("JSON Files", "*.json")]
+        )
+        if path:
             try:
                 with open(path, "r", encoding="utf-8") as f:
                     self.cv_data = CVData.from_json(f.read())
@@ -223,8 +230,17 @@ class FletController:
             except Exception as ex:
                 self.show_snackbar(f"Error loading: {ex}")
 
-    async def save_template(self):
-        path = await self.file_picker.save_file(allowed_extensions=["json"], file_name="resume.json")
+    def save_template(self):
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        path = filedialog.asksaveasfilename(
+            title="Save Template",
+            defaultextension=".json",
+            filetypes=[("JSON Files", "*.json")],
+            initialfile="resume.json"
+        )
         if path:
             try:
                 with open(path, "w", encoding="utf-8") as f:
@@ -233,14 +249,22 @@ class FletController:
             except Exception as ex:
                 self.show_snackbar(f"Error saving: {ex}")
 
-    async def export_pdf(self):
-        path = await self.file_picker.save_file(allowed_extensions=["pdf"], file_name="resume.pdf")
+    def export_pdf(self, e=None):
+        import tkinter as tk
+        from tkinter import filedialog
+        root = tk.Tk()
+        root.withdraw()
+        path = filedialog.asksaveasfilename(
+            title="Export to PDF",
+            defaultextension=".pdf",
+            filetypes=[("PDF Files", "*.pdf")],
+            initialfile="resume.pdf"
+        )
         if path:
             from utils.pdf_generator import PDFGenerator
             try:
                 gen = PDFGenerator(self.cv_data)
                 gen.generate(path)
-                # Auto-translations might have happened, save them
                 self.save_autosave()
                 self.show_snackbar("PDF exported successfully")
             except Exception as ex:

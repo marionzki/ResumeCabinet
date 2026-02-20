@@ -249,14 +249,14 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Artista 3D procedural",
-                            "_source_title": "Artista 3D procedural",
+                            "title": "Procedural 3D artist",
+                            "_source_title": "Procedural 3D artist",
                             "company": "Computer Vision Center - Madrid, Spain",
                             "_source_company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
                             "date_range": "10/2020 - 03/2024",
                             "_source_date_range": "10/2020 - 03/2024",
-                            "text_extended": "Procedural generation of urban and natural environments for the autonomous driving project of [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) in version 0.9.15. Development of own widgets and blueprints in Unreal and HDAs in Houdini FX.\n\nCo-author on the dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
-                            "_source_text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\"."
+                            "text_extended": "Procedural generation of urban and natural environments for the autonomous driving project of [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) in version 0.9.15.\n\nDevelopment of own widgets and blueprints in Unreal and HDAs in Houdini FX.\n\nCo-author on the dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
+                            "_source_text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15.\n\nDesarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\"."
                         }
                     },
                     "company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
@@ -281,12 +281,12 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Artista 3D procedural",
+                            "title": "Procedural 3D artist",
                             "company": "University of A Coru\u00f1a (CITIC) - A Coru\u00f1a, Spain",
                             "date_range": "04/2025 - 05/2025",
                             "text_summary": "Procedural 3D generation of a highway section from real data.",
                             "text_extended": "Automatic generation of the 3D geometry of a highway section and its integration into the real terrain for image rendering for subsequent training and \rvalidation of automatic driving systems.",
-                            "_source_title": "Artista 3D procedural",
+                            "_source_title": "Procedural 3D artist",
                             "_source_company": "Universidade da Coru\u00f1a (CITIC) - A Coru\u00f1a, Espa\u00f1a",
                             "_source_date_range": "04/2025 - 05/2025",
                             "_source_text_summary": "Generaci\u00f3n 3D procedural de un tramo de autopista a partir de datos reales.",
@@ -749,14 +749,14 @@
                 },
                 {
                     "id": "23aa1b06-4dd6-4596-b666-a577feed3dd7",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Power BI",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\powerBi_logo.png"
                 },
                 {
                     "id": "8cbb3d7c-1b8c-401b-ad3b-b73f3f561032",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Excel",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\excel_logo.png"
@@ -777,28 +777,28 @@
                 },
                 {
                     "id": "6b6d0d4b-51a1-4431-8811-d949d76b0fae",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Audition",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\audition_logo.png"
                 },
                 {
                     "id": "00b1c08d-4a16-486b-9da2-110f3d7baa1a",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "NukeX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\nuke_logo.png"
                 },
                 {
                     "id": "5d5fa1d9-951a-45ba-8d5d-40606dc4877b",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Illustrator",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\illstrtr_logo.png"
                 },
                 {
                     "id": "90235af1-94ac-4c2f-90f5-f7ab9e7c443c",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "DaVinci Resolve",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\daVinci_logo.png"

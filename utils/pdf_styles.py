@@ -27,6 +27,6 @@ FONT_HEADING = "Helvetica-Bold" # Placeholder, will try to register standard fon
 FONT_BODY = "Helvetica"
 
 # Dimensions
-MARGIN = 40
+MARGIN = 20
 PAGE_WIDTH_A4 = 595.27
 PAGE_HEIGHT_A4 = 841.89
