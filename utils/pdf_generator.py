@@ -393,9 +393,8 @@ class PDFGenerator:
             c.setFillColor(COLOR_HEADER_BG)
             c.drawString(x, y, title)
             
-            # Company / Date on same line or below?
             # Let's put Company | Date below
-            y -= 14
+            y -= 10
             sub_line = []
             
             company = self._get_text(m, "company")
@@ -411,7 +410,7 @@ class PDFGenerator:
                 c.setFillColor(COLOR_TEXT_SUB)
                 c.drawString(x, y, " | ".join(sub_line))
                 c.setFillColor(COLOR_TEXT_MAIN)
-                y -= 12
+                y -= 10
             
             # Text
             # Text
@@ -421,14 +420,14 @@ class PDFGenerator:
                 text = self._get_text(m, "text_extended")
             
             y = self._draw_paragraph(c, text, x, y, width)
-            y -= 15
+            y -= 12
             
             # Tags (Smart Render)
             if hasattr(m, 'tags') and m.tags:
                 y = self._draw_tags(c, m.tags, x, y, width)
                 y -= 5
             
-            y -= 15
+            y -= 12
             
             if y < 50: 
                 c.showPage()
