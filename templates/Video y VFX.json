@@ -43,7 +43,7 @@
                 },
                 {
                     "id": "3f2edc88-8f49-4bdf-804a-5573c65773f7",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Audiovisual (V\u00eddeo y VFX)",
                     "text_extended": "Profesional audiovisual con Licenciatura en Comunicaci\u00f3n y un M\u00e1ster especializado en Composici\u00f3n y VFX. Cuento con una trayectoria vers\u00e1til que abarca desde la grabaci\u00f3n en set y el montaje narrativo (Premiere Pro y  DaVinci Resolve), hasta la integraci\u00f3n compleja de efectos visuales mediante flujos de trabajo basados en nodos (Nuke y HoudiniFX). Mi experiencia combina la creatividad narrativa con un estricto rigor t\u00e9cnico, asegurando siempre un acabado de calidad para producciones de v\u00eddeo, documentales y proyectos interactivos.",
@@ -70,7 +70,7 @@
                 },
                 {
                     "id": "0c062bb2-4e28-4f7b-9ae9-f79351381479",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Artista 3D",
                     "text_extended": "Artista T\u00e9cnico 3D y desarrollador de entornos virtuales con m\u00e1s de cinco a\u00f1os de experiencia. Estoy especializado en la generaci\u00f3n procedural de escenarios fotorrealistas a gran escala mediante Houdini FX y Unreal Engine 5. He liderado la creaci\u00f3n optimizada de mapas masivos (10x10km) para simulaciones de IA (CARLA, UrbanSyn) y cuento con formaci\u00f3n reciente y avanzada en la creaci\u00f3n integral de videojuegos. Domino la integraci\u00f3n de assets, creaci\u00f3n de Blueprints y programaci\u00f3n en VEX/C++, fusionando arte y l\u00f3gica para optimizar cualquier pipeline de producci\u00f3n.",
@@ -132,7 +132,7 @@
             "modules": [
                 {
                     "id": "49834115-0966-4ab4-930c-2dece1aa6b8d",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Operador de c\u00e1mara",
                     "text_extended": "Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/).",
@@ -213,7 +213,7 @@
                 },
                 {
                     "id": "b3604399-3d69-4e85-a7c8-7b0033bc983e",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Becario en Departamento de televisi\u00f3n",
                     "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas",
@@ -328,7 +328,7 @@
                 },
                 {
                     "id": "7c830451-eede-411d-ab50-4c745b6cc12a",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Artista 3D procedural",
                     "text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
@@ -361,7 +361,7 @@
                 },
                 {
                     "id": "f9f7a262-4e42-45e1-8651-ef530f994bfb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Artista 3D procedural",
                     "text_extended": "Generaci\u00f3n autom\u00e1tica de la geometr\u00eda 3D de un tramo de autopista y su integraci\u00f3n en el terreno real para la renderizaci\u00f3n de im\u00e1genes para el posterior entrenamiento y \rvalidaci\u00f3n de sistemas autom\u00e1ticos de conducci\u00f3n.",
@@ -454,7 +454,7 @@
                 },
                 {
                     "id": "08ad84be-b8ae-4cbf-9452-e1d929099ab0",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
                     "text_extended": "",
@@ -476,7 +476,7 @@
                 },
                 {
                     "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
                     "text_extended": "",
@@ -643,7 +643,7 @@
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
                     "text_extended": "",
@@ -704,7 +704,7 @@
             "modules": [
                 {
                     "id": "2b075ee6-a647-486a-9582-426164a91247",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Grabaci\u00f3n de v\u00eddeo",
                     "text_extended": "S\u00f3lida base en captaci\u00f3n de imagen respaldada por la Licenciatura en Comunicaci\u00f3n Audiovisual y experiencia pr\u00e1ctica como operador de c\u00e1mara. Trayectoria en el rodaje de producciones documentales de \u00edndole cultural y patrimonial (\"De la dehesa a la mesa\", \"Cinco pueblos patrimonio vivo\"), as\u00ed como en la cobertura de eventos institucionales y universitarios. Capacidad integral para planificar la grabaci\u00f3n y ejecutar la toma de im\u00e1genes asegurando los est\u00e1ndares t\u00e9cnicos de composici\u00f3n e iluminaci\u00f3n requeridos.",
@@ -752,7 +752,7 @@
                 },
                 {
                     "id": "cc1284c3-040c-4dc2-aa62-96476d666ddb",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Edici\u00f3n de v\u00eddeo",
                     "text_extended": "Perfil t\u00e9cnico en montaje audiovisual con capacidad para estructurar narrativas visuales coherentes e impactantes. Experiencia en la edici\u00f3n de piezas para televisi\u00f3n y eventos corporativos e institucionales, manejando herramientas de edici\u00f3n profesional como DaVinci Resolve, Adobe Premiere Pro, Avid Liquid y Sony Vegas. Conocimiento integral del flujo de trabajo de postproducci\u00f3n, desde la ingesta de material hasta la entrega del producto final optimizado para su emisi\u00f3n.",
@@ -827,7 +827,7 @@
                 },
                 {
                     "id": "a6c11ab6-ed73-47b3-95c9-6ff985867138",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "3D",
                     "text_extended": "Artista 3D especializado en la generaci\u00f3n procedural de geometr\u00eda y la creaci\u00f3n de entornos fotorrealistas con m\u00e1s de cinco a\u00f1os de experiencia. Dominio avanzado de Houdini, Unreal Engine 5 y Blender para el desarrollo de simulaciones orientadas a IA y conducci\u00f3n aut\u00f3noma (proyectos UrbanSyn y CARLA). Capacidad demostrada para dise\u00f1ar sistemas de distribuci\u00f3n procedural a gran escala, logrando la regeneraci\u00f3n optimizada de mapas completos de hasta 10x10 kil\u00f3metros (edificios, vegetaci\u00f3n, iluminaci\u00f3n) mediante el desarrollo de assets propios y Blueprints.",
@@ -897,7 +897,7 @@
             "modules": [
                 {
                     "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Photoshop",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\phtshp_logo.png"
@@ -925,14 +925,14 @@
                 },
                 {
                     "id": "7708f4fb-01cc-45d0-a929-1b42d5e5c6e0",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Sony Vegas",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\sonyVegas_logo.png"
                 },
                 {
                     "id": "aa23d2a0-4cf3-49b5-b74e-91e5864ae42d",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Avid Liquid",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\avid_logo.png"
@@ -967,21 +967,21 @@
                 },
                 {
                     "id": "4d815d12-472e-4a5c-b184-9ad2be14d472",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "VSCode",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\vscode_logo.png"
                 },
                 {
                     "id": "6b6d0d4b-51a1-4431-8811-d949d76b0fae",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Adobe Audition",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\audition_logo.png"
                 },
                 {
                     "id": "00b1c08d-4a16-486b-9da2-110f3d7baa1a",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "NukeX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\nuke_logo.png"
@@ -1009,7 +1009,7 @@
                 },
                 {
                     "id": "a56edd3f-f381-4e12-89a4-3aeed9722ad8",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Jupyter Notebook",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\jupyter_logo.png"

@@ -85,7 +85,7 @@ class FletController:
 
 
     def add_module(self, section):
-        from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule
+        from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule, EducationModule
         
         new_module = None
         if section.type == "experience":
@@ -127,7 +127,9 @@ class FletController:
                 self.page.update()
             return
             
-        elif section.type == "generic" or section.type == "education":
+        elif section.type == "education":
+            new_module = EducationModule(title="New Degree", company="Institution")
+        elif section.type == "generic":
             new_module = TextModule(title="New Item")
             
         if new_module:

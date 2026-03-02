@@ -429,7 +429,7 @@ class PDFGenerator:
             
             y -= 12
             
-            if y < 50: 
+            if y < 30: 
                 c.showPage()
                 y = PAGE_HEIGHT_A4 - MARGIN
 

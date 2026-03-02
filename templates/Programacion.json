@@ -70,7 +70,7 @@
                 },
                 {
                     "id": "0c062bb2-4e28-4f7b-9ae9-f79351381479",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Artista 3D",
                     "text_extended": "Artista T\u00e9cnico 3D y desarrollador de entornos virtuales con m\u00e1s de cinco a\u00f1os de experiencia. Estoy especializado en la generaci\u00f3n procedural de escenarios fotorrealistas a gran escala mediante Houdini FX y Unreal Engine 5. He liderado la creaci\u00f3n optimizada de mapas masivos (10x10km) para simulaciones de IA (CARLA, UrbanSyn) y cuento con formaci\u00f3n reciente y avanzada en la creaci\u00f3n integral de videojuegos. Domino la integraci\u00f3n de assets, creaci\u00f3n de Blueprints y programaci\u00f3n en VEX/C++, fusionando arte y l\u00f3gica para optimizar cualquier pipeline de producci\u00f3n.",
@@ -92,7 +92,7 @@
                 },
                 {
                     "id": "e97cb11e-160b-46c9-a5c3-6b002e4f4667",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Programador",
                     "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
@@ -400,7 +400,7 @@
                 },
                 {
                     "id": "622a68f3-5723-4a28-9413-6242ce4323a4",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Pr\u00e1cticas de Programaci\u00f3n y Bases de Datos",
                     "text_extended": "Pr\u00e1cticas t\u00e9cnicas (80h) vinculadas a la especializaci\u00f3n en Programaci\u00f3n Orientada a Objetos y Bases de Datos Relacionales. Responsable de la importaci\u00f3n, auditor\u00eda y depuraci\u00f3n de bases de datos empresariales de alcance internacional (Francia, Brasil, Portugal, Alemania y EE. UU.). Ejecuci\u00f3n de limpieza sistem\u00e1tica de registros inconsistentes y mal formateados en entornos Excel. Adaptaci\u00f3n y redise\u00f1o de macros preexistentes - configuradas inicialmente para el mercado espa\u00f1ol - a las particularidades y formatos de cada nuevo pa\u00eds, desarrollando y modificando c\u00f3digo en VBA (Visual Basic for Applications) para automatizar eficientemente el tratamiento de los datos.",
@@ -476,7 +476,7 @@
                 },
                 {
                     "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
                     "text_extended": "",
@@ -550,7 +550,7 @@
                 },
                 {
                     "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
                     "text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini.",
@@ -610,7 +610,7 @@
                 },
                 {
                     "id": "e720636e-fdfb-4b7c-a35f-8fe2a401a707",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "POO y bases de datos relacionales (710h)",
                     "text_extended": "Gesti\u00f3n de bases de datos con SQL y MySQL. Uso de lenguajes de programaci\u00f3n orientados a objetos (C# y Python) para el acceso y manipulaci\u00f3n de las bbdd.",
@@ -673,7 +673,7 @@
                 },
                 {
                     "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
                     "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
@@ -806,7 +806,7 @@
                 },
                 {
                     "id": "91e59496-e214-4306-8b28-11fdd8d5d7a5",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Posproducci\u00f3n de v\u00eddeo y VFX",
                     "text_extended": "S\u00f3lida experiencia en postproducci\u00f3n audiovisual y composici\u00f3n de efectos visuales (VFX) para cine y videojuegos, respaldada por un M\u00e1ster espec\u00edfico de 600 horas en la materia. Dominio t\u00e9cnico de herramientas est\u00e1ndar de la industria como Nuke, DaVinci Resolve y Adobe Premiere Pro. Trayectoria integral que abarca desde la edici\u00f3n, etalonaje y montaje de piezas documentales e institucionales, hasta la integraci\u00f3n compleja de efectos visuales, garantizando un acabado profesional y adaptado a los m\u00e1s altos est\u00e1ndares t\u00e9cnicos del sector.",
@@ -827,7 +827,7 @@
                 },
                 {
                     "id": "a6c11ab6-ed73-47b3-95c9-6ff985867138",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "3D",
                     "text_extended": "Artista 3D especializado en la generaci\u00f3n procedural de geometr\u00eda y la creaci\u00f3n de entornos fotorrealistas con m\u00e1s de cinco a\u00f1os de experiencia. Dominio avanzado de Houdini, Unreal Engine 5 y Blender para el desarrollo de simulaciones orientadas a IA y conducci\u00f3n aut\u00f3noma (proyectos UrbanSyn y CARLA). Capacidad demostrada para dise\u00f1ar sistemas de distribuci\u00f3n procedural a gran escala, logrando la regeneraci\u00f3n optimizada de mapas completos de hasta 10x10 kil\u00f3metros (edificios, vegetaci\u00f3n, iluminaci\u00f3n) mediante el desarrollo de assets propios y Blueprints.",
@@ -846,7 +846,7 @@
                 },
                 {
                     "id": "b88d158c-ad51-4286-9165-d0bbcf630940",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Programaci\u00f3n Orientada a Objetos",
                     "text_extended": "S\u00f3lida base en Programaci\u00f3n Orientada a Objetos (POO), respaldada por 710 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Experiencia demostrable aplicando C++, Python y VEX en el desarrollo de herramientas y generaci\u00f3n procedural para simulaciones de conducci\u00f3n aut\u00f3noma con IA. Capacidad avanzada para estructurar l\u00f3gicas complejas orientadas a objetos, tanto a trav\u00e9s de c\u00f3digo puro como mediante programaci\u00f3n visual con Blueprints en Unreal Engine y la creaci\u00f3n de assets en Houdini.",
@@ -857,7 +857,7 @@
                 },
                 {
                     "id": "a004bc6f-0f8a-4725-86ba-7f1bd6d61550",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Gesti\u00f3n de Bases de Datos",
                     "text_extended": "S\u00f3lida base t\u00e9cnica en el dise\u00f1o y administraci\u00f3n de bases de datos relacionales, avalada por una reciente formaci\u00f3n especializada de 710 horas. Capacidad para estructurar, consultar y optimizar informaci\u00f3n de manera eficiente.",
@@ -868,7 +868,7 @@
                 },
                 {
                     "id": "bdfc6915-a098-4cab-b716-598352639153",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "An\u00e1lisis de datos",
                     "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
@@ -897,14 +897,14 @@
             "modules": [
                 {
                     "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Photoshop",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\phtshp_logo.png"
                 },
                 {
                     "id": "0aad998d-8f2e-40b0-ac91-8b6df0dacbf3",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Premiere Pro",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\premiere_logo.png"
@@ -918,7 +918,7 @@
                 },
                 {
                     "id": "c840a062-60d2-4293-a310-8fb3078b1ce0",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Houdini FX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\houdini_logo.png"
@@ -946,21 +946,21 @@
                 },
                 {
                     "id": "23aa1b06-4dd6-4596-b666-a577feed3dd7",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Power BI",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\powerBi_logo.png"
                 },
                 {
                     "id": "8cbb3d7c-1b8c-401b-ad3b-b73f3f561032",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Excel",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\excel_logo.png"
                 },
                 {
                     "id": "5604960d-d4dc-4953-80a3-d85bc18d9bdb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Blender",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\blender_logo.png"
@@ -995,14 +995,14 @@
                 },
                 {
                     "id": "90235af1-94ac-4c2f-90f5-f7ab9e7c443c",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "DaVinci Resolve",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\daVinci_logo.png"
                 },
                 {
                     "id": "e373d189-58a1-43c6-813c-8afbddc19838",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Jira",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\jira_logo.png"
@@ -1044,14 +1044,14 @@
                 },
                 {
                     "id": "7dde9755-ae85-4c24-9e48-b807223d056e",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "SQL",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\sql_logo.png"
                 },
                 {
                     "id": "276b4a81-5845-427f-97f5-558993d88325",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "VBA",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\vba_logo.png"
