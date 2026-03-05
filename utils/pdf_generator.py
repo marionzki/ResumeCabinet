@@ -109,6 +109,41 @@ class PDFGenerator:
             
         return original_text
 
+    def _get_tags(self, module):
+        """Get translated tags from module."""
+        if not hasattr(module, 'tags') or not module.tags:
+            return []
+            
+        is_default = self.language == "Español"
+        if is_default:
+            return module.tags
+            
+        if not hasattr(module, 'translations'):
+            module.translations = {}
+            
+        if self.language not in module.translations:
+            module.translations[self.language] = {}
+            
+        lang_trans = module.translations[self.language]
+        
+        # Tags are stored in translations as a dictionary of original_tag -> translated_tag
+        if "tags" not in lang_trans:
+            lang_trans["tags"] = {}
+            
+        translated_tags = []
+        tags_dict = lang_trans["tags"]
+        
+        for tag in module.tags:
+            if tag in tags_dict and tags_dict[tag]:
+                translated_tags.append(tags_dict[tag])
+            else:
+                print(f"Auto-translating tag '{tag}' to {self.language}...")
+                translated = self.translator.translate_text(tag, self.language)
+                tags_dict[tag] = translated
+                translated_tags.append(translated)
+                
+        return translated_tags
+
     def _translate_date(self, date_str):
         """Translates specific keywords in date string (e.g. 'Actualidad' -> 'Present')."""
         if not date_str: return ""
@@ -393,7 +428,7 @@ class PDFGenerator:
             c.setFillColor(COLOR_HEADER_BG)
             c.drawString(x, y, title)
             
-            # Let's put Company | Date below
+            # Company | Date below
             y -= 10
             sub_line = []
             
@@ -413,7 +448,6 @@ class PDFGenerator:
                 y -= 10
             
             # Text
-            # Text
             if hasattr(m, 'use_summary') and m.use_summary:
                 text = self._get_text(m, "text_summary")
             else:
@@ -424,7 +458,8 @@ class PDFGenerator:
             
             # Tags (Smart Render)
             if hasattr(m, 'tags') and m.tags:
-                y = self._draw_tags(c, m.tags, x, y, width)
+                translated_tags = self._get_tags(m)
+                y = self._draw_tags(c, translated_tags, x, y, width)
                 y -= 5
             
             y -= 12
