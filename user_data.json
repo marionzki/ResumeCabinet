@@ -1,6 +1,6 @@
 {
     "settings": {
-        "language": "Ingl\u00e9s"
+        "language": "Espa\u00f1ol"
     },
     "header_info": {
         "name": "Mario Noriega",
@@ -384,7 +384,7 @@
                             }
                         }
                     },
-                    "company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
+                    "company": "Computer Vision Center - Madrid, Espa\u00f1a",
                     "date_range": "10/2020 - 03/2024",
                     "tags": [
                         "3D",
@@ -447,7 +447,7 @@
                     "type": "ExperienceModule",
                     "title": "Pr\u00e1cticas de Programaci\u00f3n y Bases de Datos",
                     "text_extended": "Pr\u00e1cticas t\u00e9cnicas vinculadas a la especializaci\u00f3n en Programaci\u00f3n Orientada a Objetos y Bases de Datos Relacionales. Responsable de la importaci\u00f3n, auditor\u00eda y depuraci\u00f3n de bases de datos empresariales de alcance internacional (Francia, Brasil, Portugal, Alemania y EE. UU.). Ejecuci\u00f3n de limpieza sistem\u00e1tica de registros inconsistentes y mal formateados en entornos Excel. Adaptaci\u00f3n y redise\u00f1o de macros preexistentes - configuradas inicialmente para el mercado espa\u00f1ol - a las particularidades y formatos de cada nuevo pa\u00eds, desarrollando y modificando c\u00f3digo en VBA (Visual Basic for Applications) para automatizar eficientemente el tratamiento de los datos.",
-                    "text_summary": "Experiencia pr\u00e1ctica en auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales. Programaci\u00f3n y adaptaci\u00f3n de macros mediante c\u00f3digo VBA para automatizar el tratamiento masivo de datos corporativos.",
+                    "text_summary": "Auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos. Programaci\u00f3n y adaptaci\u00f3n de macros mediante c\u00f3digo VBA para automatizar el proceso.",
                     "use_summary": true,
                     "hyperlinks": [],
                     "translations": {
@@ -587,7 +587,7 @@
                 },
                 {
                     "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso Superior en Posicionamiento Web",
                     "text_extended": "",
@@ -615,7 +615,7 @@
                 },
                 {
                     "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso Superior en e-Commerce y Marketing",
                     "text_extended": "",
@@ -667,7 +667,7 @@
                 },
                 {
                     "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
                     "text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4.",
@@ -733,8 +733,8 @@
                     "is_active": true,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
-                    "text_extended": "",
-                    "text_summary": "Uso de las principales IAG's, prompting avanzado y automatizaci\u00f3n.",
+                    "text_extended": "Especializaci\u00f3n en Prompt Engineering avanzado, IA multimodal y automatizaci\u00f3n de procesos mediante la integraci\u00f3n de grandes modelos de lenguaje (LLMs) y herramientas clave como ChatGPT, GPT-4, Copilot, DALL-E, Whisper y Sora. Capacitaci\u00f3n en el uso de modelos libres, APIs y plataformas de automatizaci\u00f3n (Zapier, Make) para la optimizaci\u00f3n de flujos de trabajo empresariales.",
+                    "text_summary": "Especializaci\u00f3n en IA Generativa con enfoque en Prompt Engineering avanzado y automatizaci\u00f3n. Dominio pr\u00e1ctico de modelos LLM y multimodales (ChatGPT, Copilot, DALL-E, Sora, Zapier y Make).",
                     "use_summary": true,
                     "hyperlinks": [],
                     "translations": {
@@ -1049,7 +1049,7 @@
                 },
                 {
                     "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Unreal Engine 5.6",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\unreal_logo.png"
