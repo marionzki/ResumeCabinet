@@ -204,23 +204,34 @@ class PDFGenerator:
         if avatar_mod and os.path.exists(avatar_mod.image_path):
             try:
                 img = ImageReader(avatar_mod.image_path)
-                img_w = 120
-                img_h = 120
-                c.drawImage(avatar_mod.image_path, col1_x + (col1_w - img_w)/2, y_left - img_h, width=img_w, height=img_h, mask='auto', preserveAspectRatio=True)
-                y_left -= (img_h + 20)
+                img_w = 145
+                img_h = 145
+                c.drawImage(avatar_mod.image_path, col1_x + (col1_w - img_w)/2, y_left - img_h + 8, width=img_w, height=img_h, mask='auto', preserveAspectRatio=True)
+                y_left -= (img_h + 12)
             except:
                 pass
 
         # 2. Name and Contact
-        c.setFont(FONT_HEADING, 18)
+        c.setFont(FONT_HEADING, 16)
         c.setFillColor(COLOR_HEADER_BG)
         name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
         
         # Wrap name if too long for sidebar
-        name_lines = self._wrap_text(c, name.upper(), col1_w, FONT_HEADING, 18)
+        name_lines = self._wrap_text(c, name.upper(), col1_w, FONT_HEADING, 14)
         for line in name_lines:
              c.drawString(col1_x, y_left, line)
              y_left -= 20
+        y_left -= 4
+        
+        # Job Position
+        if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
+            c.setFont(FONT_HEADING, 16)
+            c.setFillColor(COLOR_TAG_BORDER)
+            job = self.cv_data.header_info.job_position.upper()
+            job_lines = self._wrap_text(c, job, col1_w, FONT_HEADING, 16)
+            for line in job_lines:
+                c.drawString(col1_x, y_left, line)
+                y_left -= 14
         y_left -= 10
         
         # Contact Info
@@ -448,13 +459,16 @@ class PDFGenerator:
                 y -= 10
             
             # Text
-            if hasattr(m, 'use_summary') and m.use_summary:
-                text = self._get_text(m, "text_summary")
+            if hasattr(m, 'hide_text') and getattr(m, 'hide_text', False):
+                y -= 5# Skip drawing text but add margin for tags
             else:
-                text = self._get_text(m, "text_extended")
-            
-            y = self._draw_paragraph(c, text, x, y, width)
-            y -= 12
+                if hasattr(m, 'use_summary') and m.use_summary:
+                    text = self._get_text(m, "text_summary")
+                else:
+                    text = self._get_text(m, "text_extended")
+                
+                y = self._draw_paragraph(c, text, x, y, width)
+                y -= 12
             
             # Tags (Smart Render)
             if hasattr(m, 'tags') and m.tags:

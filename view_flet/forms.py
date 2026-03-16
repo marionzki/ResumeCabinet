@@ -19,6 +19,7 @@ class ModuleForm:
         self.text_ext_field = None
         self.text_sum_field = None
         self.use_summary_chk = None
+        self.hide_text_chk = None
         self.tags_checks = []
 
     def show(self):
@@ -97,6 +98,10 @@ class ModuleForm:
             if hasattr(self.module, 'use_summary'):
                 self.use_summary_chk = ft.Checkbox(label="Use Summary", value=self.module.use_summary)
                 controls.append(self.use_summary_chk)
+                
+            if hasattr(self.module, 'hide_text'):
+                self.hide_text_chk = ft.Checkbox(label="Hide description text (compact view)", value=self.module.hide_text)
+                controls.append(self.hide_text_chk)
             
         # Tags
         if hasattr(self.module, 'tags'):
@@ -137,6 +142,9 @@ class ModuleForm:
         
         if self.use_summary_chk:
             self.module.use_summary = self.use_summary_chk.value
+            
+        if self.hide_text_chk:
+            self.module.hide_text = self.hide_text_chk.value
         
         if hasattr(self.module, 'tags'):
             new_tags = [tag for tag, chk in self.tags_checks if chk.value]

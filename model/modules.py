@@ -59,12 +59,16 @@ class ExperienceModule(TextModule):
 class EducationModule(TextModule):
     company: str = "" # Institution
     date_range: str = ""
+    tags: List[str] = field(default_factory=list) # List of tag IDs or Names
+    hide_text: bool = False # Option to hide extended/summary text
 
     def to_dict(self):
         data = super().to_dict()
         data.update({
             "company": self.company,
-            "date_range": self.date_range
+            "date_range": self.date_range,
+            "tags": self.tags,
+            "hide_text": self.hide_text
         })
         return data
 

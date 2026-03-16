@@ -42,7 +42,7 @@ class Section:
                  # TextModule keys are subset.
                  # Filter to valid fields for EducationModule? Dataclass init doesn't like extra keys.
                  # Actually TextModule fields are subset.
-                 valid_keys = {"id", "is_active", "title", "text_extended", "text_summary", "use_summary", "hyperlinks", "company", "date_range", "translations"}
+                 valid_keys = {"id", "is_active", "title", "text_extended", "text_summary", "use_summary", "hyperlinks", "company", "date_range", "translations", "tags", "hide_text"}
                  filtered_data = {k: v for k, v in m_data.items() if k in valid_keys}
                  mod = EducationModule(**filtered_data)
             elif m_type == "ImageModule":
@@ -61,6 +61,7 @@ class Section:
 @dataclass
 class HeaderInfo:
     name: str = ""
+    job_position: str = ""
     city: str = ""
     country: str = ""
     email: str = ""
@@ -82,6 +83,7 @@ class CVData:
     settings: Settings = field(default_factory=Settings)
     header_info: HeaderInfo = field(default_factory=lambda: HeaderInfo(
         name="Mario Noriega Zamora",
+        job_position="Procedural 3D Artist",
         city="Madrid",
         country="España",
         email="mnoriegazamora@gmail.com",
@@ -183,7 +185,7 @@ class CVData:
         EducationModule(title="Programación con lenguajes orientados a objetos y bases de datos relacionales (710h)", company="Merinero - Madrid, España", date_range="07/2025 - 12/2025", text_extended=""),
         EducationModule(title="Inteligencia Artificial Generativa (22h)", company="Mantia - Madrid, España", date_range="09/2025 - 10/2025", text_extended="")
     ]))
-    knowledge: Section = field(default_factory=lambda: Section(id="knowledge", title="Conocimientos", type="generic", modules=[
+    knowledge: Section = field(default_factory=lambda: Section(id="knowledge", title="Competencias", type="generic", modules=[
         TextModule(title="Grabación de vídeo"),
         TextModule(title="Prensa escrita"),
         TextModule(title="Diseño gráfico"),

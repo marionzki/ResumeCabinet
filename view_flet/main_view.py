@@ -136,6 +136,7 @@ class FletMainWindow:
             ft.Divider(),
             ft.Text("Datos de Cabecera (Contacto):", size=16, weight=ft.FontWeight.BOLD),
             ft.TextField(label="Nombre Completo", value=cv_data.header_info.name, on_change=lambda e: self.controller.update_header_info("name", e.control.value)),
+            ft.TextField(label="Puesto", value=cv_data.header_info.job_position, on_change=lambda e: self.controller.update_header_info("job_position", e.control.value)),
             ft.TextField(label="Ciudad", value=cv_data.header_info.city, on_change=lambda e: self.controller.update_header_info("city", e.control.value)),
             ft.TextField(label="País", value=cv_data.header_info.country, on_change=lambda e: self.controller.update_header_info("country", e.control.value)),
             ft.TextField(label="Email", value=cv_data.header_info.email, on_change=lambda e: self.controller.update_header_info("email", e.control.value)),

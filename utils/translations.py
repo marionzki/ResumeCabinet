@@ -4,7 +4,7 @@ TRANSLATIONS = {
         "personal": "PERFIL",
         "experience": "EXPERIENCIA PROFESIONAL",
         "education": "FORMACIÓN",
-        "knowledge": "CONOCIMIENTOS",
+        "knowledge": "COMPETENCIAS",
         "software": "SOFTWARE",
         "languages": "LENGUAJES",
         # Date keywords
@@ -29,7 +29,7 @@ TRANSLATIONS = {
         "personal": "PERFIL",
         "experience": "EXPERIENCIA PROFESIONAL",
         "education": "FORMACIÓN",
-        "knowledge": "COÑECEMENTOS",
+        "knowledge": "COMPETENCIAS",
         "software": "SOFTWARE",
         "languages": "LINGUAXES",
         # Date keywords
@@ -42,7 +42,7 @@ TRANSLATIONS = {
         "personal": "PERFIL",
         "experience": "EXPERIÈNCIA PROFESSIONAL",
         "education": "FORMACIÓ",
-        "knowledge": "CONEIXEMENTS",
+        "knowledge": "COMPETÈNCIES",
         "software": "SOFTWARE",
         "languages": "LLENGUATGES",
         # Date keywords

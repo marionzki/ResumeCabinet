@@ -145,9 +145,9 @@ class FletController:
             
             from view_flet.forms import ModuleForm
             
-            # Gather tags if experience
+            # Gather tags if experience or education
             tags = []
-            if section.type == "experience":
+            if section.type in ["experience", "education"]:
                 # Collect from Knowledge, Software, Languages
                 for m in self.cv_data.knowledge.modules:
                     if m.title: tags.append(m.title)
