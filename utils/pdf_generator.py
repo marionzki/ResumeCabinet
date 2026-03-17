@@ -420,9 +420,8 @@ class PDFGenerator:
         c.setFillColor(COLOR_TEXT_MAIN) # Reset
         y -= 35
         
-        # Prepare modules (Sort by date descending)
-        # We need a helper to extract date from module
-        sorted_modules = sorted(section.modules, key=self._get_module_date, reverse=True)
+        # Prepare modules (Use manual order)
+        sorted_modules = section.modules
 
         # Modules
         for m in sorted_modules:

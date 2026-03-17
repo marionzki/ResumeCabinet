@@ -4,7 +4,7 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "Data Engineer",
+        "job_position": "DBA SQL",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -191,10 +191,10 @@
                     "id": "1ab5c97a-2fe9-491c-9d22-2fec05bf9861",
                     "is_active": false,
                     "type": "ExperienceModule",
-                    "title": "Redactor",
-                    "text_extended": "",
-                    "text_summary": "Cobertura de noticias locales, redacci\u00f3n de cr\u00f3nicas deportivas, reportajes y entrevistas.",
-                    "use_summary": true,
+                    "title": "Redactor de noticias",
+                    "text_extended": "Redactor en pr\u00e1cticas cubriendo las noticias locales con redacci\u00f3n de noticias, reportajes y cr\u00f3nicas.",
+                    "text_summary": "",
+                    "use_summary": false,
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
@@ -208,13 +208,10 @@
                             "_source_text_extended": "Redactor en pr\u00e1cticas cubriendo las noticias locales con redacci\u00f3n de noticias, reportajes y cr\u00f3nicas."
                         }
                     },
-                    "company": "Regi\u00f3n digital / La Gaceta de Salamanca / El Peri\u00f3dico Extremadura",
-                    "date_range": "2008 \u2013 2009",
+                    "company": "Regi\u00f3n digital - M\u00e9rida, Espa\u00f1a",
+                    "date_range": "08/2008 \u2013 09/2008",
                     "tags": [
-                        "Prensa escrita",
-                        "Cr\u00f3nica deportiva",
-                        "Entrevistas",
-                        "Reportajes"
+                        "Prensa escrita"
                     ]
                 },
                 {
@@ -222,7 +219,7 @@
                     "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Operador de c\u00e1mara",
-                    "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas. Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/).",
+                    "text_extended": "Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/).",
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
@@ -238,28 +235,97 @@
                             "_source_text_extended": "Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/)."
                         }
                     },
-                    "company": "Universidad Pontificia de Salamanca / Plateros producciones - Salamanca, Espa\u00f1a",
-                    "date_range": "2007 \u2013 2009",
+                    "company": "Plateros producciones - Salamanca, Espa\u00f1a",
+                    "date_range": "05/2008 \u2013 06/2008",
+                    "tags": [
+                        "Grabaci\u00f3n de v\u00eddeo"
+                    ]
+                },
+                {
+                    "id": "5ac81e8c-b0e5-4543-9294-4291e298c825",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Redactor de deportes",
+                    "text_extended": "Redactor en pr\u00e1cticas. Redacci\u00f3n de cr\u00f3nicas, noticias y entrevistas para el peri\u00f3dico, as\u00ed como la cobertura de los resultados de las categor\u00edas inferiores.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "sports editor",
+                            "_source_title": "Redactor de deportes",
+                            "company": "La Gaceta de Salamanca - Salamanca, Spain",
+                            "_source_company": "La Gaceta de Salamanca - Salamanca, Espa\u00f1a",
+                            "date_range": "10/2008 \u2013 05/2009",
+                            "_source_date_range": "10/2008 \u2013 05/2009",
+                            "text_extended": "Trainee editor. Writing chronicles, news and interviews for the newspaper, as well as covering the results of the lower categories.",
+                            "_source_text_extended": "Redactor en pr\u00e1cticas. Redacci\u00f3n de cr\u00f3nicas, noticias y entrevistas para el peri\u00f3dico, as\u00ed como la cobertura de los resultados de las categor\u00edas inferiores."
+                        }
+                    },
+                    "company": "La Gaceta de Salamanca - Salamanca, Espa\u00f1a",
+                    "date_range": "10/2008 \u2013 05/2009",
+                    "tags": [
+                        "Prensa escrita"
+                    ]
+                },
+                {
+                    "id": "b3604399-3d69-4e85-a7c8-7b0033bc983e",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Becario en Departamento de televisi\u00f3n",
+                    "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Intern in Television Department",
+                            "_source_title": "Becario en Departamento de televisi\u00f3n",
+                            "company": "Pontifical University of Salamanca - Salamanca, Spain",
+                            "_source_company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                            "date_range": "10/2007 \u2013 06/2009",
+                            "_source_date_range": "10/2007 \u2013 06/2009",
+                            "text_extended": "Recording of events and editing of pieces with Avid Liquid and Sony Vegas",
+                            "_source_text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas"
+                        }
+                    },
+                    "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                    "date_range": "10/2007 \u2013 06/2009",
                     "tags": [
                         "Grabaci\u00f3n de v\u00eddeo",
                         "Edici\u00f3n de v\u00eddeo",
-                        "Entrevistas",
                         "Sony Vegas",
                         "Avid Liquid"
+                    ]
+                },
+                {
+                    "id": "eae92658-3084-4404-965e-7f3742875d6c",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Redactor de deportes",
+                    "text_extended": "Redactor de deportes en pr\u00e1cticas cubriendo el periodo de fichajes y el ascenso de los equipos extreme\u00f1os a 2\u00aaB. Redacci\u00f3n de cr\u00f3nicas y entrevistas de diversos deportes.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "El Peri\u00f3dico Extremadura - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "07/2009 \u2013 08/2009",
+                    "tags": [
+                        "Prensa escrita"
                     ]
                 },
                 {
                     "id": "b90796e0-9184-4c60-b16f-4a482621768e",
                     "is_active": false,
                     "type": "ExperienceModule",
-                    "title": "Dise\u00f1ador gr\u00e1fico",
+                    "title": "Becario de Dise\u00f1o Gr\u00e1fico",
                     "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
                     "translations": {},
                     "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
-                    "date_range": "2010",
+                    "date_range": "07/2010 \u2013 08/2010",
                     "tags": [
                         "Dise\u00f1o gr\u00e1fico",
                         "Branding",
@@ -271,20 +337,50 @@
                     "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
                     "is_active": false,
                     "type": "ExperienceModule",
-                    "title": "Atenci\u00f3n al cliente",
-                    "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
+                    "title": "Atenci\u00f3n al cliente en Redes Sociales",
+                    "text_extended": "Atenci\u00f3n en Twitter y Facebook de clientes a trav\u00e9s de gestores de redes sociales. Recopilaci\u00f3n y an\u00e1lisis de datos de tr\u00e1fico y feedback para la elaboraci\u00f3n de la estrategia Social Media.",
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
                     "translations": {},
-                    "company": "Atento Comunicaciones / Securitas Seguridad / Quir\u00f3n Salud",
-                    "date_range": "2012 \u2013 2021",
+                    "company": "Atento Comunicaciones - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "01/2012 \u2013 09/2017",
                     "tags": [
                         "Medios sociales",
+                        "Atenci\u00f3n al cliente"
+                    ]
+                },
+                {
+                    "id": "bbdaffa8-3e8a-463c-b275-d864932188be",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Gestor de recepci\u00f3n de alarmas",
+                    "text_extended": "Recepci\u00f3n de saltos de alarma en turno de noche y toma de decisiones inmediata en funci\u00f3n de la situaci\u00f3n espec\u00edfica.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Securitas Seguridad Espa\u00f1a - Madrid, Espa\u00f1a",
+                    "date_range": "05/2018 - 08/2018",
+                    "tags": [
+                        "Atenci\u00f3n al cliente"
+                    ]
+                },
+                {
+                    "id": "2ca10ba4-d5a5-4883-aa94-d18580354889",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Teleoperador",
+                    "text_extended": "Cierre de citas en los centros de Quir\u00f3n Salud de toda Espa\u00f1a.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Quir\u00f3n Salud - Madrid, Espa\u00f1a",
+                    "date_range": "05/2020 - 03/2021",
+                    "tags": [
                         "Gesti\u00f3n de agendas m\u00e9dicas",
-                        "Atenci\u00f3n al cliente",
-                        "Gesti\u00f3n de recepci\u00f3n de alarmas",
-                        "Atenci\u00f3n en redes sociales"
+                        "Atenci\u00f3n al cliente"
                     ]
                 }
             ]
@@ -349,14 +445,12 @@
                     "translations": {},
                     "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
                     "date_range": "2018",
-                    "tags": [
-                        "Google Analytics"
-                    ],
-                    "hide_text": true
+                    "tags": [],
+                    "hide_text": false
                 },
                 {
                     "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Curso Superior en Community Manager",
                     "text_extended": "",
@@ -424,10 +518,7 @@
                     },
                     "company": "Mantia - Madrid, Espa\u00f1a",
                     "date_range": "2025",
-                    "tags": [
-                        "IA Generativa",
-                        "Prompting"
-                    ],
+                    "tags": [],
                     "hide_text": true
                 },
                 {
@@ -804,94 +895,6 @@
                     "text_extended": "S\u00f3lida trayectoria de m\u00e1s de seis a\u00f1os en atenci\u00f3n al cliente multicanal, abarcando desde el soporte digital corporativo hasta la asistencia telef\u00f3nica en sectores cr\u00edticos. Capacidad demostrada para la resoluci\u00f3n \u00e1gil de incidencias y la toma de decisiones inmediatas bajo presi\u00f3n, destacando la gesti\u00f3n de emergencias de seguridad (Securitas) y la coordinaci\u00f3n integral de pacientes a nivel nacional (Quir\u00f3n Salud). Orientaci\u00f3n a la excelencia en el servicio, combinando la comunicaci\u00f3n efectiva con el an\u00e1lisis del feedback del usuario en redes sociales para optimizar su experiencia.",
                     "text_summary": "Profesional con m\u00e1s de seis a\u00f1os de experiencia en soporte multicanal y resoluci\u00f3n de incidencias. Especialista en atenci\u00f3n digital, gesti\u00f3n telef\u00f3nica y toma de decisiones \u00e1giles en sectores de seguridad y salud.",
                     "use_summary": true,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "fe31c9b9-d9a6-44e8-b0b4-f94a3646abb6",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Google Analytics",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "5e79948a-2999-4403-a126-eaa19f0b206a",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "IA Generativa",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "7acf3b26-a4e9-4cc3-a2a1-5ee300cecfb7",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Prompting",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "e372ec27-c0c6-4ee2-a643-37bba7d556dc",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Cr\u00f3nica deportiva",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "5083e735-5c4f-4925-8239-663ef719e083",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Entrevistas",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "631c2a2d-ff4b-4a5b-8278-e65bf9019d86",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Reportajes",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "83c67d37-3aa7-454d-8eb9-ceb3e7846a38",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Gesti\u00f3n de recepci\u00f3n de alarmas",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "8b3378c1-b4cc-46d9-bf6f-fa8adc9373bc",
-                    "is_active": false,
-                    "type": "TextModule",
-                    "title": "Atenci\u00f3n en redes sociales",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
                     "hyperlinks": [],
                     "translations": {}
                 }

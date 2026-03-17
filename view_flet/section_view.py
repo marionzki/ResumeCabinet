@@ -68,6 +68,16 @@ class SectionView(ft.Column):
                     ], expand=True),
                     
                     ft.Row([
+                        ft.IconButton(
+                            icon=ft.icons.Icons.ARROW_UPWARD,
+                            tooltip="Subir",
+                            on_click=lambda e: self.controller.move_module_up(module, self.section)
+                        ),
+                        ft.IconButton(
+                            icon=ft.icons.Icons.ARROW_DOWNWARD,
+                            tooltip="Bajar",
+                            on_click=lambda e: self.controller.move_module_down(module, self.section)
+                        ),
                         is_active,
                         ft.IconButton(
                             icon=ft.icons.Icons.EDIT, 

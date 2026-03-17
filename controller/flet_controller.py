@@ -183,6 +183,22 @@ class FletController:
             self.save_autosave()
             self.refresh_view_section(section)
 
+    def move_module_up(self, module, section):
+        if module in section.modules:
+            index = section.modules.index(module)
+            if index > 0:
+                section.modules[index], section.modules[index - 1] = section.modules[index - 1], section.modules[index]
+                self.save_autosave()
+                self.refresh_view_section(section)
+
+    def move_module_down(self, module, section):
+        if module in section.modules:
+            index = section.modules.index(module)
+            if index < len(section.modules) - 1:
+                section.modules[index], section.modules[index + 1] = section.modules[index + 1], section.modules[index]
+                self.save_autosave()
+                self.refresh_view_section(section)
+
     def toggle_module(self, module, section):
         from model.modules import AvatarModule
         # Enforce single selection for Personal Info
