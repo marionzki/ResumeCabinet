@@ -4,7 +4,7 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "DBA SQL",
+        "job_position": "Data Analyst",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -282,7 +282,7 @@
                 },
                 {
                     "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Atenci\u00f3n al cliente",
                     "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
@@ -352,7 +352,7 @@
                 },
                 {
                     "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Curso Superior en e-Commerce y Marketing",
                     "text_extended": "",
@@ -410,7 +410,7 @@
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
                     "text_extended": "",
@@ -445,7 +445,7 @@
                 },
                 {
                     "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
                     "text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4.",
@@ -782,6 +782,17 @@
                     }
                 },
                 {
+                    "id": "bdfc6915-a098-4cab-b716-598352639153",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "An\u00e1lisis de datos",
+                    "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
+                    "text_summary": "Perfil anal\u00edtico con experiencia en la depuraci\u00f3n de bases de datos internacionales (VBA/Excel), validaci\u00f3n t\u00e9cnica de datasets para IA y evaluaci\u00f3n de m\u00e9tricas digitales orientadas a negocio.",
+                    "use_summary": true,
+                    "hyperlinks": [],
+                    "translations": {}
+                },
+                {
                     "id": "a004bc6f-0f8a-4725-86ba-7f1bd6d61550",
                     "is_active": true,
                     "type": "TextModule",
@@ -799,17 +810,6 @@
                     "title": "Programaci\u00f3n Orientada a Objetos",
                     "text_extended": "S\u00f3lida base en Programaci\u00f3n Orientada a Objetos (POO), respaldada por 710 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Experiencia demostrable aplicando C++, Python y VEX en el desarrollo de herramientas y generaci\u00f3n procedural para simulaciones de conducci\u00f3n aut\u00f3noma con IA. Capacidad avanzada para estructurar l\u00f3gicas complejas orientadas a objetos, tanto a trav\u00e9s de c\u00f3digo puro como mediante programaci\u00f3n visual con Blueprints en Unreal Engine y la creaci\u00f3n de assets en Houdini.",
                     "text_summary": "Profesional con certificaci\u00f3n en Python (PCAP) y formaci\u00f3n avanzada en POO. Experiencia pr\u00e1ctica aplicando C++, Python y programaci\u00f3n visual (Blueprints/VEX) en el desarrollo t\u00e9cnico de entornos 3D.",
-                    "use_summary": true,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
-                    "id": "bdfc6915-a098-4cab-b716-598352639153",
-                    "is_active": true,
-                    "type": "TextModule",
-                    "title": "An\u00e1lisis de datos",
-                    "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
-                    "text_summary": "Perfil anal\u00edtico con experiencia en la depuraci\u00f3n de bases de datos internacionales (VBA/Excel), validaci\u00f3n t\u00e9cnica de datasets para IA y evaluaci\u00f3n de m\u00e9tricas digitales orientadas a negocio.",
                     "use_summary": true,
                     "hyperlinks": [],
                     "translations": {}

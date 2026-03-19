@@ -4,7 +4,7 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "DBA SQL",
+        "job_position": "Python Developer",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -93,7 +93,7 @@
                 },
                 {
                     "id": "e97cb11e-160b-46c9-a5c3-6b002e4f4667",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Programador",
                     "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
@@ -104,7 +104,7 @@
                 },
                 {
                     "id": "4f5365b0-90c8-4731-bf60-7856f9e4b763",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Analista de datos",
                     "text_extended": "Especialista t\u00e9cnico en bases de datos con formaci\u00f3n avanzada en BBDD relacionales y lenguajes orientados a objetos. Mi perfil destaca por la experiencia pr\u00e1ctica en la auditor\u00eda, limpieza y estructuraci\u00f3n masiva de bases de datos corporativas internacionales, automatizando y optimizando su tratamiento mediante macros y programaci\u00f3n en VBA. Aporto, adem\u00e1s, una s\u00f3lida capacidad anal\u00edtica aplicada a la interpretaci\u00f3n de m\u00e9tricas digitales (Social Media), garantizando siempre la integridad t\u00e9cnica de la informaci\u00f3n y su valor real para la toma de decisiones estrat\u00e9gicas de negocio.",
@@ -410,7 +410,7 @@
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
                     "text_extended": "",
@@ -628,7 +628,7 @@
                         }
                     },
                     "company": "RTVE Instituto",
-                    "date_range": "10/2025 - 01/2026",
+                    "date_range": "2025 - 2026",
                     "tags": [],
                     "hide_text": false
                 }
@@ -782,17 +782,6 @@
                     }
                 },
                 {
-                    "id": "a004bc6f-0f8a-4725-86ba-7f1bd6d61550",
-                    "is_active": true,
-                    "type": "TextModule",
-                    "title": "Gesti\u00f3n de Bases de Datos",
-                    "text_extended": "S\u00f3lida base t\u00e9cnica en el dise\u00f1o y administraci\u00f3n de bases de datos relacionales, avalada por una reciente formaci\u00f3n especializada de 710 horas. Capacidad para estructurar, consultar y optimizar informaci\u00f3n de manera eficiente.",
-                    "text_summary": "Formaci\u00f3n t\u00e9cnica avanzada en bases de datos relacionales (programa de 710h).",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
                     "id": "b88d158c-ad51-4286-9165-d0bbcf630940",
                     "is_active": true,
                     "type": "TextModule",
@@ -811,6 +800,17 @@
                     "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
                     "text_summary": "Perfil anal\u00edtico con experiencia en la depuraci\u00f3n de bases de datos internacionales (VBA/Excel), validaci\u00f3n t\u00e9cnica de datasets para IA y evaluaci\u00f3n de m\u00e9tricas digitales orientadas a negocio.",
                     "use_summary": true,
+                    "hyperlinks": [],
+                    "translations": {}
+                },
+                {
+                    "id": "a004bc6f-0f8a-4725-86ba-7f1bd6d61550",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Gesti\u00f3n de Bases de Datos",
+                    "text_extended": "S\u00f3lida base t\u00e9cnica en el dise\u00f1o y administraci\u00f3n de bases de datos relacionales, avalada por una reciente formaci\u00f3n especializada de 710 horas. Capacidad para estructurar, consultar y optimizar informaci\u00f3n de manera eficiente.",
+                    "text_summary": "Formaci\u00f3n t\u00e9cnica avanzada en bases de datos relacionales (programa de 710h).",
+                    "use_summary": false,
                     "hyperlinks": [],
                     "translations": {}
                 },
@@ -915,7 +915,7 @@
                 },
                 {
                     "id": "1d46dfc9-01b4-414d-827b-65305f7bbb03",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Atenci\u00f3n al detalle",
                     "text_extended": " Esta minuciosidad me permite asegurar la calidad del resultado final, minimizar las incidencias operativas y garantizar la seguridad en el entorno de trabajo.",
@@ -986,7 +986,7 @@
                 },
                 {
                     "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Unreal Engine 5.6",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\unreal_logo.png"
@@ -1077,7 +1077,7 @@
                 },
                 {
                     "id": "a466d5ee-5d00-4f74-ba59-9869b12b49b3",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "C++",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\cplus_logo.png"
@@ -1098,7 +1098,7 @@
                 },
                 {
                     "id": "276b4a81-5845-427f-97f5-558993d88325",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "VBA",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\vba_logo.png"
