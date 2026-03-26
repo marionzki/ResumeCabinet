@@ -1,10 +1,10 @@
 {
     "settings": {
-        "language": "Ingl\u00e9s"
+        "language": "Espa\u00f1ol"
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "Power BI Developer",
+        "job_position": "",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -19,7 +19,7 @@
             "modules": [
                 {
                     "id": "832d7a74-250f-4b8e-aba8-fc0db7143e49",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio",
                     "text_extended": "Soy una persona curiosa y orientada a la resoluci\u00f3n de problemas, con gran capacidad de adaptaci\u00f3n y trabajo en equipo. Me apasiona el desarrollo de soluciones creativas a trav\u00e9s de la programaci\u00f3n, combinando mi experiencia en entornos 3D y simulaci\u00f3n con el uso de lenguajes como Python, C++ y programaci\u00f3n orientada a objetos. Mi objetivo es seguir creciendo en el \u00e1mbito del desarrollo de software y la programaci\u00f3n, adquiriendo nuevas competencias que me permitan afrontar proyectos cada vez m\u00e1s complejos en simulaci\u00f3n, automatizaci\u00f3n y generaci\u00f3n procedural.",
@@ -104,7 +104,7 @@
                 },
                 {
                     "id": "4f5365b0-90c8-4731-bf60-7856f9e4b763",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Analista de datos",
                     "text_extended": "Especialista t\u00e9cnico en bases de datos con formaci\u00f3n avanzada en BBDD relacionales y lenguajes orientados a objetos. Mi perfil destaca por la experiencia pr\u00e1ctica en la auditor\u00eda, limpieza y estructuraci\u00f3n masiva de bases de datos corporativas internacionales, automatizando y optimizando su tratamiento mediante macros y programaci\u00f3n en VBA. Aporto, adem\u00e1s, una s\u00f3lida capacidad anal\u00edtica aplicada a la interpretaci\u00f3n de m\u00e9tricas digitales (Social Media), garantizando siempre la integridad t\u00e9cnica de la informaci\u00f3n y su valor real para la toma de decisiones estrat\u00e9gicas de negocio.",
@@ -240,8 +240,47 @@
                     ]
                 },
                 {
+                    "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
+                    "is_active": true,
+                    "type": "ExperienceModule",
+                    "title": "Atenci\u00f3n al cliente",
+                    "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Atento Comunicaciones / Securitas Seguridad / Quir\u00f3n Salud",
+                    "date_range": "2012 \u2013 2021",
+                    "tags": [
+                        "Medios sociales",
+                        "Gesti\u00f3n de agendas m\u00e9dicas",
+                        "Atenci\u00f3n al cliente",
+                        "Gesti\u00f3n de recepci\u00f3n de alarmas",
+                        "Atenci\u00f3n en redes sociales"
+                    ]
+                },
+                {
+                    "id": "b90796e0-9184-4c60-b16f-4a482621768e",
+                    "is_active": true,
+                    "type": "ExperienceModule",
+                    "title": "Dise\u00f1ador gr\u00e1fico",
+                    "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "2010",
+                    "tags": [
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Branding",
+                        "Adobe Photoshop",
+                        "Adobe Illustrator"
+                    ]
+                },
+                {
                     "id": "1ab5c97a-2fe9-491c-9d22-2fec05bf9861",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Redactor",
                     "text_extended": "",
@@ -271,7 +310,7 @@
                 },
                 {
                     "id": "49834115-0966-4ab4-930c-2dece1aa6b8d",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Operador de c\u00e1mara",
                     "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas. Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/).",
@@ -298,45 +337,6 @@
                         "Entrevistas",
                         "Sony Vegas",
                         "Avid Liquid"
-                    ]
-                },
-                {
-                    "id": "b90796e0-9184-4c60-b16f-4a482621768e",
-                    "is_active": false,
-                    "type": "ExperienceModule",
-                    "title": "Dise\u00f1ador gr\u00e1fico",
-                    "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
-                    "date_range": "2010",
-                    "tags": [
-                        "Dise\u00f1o gr\u00e1fico",
-                        "Branding",
-                        "Adobe Photoshop",
-                        "Adobe Illustrator"
-                    ]
-                },
-                {
-                    "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
-                    "is_active": false,
-                    "type": "ExperienceModule",
-                    "title": "Atenci\u00f3n al cliente",
-                    "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Atento Comunicaciones / Securitas Seguridad / Quir\u00f3n Salud",
-                    "date_range": "2012 \u2013 2021",
-                    "tags": [
-                        "Medios sociales",
-                        "Gesti\u00f3n de agendas m\u00e9dicas",
-                        "Atenci\u00f3n al cliente",
-                        "Gesti\u00f3n de recepci\u00f3n de alarmas",
-                        "Atenci\u00f3n en redes sociales"
                     ]
                 }
             ]
@@ -397,6 +397,32 @@
                         "SQL"
                     ],
                     "hide_text": true
+                },
+                {
+                    "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
+                    "is_active": true,
+                    "type": "EducationModule",
+                    "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
+                    "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
+                    "text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales.",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Advanced virtual production with Simulcam and Unreal Engine",
+                            "_source_title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
+                            "company": "RTVE Institute",
+                            "_source_company": "RTVE Instituto",
+                            "date_range": "10/2025 - 01/2026",
+                            "_source_date_range": "10/2025 - 01/2026",
+                            "text_summary": "Technical mastery of Unreal Engine, nDisplay and device synchronization for real-time composition and integration of physical and virtual sets.",
+                            "_source_text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales."
+                        }
+                    },
+                    "company": "RTVE Instituto",
+                    "date_range": "2025 - 2026",
+                    "tags": [],
+                    "hide_text": false
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
@@ -484,7 +510,7 @@
                 },
                 {
                     "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
                     "text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini.",
@@ -523,6 +549,119 @@
                         "C#"
                     ],
                     "hide_text": true
+                },
+                {
+                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
+                    "is_active": true,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en e-Commerce y Marketing",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2018",
+                    "tags": [
+                        "Google Analytics"
+                    ],
+                    "hide_text": true
+                },
+                {
+                    "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
+                    "is_active": true,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en Posicionamiento Web",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Higher Course in Web Positioning",
+                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)",
+                            "_source_title": "Curso Superior en Posicionamiento Web",
+                            "_source_text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
+                        },
+                        "Gallego": {
+                            "title": "Curso Superior de Posicionamento Web",
+                            "text_extended": "Barcelona European Business School - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
+                        }
+                    },
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2017 - 2018",
+                    "tags": [],
+                    "hide_text": false
+                },
+                {
+                    "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
+                    "is_active": true,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en Community Manager",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2017",
+                    "tags": [],
+                    "hide_text": false
+                },
+                {
+                    "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
+                    "is_active": true,
+                    "type": "EducationModule",
+                    "title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Graphic Design Course (500h)",
+                            "text_extended": "Innovartex Academy - C\u00e1ceres, Spain (2009 - 2010)",
+                            "_source_title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
+                            "_source_text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)"
+                        },
+                        "Gallego": {
+                            "title": "Curso de Dese\u00f1o Gr\u00e1fico (500h)",
+                            "text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)"
+                        }
+                    },
+                    "company": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "2009 - 2010",
+                    "tags": [
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Branding",
+                        "Atenci\u00f3n al detalle",
+                        "Trabajo en equipo"
+                    ],
+                    "hide_text": true
+                },
+                {
+                    "id": "08ad84be-b8ae-4cbf-9452-e1d929099ab0",
+                    "is_active": true,
+                    "type": "EducationModule",
+                    "title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Postgraduate Expert in Audiovisual Voiceover",
+                            "_source_title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
+                            "company": "Pontifical University of Salamanca - Salamanca, Spain",
+                            "_source_company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                            "date_range": "02/2009 - 06/2009",
+                            "_source_date_range": "02/2009 - 06/2009"
+                        }
+                    },
+                    "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                    "date_range": "02/2009 - 06/2009",
+                    "tags": [],
+                    "hide_text": false
                 },
                 {
                     "id": "b4c2dbf2-8f55-463e-805b-64848f210d84",
@@ -571,145 +710,6 @@
                         "Avid Liquid"
                     ],
                     "hide_text": true
-                },
-                {
-                    "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Curso Superior en Posicionamiento Web",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Higher Course in Web Positioning",
-                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)",
-                            "_source_title": "Curso Superior en Posicionamiento Web",
-                            "_source_text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
-                        },
-                        "Gallego": {
-                            "title": "Curso Superior de Posicionamento Web",
-                            "text_extended": "Barcelona European Business School - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
-                        }
-                    },
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2017 - 2018",
-                    "tags": [],
-                    "hide_text": false
-                },
-                {
-                    "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Curso Superior en Community Manager",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2017",
-                    "tags": [],
-                    "hide_text": false
-                },
-                {
-                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Curso Superior en e-Commerce y Marketing",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2018",
-                    "tags": [
-                        "Google Analytics"
-                    ],
-                    "hide_text": true
-                },
-                {
-                    "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Graphic Design Course (500h)",
-                            "text_extended": "Innovartex Academy - C\u00e1ceres, Spain (2009 - 2010)",
-                            "_source_title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
-                            "_source_text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)"
-                        },
-                        "Gallego": {
-                            "title": "Curso de Dese\u00f1o Gr\u00e1fico (500h)",
-                            "text_extended": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a (2009 - 2010)"
-                        }
-                    },
-                    "company": "Academia Innovartex - C\u00e1ceres, Espa\u00f1a",
-                    "date_range": "2009 - 2010",
-                    "tags": [
-                        "Dise\u00f1o gr\u00e1fico",
-                        "Branding",
-                        "Atenci\u00f3n al detalle",
-                        "Trabajo en equipo"
-                    ],
-                    "hide_text": true
-                },
-                {
-                    "id": "08ad84be-b8ae-4cbf-9452-e1d929099ab0",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Postgraduate Expert in Audiovisual Voiceover",
-                            "_source_title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
-                            "company": "Pontifical University of Salamanca - Salamanca, Spain",
-                            "_source_company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
-                            "date_range": "02/2009 - 06/2009",
-                            "_source_date_range": "02/2009 - 06/2009"
-                        }
-                    },
-                    "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
-                    "date_range": "02/2009 - 06/2009",
-                    "tags": [],
-                    "hide_text": false
-                },
-                {
-                    "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
-                    "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
-                    "text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales.",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Advanced virtual production with Simulcam and Unreal Engine",
-                            "_source_title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
-                            "company": "RTVE Institute",
-                            "_source_company": "RTVE Instituto",
-                            "date_range": "10/2025 - 01/2026",
-                            "_source_date_range": "10/2025 - 01/2026",
-                            "text_summary": "Technical mastery of Unreal Engine, nDisplay and device synchronization for real-time composition and integration of physical and virtual sets.",
-                            "_source_text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales."
-                        }
-                    },
-                    "company": "RTVE Instituto",
-                    "date_range": "2025 - 2026",
-                    "tags": [],
-                    "hide_text": false
                 }
             ]
         },
@@ -749,7 +749,7 @@
                 },
                 {
                     "id": "7faac449-b133-47a7-b60c-63356f9f0e9b",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Dise\u00f1o gr\u00e1fico",
                     "text_extended": "Formaci\u00f3n t\u00e9cnica especializada (programa de 500 horas) combinada con experiencia pr\u00e1ctica en agencias creativas. Dominio de herramientas del entorno Adobe, especialmente Photoshop e Illustrator, aplicado a la creaci\u00f3n de recursos visuales orientados a resultados. Experiencia profesional en la conceptualizaci\u00f3n, dise\u00f1o y adaptaci\u00f3n de carteler\u00eda y elementos gr\u00e1ficos para campa\u00f1as publicitarias de alcance regional (Consejer\u00eda de Extremadura), asegurando la correcta transmisi\u00f3n del mensaje institucional.",
@@ -862,7 +862,7 @@
                 },
                 {
                     "id": "bdfc6915-a098-4cab-b716-598352639153",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "An\u00e1lisis de datos",
                     "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
@@ -916,7 +916,7 @@
                 },
                 {
                     "id": "a555fce7-28cf-41c8-a8de-ae4501311b74",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Atenci\u00f3n al cliente",
                     "text_extended": "S\u00f3lida trayectoria de m\u00e1s de seis a\u00f1os en atenci\u00f3n al cliente multicanal, abarcando desde el soporte digital corporativo hasta la asistencia telef\u00f3nica en sectores cr\u00edticos. Capacidad demostrada para la resoluci\u00f3n \u00e1gil de incidencias y la toma de decisiones inmediatas bajo presi\u00f3n, destacando la gesti\u00f3n de emergencias de seguridad (Securitas) y la coordinaci\u00f3n integral de pacientes a nivel nacional (Quir\u00f3n Salud). Orientaci\u00f3n a la excelencia en el servicio, combinando la comunicaci\u00f3n efectiva con el an\u00e1lisis del feedback del usuario en redes sociales para optimizar su experiencia.",
@@ -1015,7 +1015,7 @@
                 },
                 {
                     "id": "1d46dfc9-01b4-414d-827b-65305f7bbb03",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Atenci\u00f3n al detalle",
                     "text_extended": " Esta minuciosidad me permite asegurar la calidad del resultado final, minimizar las incidencias operativas y garantizar la seguridad en el entorno de trabajo.",
@@ -1026,7 +1026,7 @@
                 },
                 {
                     "id": "fc4cde75-7576-4076-9c20-ede48e81df8d",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Trabajo en equipo",
                     "text_extended": "Aporto una s\u00f3lida capacidad de trabajo en equipo basada en la coordinaci\u00f3n y la comunicaci\u00f3n clara. Me integro con facilidad en nuevas din\u00e1micas, asumiendo mis responsabilidades y colaborando con mis compa\u00f1eros. Entiendo el trabajo como un esfuerzo conjunto donde el apoyo mutuo y el orden son fundamentales para mantener el ritmo operativo y cumplir los objetivos diarios de forma eficiente.",
@@ -1044,14 +1044,14 @@
             "modules": [
                 {
                     "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Adobe Photoshop",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\phtshp_logo.png"
                 },
                 {
                     "id": "0aad998d-8f2e-40b0-ac91-8b6df0dacbf3",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Adobe Premiere Pro",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\premiere_logo.png"
@@ -1065,7 +1065,7 @@
                 },
                 {
                     "id": "c840a062-60d2-4293-a310-8fb3078b1ce0",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Houdini FX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\houdini_logo.png"
@@ -1086,7 +1086,7 @@
                 },
                 {
                     "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Unreal Engine 5.6",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\unreal_logo.png"
@@ -1107,7 +1107,7 @@
                 },
                 {
                     "id": "5604960d-d4dc-4953-80a3-d85bc18d9bdb",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Blender",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\blender_logo.png"
@@ -1121,14 +1121,14 @@
                 },
                 {
                     "id": "6b6d0d4b-51a1-4431-8811-d949d76b0fae",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Adobe Audition",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\audition_logo.png"
                 },
                 {
                     "id": "00b1c08d-4a16-486b-9da2-110f3d7baa1a",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "NukeX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\nuke_logo.png"
@@ -1142,14 +1142,14 @@
                 },
                 {
                     "id": "90235af1-94ac-4c2f-90f5-f7ab9e7c443c",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "DaVinci Resolve",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\daVinci_logo.png"
                 },
                 {
                     "id": "e373d189-58a1-43c6-813c-8afbddc19838",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Jira",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\jira_logo.png"

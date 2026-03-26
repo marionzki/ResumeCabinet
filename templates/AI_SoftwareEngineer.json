@@ -4,7 +4,7 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "Data Analyst",
+        "job_position": "AI Software Engineer",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -93,7 +93,7 @@
                 },
                 {
                     "id": "e97cb11e-160b-46c9-a5c3-6b002e4f4667",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Programador",
                     "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
@@ -104,7 +104,7 @@
                 },
                 {
                     "id": "4f5365b0-90c8-4731-bf60-7856f9e4b763",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Analista de datos",
                     "text_extended": "Especialista t\u00e9cnico en bases de datos con formaci\u00f3n avanzada en BBDD relacionales y lenguajes orientados a objetos. Mi perfil destaca por la experiencia pr\u00e1ctica en la auditor\u00eda, limpieza y estructuraci\u00f3n masiva de bases de datos corporativas internacionales, automatizando y optimizando su tratamiento mediante macros y programaci\u00f3n en VBA. Aporto, adem\u00e1s, una s\u00f3lida capacidad anal\u00edtica aplicada a la interpretaci\u00f3n de m\u00e9tricas digitales (Social Media), garantizando siempre la integridad t\u00e9cnica de la informaci\u00f3n y su valor real para la toma de decisiones estrat\u00e9gicas de negocio.",
@@ -400,7 +400,7 @@
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
                     "text_extended": "",
@@ -439,7 +439,7 @@
                 },
                 {
                     "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
                     "text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4.",
@@ -525,25 +525,8 @@
                     "hide_text": true
                 },
                 {
-                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
-                    "is_active": true,
-                    "type": "EducationModule",
-                    "title": "Curso Superior en e-Commerce y Marketing",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2018",
-                    "tags": [
-                        "Google Analytics"
-                    ],
-                    "hide_text": true
-                },
-                {
                     "id": "b4c2dbf2-8f55-463e-805b-64848f210d84",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Licenciado en Comunicaci\u00f3n Audiovisual",
                     "text_extended": "",
@@ -629,6 +612,23 @@
                     "date_range": "2017",
                     "tags": [],
                     "hide_text": false
+                },
+                {
+                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
+                    "is_active": false,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en e-Commerce y Marketing",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2018",
+                    "tags": [
+                        "Google Analytics"
+                    ],
+                    "hide_text": true
                 },
                 {
                     "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
@@ -1086,7 +1086,7 @@
                 },
                 {
                     "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Unreal Engine 5.6",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\unreal_logo.png"
