@@ -2,7 +2,7 @@ import flet as ft
 from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule, EducationModule
 
 class ModuleForm:
-    def __init__(self, page: ft.Page, module, available_tags=None, on_save=None, file_picker=None):
+    def __init__(self, page: ft.Page, module, available_tags=None, on_save=None):
         self.page = page
         self.module = module
         self.available_tags = available_tags or []

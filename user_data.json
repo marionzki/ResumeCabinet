@@ -4,7 +4,7 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "",
+        "job_position": "Data Analyst",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -19,7 +19,7 @@
             "modules": [
                 {
                     "id": "832d7a74-250f-4b8e-aba8-fc0db7143e49",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio",
                     "text_extended": "Soy una persona curiosa y orientada a la resoluci\u00f3n de problemas, con gran capacidad de adaptaci\u00f3n y trabajo en equipo. Me apasiona el desarrollo de soluciones creativas a trav\u00e9s de la programaci\u00f3n, combinando mi experiencia en entornos 3D y simulaci\u00f3n con el uso de lenguajes como Python, C++ y programaci\u00f3n orientada a objetos. Mi objetivo es seguir creciendo en el \u00e1mbito del desarrollo de software y la programaci\u00f3n, adquiriendo nuevas competencias que me permitan afrontar proyectos cada vez m\u00e1s complejos en simulaci\u00f3n, automatizaci\u00f3n y generaci\u00f3n procedural.",
@@ -96,7 +96,7 @@
                     "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Programador",
-                    "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
+                    "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
                     "text_summary": "Programador certificado en Python (PCAP) con s\u00f3lida base en POO. Experiencia demostrable en automatizaci\u00f3n de procesos y desarrollo de herramientas mediante Python, C++, VBA y l\u00f3gicas visuales (Blueprints).",
                     "use_summary": false,
                     "hyperlinks": [],
@@ -104,7 +104,7 @@
                 },
                 {
                     "id": "4f5365b0-90c8-4731-bf60-7856f9e4b763",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Analista de datos",
                     "text_extended": "Especialista t\u00e9cnico en bases de datos con formaci\u00f3n avanzada en BBDD relacionales y lenguajes orientados a objetos. Mi perfil destaca por la experiencia pr\u00e1ctica en la auditor\u00eda, limpieza y estructuraci\u00f3n masiva de bases de datos corporativas internacionales, automatizando y optimizando su tratamiento mediante macros y programaci\u00f3n en VBA. Aporto, adem\u00e1s, una s\u00f3lida capacidad anal\u00edtica aplicada a la interpretaci\u00f3n de m\u00e9tricas digitales (Social Media), garantizando siempre la integridad t\u00e9cnica de la informaci\u00f3n y su valor real para la toma de decisiones estrat\u00e9gicas de negocio.",
@@ -241,7 +241,7 @@
                 },
                 {
                     "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Atenci\u00f3n al cliente",
                     "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
@@ -261,7 +261,7 @@
                 },
                 {
                     "id": "b90796e0-9184-4c60-b16f-4a482621768e",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Dise\u00f1ador gr\u00e1fico",
                     "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
@@ -280,7 +280,7 @@
                 },
                 {
                     "id": "1ab5c97a-2fe9-491c-9d22-2fec05bf9861",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Redactor",
                     "text_extended": "",
@@ -310,7 +310,7 @@
                 },
                 {
                     "id": "49834115-0966-4ab4-930c-2dece1aa6b8d",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Operador de c\u00e1mara",
                     "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas. Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/).",
@@ -400,7 +400,7 @@
                 },
                 {
                     "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
                     "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
@@ -426,7 +426,7 @@
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
                     "text_extended": "",
@@ -465,7 +465,7 @@
                 },
                 {
                     "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
                     "text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4.",
@@ -510,7 +510,7 @@
                 },
                 {
                     "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
                     "text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini.",
@@ -569,7 +569,7 @@
                 },
                 {
                     "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso Superior en Posicionamiento Web",
                     "text_extended": "",
@@ -595,7 +595,7 @@
                 },
                 {
                     "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso Superior en Community Manager",
                     "text_extended": "",
@@ -610,7 +610,7 @@
                 },
                 {
                     "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso de Dise\u00f1o Gr\u00e1fico (500h)",
                     "text_extended": "",
@@ -641,7 +641,7 @@
                 },
                 {
                     "id": "08ad84be-b8ae-4cbf-9452-e1d929099ab0",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Posgrado de Experto en Locuci\u00f3n Audiovisual",
                     "text_extended": "",
@@ -749,7 +749,7 @@
                 },
                 {
                     "id": "7faac449-b133-47a7-b60c-63356f9f0e9b",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Dise\u00f1o gr\u00e1fico",
                     "text_extended": "Formaci\u00f3n t\u00e9cnica especializada (programa de 500 horas) combinada con experiencia pr\u00e1ctica en agencias creativas. Dominio de herramientas del entorno Adobe, especialmente Photoshop e Illustrator, aplicado a la creaci\u00f3n de recursos visuales orientados a resultados. Experiencia profesional en la conceptualizaci\u00f3n, dise\u00f1o y adaptaci\u00f3n de carteler\u00eda y elementos gr\u00e1ficos para campa\u00f1as publicitarias de alcance regional (Consejer\u00eda de Extremadura), asegurando la correcta transmisi\u00f3n del mensaje institucional.",
@@ -862,7 +862,7 @@
                 },
                 {
                     "id": "bdfc6915-a098-4cab-b716-598352639153",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "An\u00e1lisis de datos",
                     "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
@@ -916,7 +916,7 @@
                 },
                 {
                     "id": "a555fce7-28cf-41c8-a8de-ae4501311b74",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Atenci\u00f3n al cliente",
                     "text_extended": "S\u00f3lida trayectoria de m\u00e1s de seis a\u00f1os en atenci\u00f3n al cliente multicanal, abarcando desde el soporte digital corporativo hasta la asistencia telef\u00f3nica en sectores cr\u00edticos. Capacidad demostrada para la resoluci\u00f3n \u00e1gil de incidencias y la toma de decisiones inmediatas bajo presi\u00f3n, destacando la gesti\u00f3n de emergencias de seguridad (Securitas) y la coordinaci\u00f3n integral de pacientes a nivel nacional (Quir\u00f3n Salud). Orientaci\u00f3n a la excelencia en el servicio, combinando la comunicaci\u00f3n efectiva con el an\u00e1lisis del feedback del usuario en redes sociales para optimizar su experiencia.",
@@ -1026,7 +1026,7 @@
                 },
                 {
                     "id": "fc4cde75-7576-4076-9c20-ede48e81df8d",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Trabajo en equipo",
                     "text_extended": "Aporto una s\u00f3lida capacidad de trabajo en equipo basada en la coordinaci\u00f3n y la comunicaci\u00f3n clara. Me integro con facilidad en nuevas din\u00e1micas, asumiendo mis responsabilidades y colaborando con mis compa\u00f1eros. Entiendo el trabajo como un esfuerzo conjunto donde el apoyo mutuo y el orden son fundamentales para mantener el ritmo operativo y cumplir los objetivos diarios de forma eficiente.",
@@ -1044,14 +1044,14 @@
             "modules": [
                 {
                     "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Photoshop",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\phtshp_logo.png"
                 },
                 {
                     "id": "0aad998d-8f2e-40b0-ac91-8b6df0dacbf3",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Premiere Pro",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\premiere_logo.png"
@@ -1065,7 +1065,7 @@
                 },
                 {
                     "id": "c840a062-60d2-4293-a310-8fb3078b1ce0",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Houdini FX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\houdini_logo.png"
@@ -1086,7 +1086,7 @@
                 },
                 {
                     "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Unreal Engine 5.6",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\unreal_logo.png"
@@ -1107,7 +1107,7 @@
                 },
                 {
                     "id": "5604960d-d4dc-4953-80a3-d85bc18d9bdb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Blender",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\blender_logo.png"
@@ -1121,14 +1121,14 @@
                 },
                 {
                     "id": "6b6d0d4b-51a1-4431-8811-d949d76b0fae",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Audition",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\audition_logo.png"
                 },
                 {
                     "id": "00b1c08d-4a16-486b-9da2-110f3d7baa1a",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "NukeX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\nuke_logo.png"
@@ -1142,14 +1142,14 @@
                 },
                 {
                     "id": "90235af1-94ac-4c2f-90f5-f7ab9e7c443c",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "DaVinci Resolve",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\daVinci_logo.png"
                 },
                 {
                     "id": "e373d189-58a1-43c6-813c-8afbddc19838",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Jira",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\jira_logo.png"
@@ -1177,7 +1177,7 @@
                 },
                 {
                     "id": "a466d5ee-5d00-4f74-ba59-9869b12b49b3",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "C++",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\cplus_logo.png"
@@ -1198,7 +1198,7 @@
                 },
                 {
                     "id": "276b4a81-5845-427f-97f5-558993d88325",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "VBA",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\vba_logo.png"

@@ -3,7 +3,7 @@ from view_flet.main_view import FletMainWindow
 import flet as ft
 import json
 import os
-# Will import other modules as we implement them
+import re
 
 class FletController:
     def __init__(self, page: ft.Page):
@@ -29,12 +29,6 @@ class FletController:
     def save_autosave(self):
         try:
             with open("user_data.json", "w", encoding="utf-8") as f:
-                # DEBUG: Check if translations are present before saving
-                for sec in [self.cv_data.experience, self.cv_data.education]:
-                    for m in sec.modules:
-                         if "Procedural" in getattr(m, 'title', ''):
-                             print(f"DEBUG SAVING: Module {m.title} translations: {getattr(m, 'translations', 'N/A')}")
-                
                 f.write(self.cv_data.to_json())
             print("Autosave updated")
         except Exception as e:
@@ -160,7 +154,7 @@ class FletController:
                 self.save_autosave()
                 self.refresh_view_section(section)
                 
-            form = ModuleForm(self.page, module, available_tags=tags, on_save=on_save_callback, file_picker=self.file_picker)
+            form = ModuleForm(self.page, module, available_tags=tags, on_save=on_save_callback)
             form.show()
         except Exception as e:
             # Avoid printing to console to prevent encoding errors
@@ -309,8 +303,6 @@ class FletController:
     def save_template_file(self, name):
         if not name: return
         file_name = f"{name}.json"
-        # Sanitize filename?
-        import re
         file_name = re.sub(r'[<>:"/\\|?*]', '', file_name)
         
         path = os.path.join("templates", file_name)
@@ -372,7 +364,6 @@ class FletController:
             self.show_snackbar(f"Error applying template: {ex}")
 
     def delete_template_file(self, name):
-        import os
         path = os.path.join("templates", name)
         if os.path.exists(path):
             try:

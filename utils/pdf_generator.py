@@ -1,17 +1,18 @@
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
+import os
+import re
+import logging
+
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
-from .pdf_styles import *
-from model.modules import AvatarModule, ImageModule
-import os
-from .translations import TRANSLATIONS
-from .translator import TranslationService
-
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT
+
+from .pdf_styles import *
+from .translations import TRANSLATIONS
+from .translator import TranslationService
+from model.modules import AvatarModule, ImageModule
 
 class PDFGenerator:
     def __init__(self, cv_data):
@@ -54,57 +55,30 @@ class PDFGenerator:
             
         lang_trans = module.translations[self.language]
         
-        # Check for Stale Translation
-        # logic: if we have a translation, check if the source text it was based on matches current text
+        # Check for stale translation: compare stored source text with current text.
+        # If source_key is missing (legacy data), assume stale to ensure consistency.
         source_key = f"_source_{field_name}"
         stored_source = lang_trans.get(source_key)
-        
-        # If we have a translation BUT stored_source doesn't match original_text, it's stale.
-        # Exception: if stored_source is None (legacy data), we might assume it's valid OR invalid.
-        # Let's assume valid to prevent overwriting manual work, BUT update the source now?
-        # No, if we assume valid, we lock it. 
-        # User request: "Detect if changes happened".
-        # So if stored_source is missing, we can't be sure. 
-        # Strategy: If missing, set it to current? No, next time it will match.
-        # Let's simple comparison: if stored_source is set and != original, INVALIDATE.
-        # If stored_source is NOT set, we assume it matches (fallback for legacy), 
-        # UNLESS we want to force re-translate? 
-        # Use Case: User adds link to Spanish text. Legacy translation has no link.
-        # If we don't re-translate, link is missing in English PDF.
-        # So maybe if missing, we SHOULD re-translate? 
-        # But that overwrites manual edits from before this feature.
-        # Compromise: Only invalidate if stored_source IS present and differs. 
-        # (This means first time after update, it won't detect. But future edits will).
-        # WAIIIT. If I change text now, `_source_` won't be there.
-        # So I need to start saving `_source_` when generating.
         
         is_stale = False
         if source_key in lang_trans:
             if lang_trans[source_key] != original_text:
                 is_stale = True
-                print(f"Translation for '{field_name}' is stale (source changed). Re-translating...")
+                logging.debug("Translation for '%s' is stale (source changed). Re-translating...", field_name)
         else:
-            # Source key missing (legacy data or manual edit pre-tracking).
-            # We must assume it might be stale to ensure correctness.
-            # This might overwrite manual legacy translations, but ensures consistency for the user's workflow.
             is_stale = True
-            print(f"Translation for '{field_name}' lacks source tracking. Re-translating...")
+            logging.debug("Translation for '%s' lacks source tracking. Re-translating...", field_name)
         
         # If valid translation exists and not stale, return it
         if not is_stale and field_name in lang_trans and lang_trans[field_name]:
-             return lang_trans[field_name]
+            return lang_trans[field_name]
             
-        # 3. Auto-translate if missing or stale
+        # Auto-translate if missing or stale
         if original_text:
-            if field_name not in lang_trans:
-                 print(f"Auto-translating '{field_name}' to {self.language}...")
-                 
-            print(f"DEBUG: Translating '{original_text}'...")
+            logging.debug("Auto-translating '%s' to %s...", field_name, self.language)
             translated = self.translator.translate_text(original_text, self.language)
-            print(f"DEBUG: Result: '{translated}'")
-            # Store it
             lang_trans[field_name] = translated
-            lang_trans[source_key] = original_text # Store source for future checks
+            lang_trans[source_key] = original_text
             return translated
             
         return original_text
@@ -137,7 +111,7 @@ class PDFGenerator:
             if tag in tags_dict and tags_dict[tag]:
                 translated_tags.append(tags_dict[tag])
             else:
-                print(f"Auto-translating tag '{tag}' to {self.language}...")
+                logging.debug("Auto-translating tag '%s' to %s...", tag, self.language)
                 translated = self.translator.translate_text(tag, self.language)
                 tags_dict[tag] = translated
                 translated_tags.append(translated)
@@ -158,13 +132,7 @@ class PDFGenerator:
         
         for k in keywords:
             if k.lower() in lower_date:
-                # If the keyword is found, we want to replace it with the target language equivalent
-                # The target equivalent is found by looking up k.lower() in self.trans
                 target = self._t(k.lower())
-                
-                # Reform the string preserving case if possible, or just replace
-                # This is a simple replace, might need regex for exact word match
-                import re
                 return re.sub(k, target, date_str, flags=re.IGNORECASE)
                 
         return date_str
@@ -536,62 +504,14 @@ class PDFGenerator:
 
     def _process_text_formatting(self, text):
         if not text: return ""
-        import re
-        # Pattern: [text](url)
-        # Avoid matching greedy if multiple links on line? [^\]]+ helps.
         pattern = r'\[([^\]]+)\]\((https?://[^)]+)\)'
         
         def replace_match(match):
             display_text = match.group(1)
             url = match.group(2)
-            # Translate display text
             translated_text = self._t(display_text)
-            
-            # Use blue color for link
             return f'<a href="{url}"><font color="blue">{translated_text}</font></a>'
             
         return re.sub(pattern, replace_match, text)
 
-    def _get_module_date(self, module):
-        # Extract a comparable date value (End Date) from module
-        # Returns tuple (year, month)
-        date_str = ""
-        source_text = ""
-        
-        if hasattr(module, 'date_range') and module.date_range:
-            source_text = module.date_range
-        elif hasattr(module, 'text_extended') and module.text_extended:
-            source_text = module.text_extended
-            
-        if source_text:
-            # Try to find date pattern in text (e.g. "(YYYY - YYYY)" or "MM/YYYY")
-            import re
-            # Look for YYYY or MM/YYYY patterns. 
-            # We want the LAST date mentioned (End Date)
-            matches = re.findall(r'(\d{1,2}/\d{4}|\d{4}|Present|Actualidad)', source_text, re.IGNORECASE)
-            if matches:
-                date_str = matches[-1] # Assume last match is end date
-        
-        if not date_str:
-            return (0, 0)
-            
-        return self._parse_date_string(date_str)
 
-    def _parse_date_string(self, date_str):
-        # Handle "Present", "Actualidad", "Current"
-        if any(x in date_str.lower() for x in ['present', 'actualidad', 'current', 'hoy']):
-            return (9999, 12) # Future date
-            
-        try:
-            # Try MM/YYYY
-            if '/' in date_str:
-                parts = date_str.split('/')
-                if len(parts) == 2:
-                    return (int(parts[1]), int(parts[0]))
-            # Try YYYY
-            elif len(date_str) == 4 and date_str.isdigit():
-                return (int(date_str), 12) # End of year if only year given
-        except:
-            pass
-            
-        return (0, 0)

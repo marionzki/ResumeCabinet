@@ -18,7 +18,6 @@ COLOR_TEXT_MAIN = HexColor("#333333")
 COLOR_TEXT_SUB = HexColor("#666666")
 
 COLOR_TAG_BG = HexColor("#E3F2FD") # Light Blue
-COLOR_TAG_BG = HexColor("#E3F2FD") # Light Blue
 COLOR_TAG_BORDER = HexColor("#2196F3") # Blue link color
 COLOR_LINK = HexColor("#0000CC") # Dark Blue for links
 

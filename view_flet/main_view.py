@@ -7,9 +7,6 @@ class FletMainWindow:
         self.page.title = "ResumeCabinet Flet"
         self.page.theme_mode = ft.ThemeMode.LIGHT
         
-        # Removed Flet FilePicker in favor of tkinter.filedialog for reliability
-        self.controller.file_picker = None 
-        
         # App Bar
         self.page.appbar = ft.AppBar(
             title=ft.Text("ResumeCabinet"),

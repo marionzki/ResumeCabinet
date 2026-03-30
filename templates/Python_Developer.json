@@ -4,7 +4,7 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "Python Developer",
+        "job_position": "Python dev",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
@@ -96,7 +96,7 @@
                     "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Programador",
-                    "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
+                    "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
                     "text_summary": "Programador certificado en Python (PCAP) con s\u00f3lida base en POO. Experiencia demostrable en automatizaci\u00f3n de procesos y desarrollo de herramientas mediante Python, C++, VBA y l\u00f3gicas visuales (Blueprints).",
                     "use_summary": false,
                     "hyperlinks": [],
@@ -111,7 +111,12 @@
                     "text_summary": "Especialista en bases de datos con formaci\u00f3n avanzada y experiencia pr\u00e1ctica en la depuraci\u00f3n de registros internacionales mediante VBA y Excel. Perfil anal\u00edtico enfocado en la integridad de los datos y el an\u00e1lisis de m\u00e9tricas para la toma de decisiones.",
                     "use_summary": false,
                     "hyperlinks": [],
-                    "translations": {}
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "text_extended": "Technical database specialist with advanced training in relational databases and object-oriented languages. My profile stands out for the practical experience in auditing, cleaning and massive structuring of international corporate databases, automating and optimizing their treatment through macros and VBA programming. I also provide a solid analytical capacity applied to the interpretation of digital metrics (Social Media), always guaranteeing the technical integrity of the information and its real value for making strategic business decisions.",
+                            "_source_text_extended": "Especialista t\u00e9cnico en bases de datos con formaci\u00f3n avanzada en BBDD relacionales y lenguajes orientados a objetos. Mi perfil destaca por la experiencia pr\u00e1ctica en la auditor\u00eda, limpieza y estructuraci\u00f3n masiva de bases de datos corporativas internacionales, automatizando y optimizando su tratamiento mediante macros y programaci\u00f3n en VBA. Aporto, adem\u00e1s, una s\u00f3lida capacidad anal\u00edtica aplicada a la interpretaci\u00f3n de m\u00e9tricas digitales (Social Media), garantizando siempre la integridad t\u00e9cnica de la informaci\u00f3n y su valor real para la toma de decisiones estrat\u00e9gicas de negocio."
+                        }
+                    }
                 },
                 {
                     "id": "72256bda-9c4f-45ac-904f-a62bfc567ab6",
@@ -151,7 +156,25 @@
                     "text_summary": "Experiencia pr\u00e1ctica (80h) en auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales. Programaci\u00f3n y adaptaci\u00f3n de macros mediante c\u00f3digo VBA para automatizar el tratamiento masivo de datos corporativos.",
                     "use_summary": true,
                     "hyperlinks": [],
-                    "translations": {},
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Programming and Database Practices",
+                            "_source_title": "Pr\u00e1cticas de Programaci\u00f3n y Bases de Datos",
+                            "company": "Pinkstone Advertisement Group - Las Rozas, Spain",
+                            "_source_company": "Pinkstone Advertisement Group - Las Rozas, Espa\u00f1a",
+                            "date_range": "02/2026 - 03/2026",
+                            "_source_date_range": "02/2026 - 03/2026",
+                            "text_summary": "Practical experience (80h) in auditing, cleaning and structuring of international databases. Programming and adaptation of macros using VBA code to automate the massive processing of corporate data.",
+                            "_source_text_summary": "Experiencia pr\u00e1ctica (80h) en auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales. Programaci\u00f3n y adaptaci\u00f3n de macros mediante c\u00f3digo VBA para automatizar el tratamiento masivo de datos corporativos.",
+                            "tags": {
+                                "Programaci\u00f3n Orientada a Objetos": "Object Oriented Programming",
+                                "Gesti\u00f3n de Bases de Datos": "Database Management",
+                                "An\u00e1lisis de datos": "Data analysis",
+                                "Excel": "Excel",
+                                "VBA": "VBA"
+                            }
+                        }
+                    },
                     "company": "Pinkstone Advertisement Group - Las Rozas, Espa\u00f1a",
                     "date_range": "02/2026 - 03/2026",
                     "tags": [
@@ -175,12 +198,28 @@
                         "Ingl\u00e9s": {
                             "title": "Artista 3D procedural",
                             "_source_title": "Artista 3D procedural",
-                            "company": "Computer Vision Center - Madrid, Spain",
-                            "_source_company": "Computer Visi\u00f3n Center - Madrid, Espa\u00f1a",
-                            "date_range": "10/2020 - 03/2024",
-                            "_source_date_range": "10/2020 - 03/2024",
+                            "company": "Computer Vision Center / CITIC",
+                            "_source_company": "Computer Visi\u00f3n Center / CITIC",
+                            "date_range": "2020 - 2025",
+                            "_source_date_range": "2020 - 2025",
                             "text_extended": "Procedural generation of urban and natural environments for the autonomous driving project of [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) in version 0.9.15. Development of own widgets and blueprints in Unreal and HDAs in Houdini FX.\n\nCo-author on the dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
-                            "_source_text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\"."
+                            "_source_text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
+                            "text_summary": "Generation of urban and natural procedural environments for autonomous driving scenarios in [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/). Development of widgets and blueprints in Unreal integrated with Houdini. Co-author of the project [Urbansyn](https://www.urbansyn.org). Procedural 3D generation of a highway section from real data, being co-author of the project [HighwayScapes](https://zenodo.org/records/15095403).",
+                            "_source_text_summary": "Generaci\u00f3n de entornos procedurales urbanos y naturales para escenarios de conducci\u00f3n aut\u00f3noma en [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/). Desarrollo de widgets y blueprints en Unreal integrados con Houdini. Co-autor del proyecto [Urbansyn](https://www.urbansyn.org). Generaci\u00f3n 3D procedural de un tramo de autopista a partir de datos reales siendo co-autor del proyecto [HighwayScapes](https://zenodo.org/records/15095403).",
+                            "tags": {
+                                "Dise\u00f1o gr\u00e1fico": "Graphic design",
+                                "Edici\u00f3n de v\u00eddeo": "Video editing",
+                                "3D": "3D",
+                                "Programaci\u00f3n Orientada a Objetos": "Object Oriented Programming",
+                                "Atenci\u00f3n al detalle": "Attention to detail",
+                                "Trabajo en equipo": "Teamwork",
+                                "Adobe Premiere Pro": "Adobe Premiere Pro",
+                                "Unreal Engine 4.27": "Unreal Engine 4.27",
+                                "Houdini FX": "Houdini FX",
+                                "Blender": "Blender",
+                                "Python": "Python",
+                                "C++": "C++"
+                            }
                         }
                     },
                     "company": "Computer Visi\u00f3n Center / CITIC",
@@ -198,6 +237,45 @@
                         "Blender",
                         "Python",
                         "C++"
+                    ]
+                },
+                {
+                    "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Atenci\u00f3n al cliente",
+                    "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Atento Comunicaciones / Securitas Seguridad / Quir\u00f3n Salud",
+                    "date_range": "2012 \u2013 2021",
+                    "tags": [
+                        "Medios sociales",
+                        "Gesti\u00f3n de agendas m\u00e9dicas",
+                        "Atenci\u00f3n al cliente",
+                        "Gesti\u00f3n de recepci\u00f3n de alarmas",
+                        "Atenci\u00f3n en redes sociales"
+                    ]
+                },
+                {
+                    "id": "b90796e0-9184-4c60-b16f-4a482621768e",
+                    "is_active": false,
+                    "type": "ExperienceModule",
+                    "title": "Dise\u00f1ador gr\u00e1fico",
+                    "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
+                    "date_range": "2010",
+                    "tags": [
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Branding",
+                        "Adobe Photoshop",
+                        "Adobe Illustrator"
                     ]
                 },
                 {
@@ -260,45 +338,6 @@
                         "Sony Vegas",
                         "Avid Liquid"
                     ]
-                },
-                {
-                    "id": "b90796e0-9184-4c60-b16f-4a482621768e",
-                    "is_active": false,
-                    "type": "ExperienceModule",
-                    "title": "Dise\u00f1ador gr\u00e1fico",
-                    "text_extended": "Especializaci\u00f3n en dise\u00f1o de imagen corporativa y creaci\u00f3n de imagen y papeler\u00eda para campa\u00f1as publicitarias de la Consejer\u00eda de Extremadura para los J\u00f3venes y el Deporte. Edici\u00f3n web y gesti\u00f3n de contenidos con Wordpress y Joomla.",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Ochoimedio Estudio - C\u00e1ceres, Espa\u00f1a",
-                    "date_range": "2010",
-                    "tags": [
-                        "Dise\u00f1o gr\u00e1fico",
-                        "Branding",
-                        "Adobe Photoshop",
-                        "Adobe Illustrator"
-                    ]
-                },
-                {
-                    "id": "fa5778e3-ad0a-48ad-90ae-b73c556e82b8",
-                    "is_active": false,
-                    "type": "ExperienceModule",
-                    "title": "Atenci\u00f3n al cliente",
-                    "text_extended": "Atenci\u00f3n al cliente a trav\u00e9s de email, Twitter y chat para clientes de Movistar. Gesti\u00f3n de recepci\u00f3n de alarmas en Securitas Direct. Reserva de citas m\u00e9dicas en los centros de Quir\u00f3n Salud de todo el pa\u00eds.",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Atento Comunicaciones / Securitas Seguridad / Quir\u00f3n Salud",
-                    "date_range": "2012 \u2013 2021",
-                    "tags": [
-                        "Medios sociales",
-                        "Gesti\u00f3n de agendas m\u00e9dicas",
-                        "Atenci\u00f3n al cliente",
-                        "Gesti\u00f3n de recepci\u00f3n de alarmas",
-                        "Atenci\u00f3n en redes sociales"
-                    ]
                 }
             ]
         },
@@ -320,14 +359,23 @@
                         "Ingl\u00e9s": {
                             "title": "OOP and relational databases (710h)",
                             "company": "Merinero Training - Madrid, Spain",
-                            "date_range": "07/2025 - 12/2025",
+                            "date_range": "2025",
                             "text_summary": "Database management with SQL and MySQL. Access scripts with C# and Python.",
                             "text_extended": "Database management with SQL and MySQL. Use of object-oriented programming languages (C# and Python) for access and manipulation of databases.",
                             "_source_title": "POO y bases de datos relacionales (710h)",
                             "_source_company": "Merinero Formaci\u00f3n - Madrid, Espa\u00f1a",
-                            "_source_date_range": "07/2025 - 12/2025",
+                            "_source_date_range": "2025",
                             "_source_text_summary": "Gesti\u00f3n de bbdd con SQL y MySQL. Scripts de acceso con C# y Python.",
-                            "_source_text_extended": "Gesti\u00f3n de bases de datos con SQL y MySQL. Uso de lenguajes de programaci\u00f3n orientados a objetos (C# y Python) para el acceso y manipulaci\u00f3n de las bbdd."
+                            "_source_text_extended": "Gesti\u00f3n de bases de datos con SQL y MySQL. Uso de lenguajes de programaci\u00f3n orientados a objetos (C# y Python) para el acceso y manipulaci\u00f3n de las bbdd.",
+                            "tags": {
+                                "Dise\u00f1o gr\u00e1fico": "Graphic design",
+                                "Programaci\u00f3n Orientada a Objetos": "Object Oriented Programming",
+                                "Gesti\u00f3n de Bases de Datos": "Database Management",
+                                "VSCode": "VSCode",
+                                "Python": "Python",
+                                "C#": "C#",
+                                "SQL": "SQL"
+                            }
                         },
                         "Gallego": {
                             "title": "POO e bases de datos relacionais (710h)",
@@ -351,60 +399,28 @@
                     "hide_text": true
                 },
                 {
-                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
+                    "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
                     "is_active": false,
                     "type": "EducationModule",
-                    "title": "Curso Superior en e-Commerce y Marketing",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2018",
-                    "tags": [
-                        "Google Analytics"
-                    ],
-                    "hide_text": true
-                },
-                {
-                    "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Curso Superior en Community Manager",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {},
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2017",
-                    "tags": [],
-                    "hide_text": false
-                },
-                {
-                    "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Curso Superior en Posicionamiento Web",
-                    "text_extended": "",
-                    "text_summary": "",
+                    "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
+                    "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
+                    "text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales.",
                     "use_summary": false,
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Higher Course in Web Positioning",
-                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)",
-                            "_source_title": "Curso Superior en Posicionamiento Web",
-                            "_source_text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
-                        },
-                        "Gallego": {
-                            "title": "Curso Superior de Posicionamento Web",
-                            "text_extended": "Barcelona European Business School - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
+                            "title": "Advanced virtual production with Simulcam and Unreal Engine",
+                            "_source_title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
+                            "company": "RTVE Institute",
+                            "_source_company": "RTVE Instituto",
+                            "date_range": "10/2025 - 01/2026",
+                            "_source_date_range": "10/2025 - 01/2026",
+                            "text_summary": "Technical mastery of Unreal Engine, nDisplay and device synchronization for real-time composition and integration of physical and virtual sets.",
+                            "_source_text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales."
                         }
                     },
-                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
-                    "date_range": "2017 - 2018",
+                    "company": "RTVE Instituto",
+                    "date_range": "2025 - 2026",
                     "tags": [],
                     "hide_text": false
                 },
@@ -421,12 +437,16 @@
                         "Ingl\u00e9s": {
                             "title": "Generative Artificial Intelligence (22h)",
                             "company": "Mantia - Madrid, Spain",
-                            "date_range": "09/2025 - 10/2025",
+                            "date_range": "2025",
                             "text_summary": "Use of the main IAG's, advanced prompting and automation.",
                             "_source_title": "Inteligencia Artificial Generativa (22h)",
                             "_source_company": "Mantia - Madrid, Espa\u00f1a",
-                            "_source_date_range": "09/2025 - 10/2025",
-                            "_source_text_summary": "Uso de las principales IAG's, prompting avanzado y automatizaci\u00f3n."
+                            "_source_date_range": "2025",
+                            "_source_text_summary": "Uso de las principales IAG's, prompting avanzado y automatizaci\u00f3n.",
+                            "tags": {
+                                "IA Generativa": "Generative AI",
+                                "Prompting": "Prompting"
+                            }
                         },
                         "Gallego": {
                             "title": "Intelixencia Artificial Xerativa (22h)",
@@ -456,12 +476,19 @@
                         "Ingl\u00e9s": {
                             "title": "Video Game Creation with Unreal Engine (350h)",
                             "company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
-                            "date_range": "10/2024 - 03/2025",
+                            "date_range": "2024 - 2025",
                             "text_extended": "Modeling and texturing with Blender 4.2. Video game design, programming with Blueprints, VFX and Virtual Reality with Unreal Engine 5.4.",
                             "_source_title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
                             "_source_company": "CIFP Jos\u00e9 Luis Garci - Alcobendas, Madrid",
-                            "_source_date_range": "10/2024 - 03/2025",
-                            "_source_text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4."
+                            "_source_date_range": "2024 - 2025",
+                            "_source_text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4.",
+                            "tags": {
+                                "Dise\u00f1o gr\u00e1fico": "Graphic design",
+                                "3D": "3D",
+                                "Programaci\u00f3n Orientada a Objetos": "Object Oriented Programming",
+                                "Unreal Engine 5.6": "Unreal Engine 5.6",
+                                "Blender": "Blender"
+                            }
                         },
                         "Gallego": {
                             "title": "Creaci\u00f3n de videoxogos con Unreal Engine (350h)",
@@ -480,6 +507,106 @@
                         "Blender"
                     ],
                     "hide_text": true
+                },
+                {
+                    "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
+                    "is_active": false,
+                    "type": "EducationModule",
+                    "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
+                    "text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini.",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Master in Composition and VFX (600h)",
+                            "company": "Trazos School - Madrid, Spain",
+                            "date_range": "10/2018 - 08/2019",
+                            "text_extended": "Video montage and editing with Premiere. Color and workflow with DaVinci Resolve. Video composition with NukeX. 3D procedural modeling and FX simulation with Houdini.",
+                            "_source_title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
+                            "_source_company": "Escuela Trazos - Madrid, Espa\u00f1a",
+                            "_source_date_range": "10/2018 - 08/2019",
+                            "_source_text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini."
+                        },
+                        "Gallego": {
+                            "title": "M\u00e1ster en Composici\u00f3n e VFX (600h)",
+                            "company": "Colexio Trazos - Madrid, Espa\u00f1a",
+                            "date_range": "10/2018 - 08/2019",
+                            "text_extended": "Montaxe e edici\u00f3n de v\u00eddeo con Premiere. Cor e fluxo de traballo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado procesual 3D e simulaci\u00f3n FX con Houdini."
+                        }
+                    },
+                    "company": "Escuela Trazos - Madrid, Espa\u00f1a",
+                    "date_range": "2018 - 2019",
+                    "tags": [
+                        "Edici\u00f3n de v\u00eddeo",
+                        "Posproducci\u00f3n de v\u00eddeo y VFX",
+                        "3D",
+                        "Atenci\u00f3n al detalle",
+                        "Adobe Premiere Pro",
+                        "Houdini FX",
+                        "NukeX",
+                        "DaVinci Resolve",
+                        "C#"
+                    ],
+                    "hide_text": true
+                },
+                {
+                    "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
+                    "is_active": false,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en e-Commerce y Marketing",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2018",
+                    "tags": [
+                        "Google Analytics"
+                    ],
+                    "hide_text": true
+                },
+                {
+                    "id": "bfcac635-c468-457c-a007-7bccc1b4cc6a",
+                    "is_active": false,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en Posicionamiento Web",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Higher Course in Web Positioning",
+                            "text_extended": "Barcelona European Business School - Barcelona, Spain (12/2017 - 02/2018)",
+                            "_source_title": "Curso Superior en Posicionamiento Web",
+                            "_source_text_extended": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
+                        },
+                        "Gallego": {
+                            "title": "Curso Superior de Posicionamento Web",
+                            "text_extended": "Barcelona European Business School - Barcelona, Espa\u00f1a (12/2017 - 02/2018)"
+                        }
+                    },
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2017 - 2018",
+                    "tags": [],
+                    "hide_text": false
+                },
+                {
+                    "id": "4a3dfdf4-261b-46e8-b628-633a78f91827",
+                    "is_active": false,
+                    "type": "EducationModule",
+                    "title": "Curso Superior en Community Manager",
+                    "text_extended": "",
+                    "text_summary": "",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {},
+                    "company": "Escuela de Negocios Europea de Barcelona - Barcelona, Espa\u00f1a",
+                    "date_range": "2017",
+                    "tags": [],
+                    "hide_text": false
                 },
                 {
                     "id": "60edf6fd-050a-4d5b-93ec-9e420c728997",
@@ -513,44 +640,6 @@
                     "hide_text": true
                 },
                 {
-                    "id": "b4c2dbf2-8f55-463e-805b-64848f210d84",
-                    "is_active": true,
-                    "type": "EducationModule",
-                    "title": "Licenciado en Comunicaci\u00f3n Audiovisual",
-                    "text_extended": "",
-                    "text_summary": "",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Graduate in Audiovisual Communication",
-                            "company": "Pontifical University of Salamanca - Salamanca, Spain",
-                            "date_range": "10/2003 \u2013 06/2009",
-                            "_source_title": "Licenciado en Comunicaci\u00f3n Audiovisual",
-                            "_source_company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
-                            "_source_date_range": "10/2003 \u2013 06/2009"
-                        },
-                        "Gallego": {
-                            "title": "Licenciada en Comunicaci\u00f3n Audiovisual",
-                            "company": "Universidade Pontificia de Salamanca - Salamanca, Espa\u00f1a",
-                            "date_range": "2003-2009"
-                        }
-                    },
-                    "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
-                    "date_range": "2003 \u2013 2009",
-                    "tags": [
-                        "Grabaci\u00f3n de v\u00eddeo",
-                        "Prensa escrita",
-                        "Dise\u00f1o gr\u00e1fico",
-                        "Edici\u00f3n de v\u00eddeo",
-                        "Branding",
-                        "An\u00e1lisis de datos",
-                        "Sony Vegas",
-                        "Avid Liquid"
-                    ],
-                    "hide_text": true
-                },
-                {
                     "id": "08ad84be-b8ae-4cbf-9452-e1d929099ab0",
                     "is_active": false,
                     "type": "EducationModule",
@@ -575,62 +664,52 @@
                     "hide_text": false
                 },
                 {
-                    "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
-                    "is_active": false,
+                    "id": "b4c2dbf2-8f55-463e-805b-64848f210d84",
+                    "is_active": true,
                     "type": "EducationModule",
-                    "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
-                    "text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini.",
+                    "title": "Licenciado en Comunicaci\u00f3n Audiovisual",
+                    "text_extended": "",
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Master in Composition and VFX (600h)",
-                            "company": "Trazos School - Madrid, Spain",
-                            "date_range": "10/2018 - 08/2019",
-                            "text_extended": "Video montage and editing with Premiere. Color and workflow with DaVinci Resolve. Video composition with NukeX. 3D procedural modeling and FX simulation with Houdini.",
-                            "_source_title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
-                            "_source_company": "Escuela Trazos - Madrid, Espa\u00f1a",
-                            "_source_date_range": "10/2018 - 08/2019",
-                            "_source_text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini."
+                            "title": "Graduate in Audiovisual Communication",
+                            "company": "Pontifical University of Salamanca - Salamanca, Spain",
+                            "date_range": "2003 \u2013 2009",
+                            "_source_title": "Licenciado en Comunicaci\u00f3n Audiovisual",
+                            "_source_company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                            "_source_date_range": "2003 \u2013 2009",
+                            "tags": {
+                                "Grabaci\u00f3n de v\u00eddeo": "Video recording",
+                                "Prensa escrita": "written press",
+                                "Dise\u00f1o gr\u00e1fico": "Graphic design",
+                                "Edici\u00f3n de v\u00eddeo": "Video editing",
+                                "Branding": "Branding",
+                                "An\u00e1lisis de datos": "Data analysis",
+                                "Sony Vegas": "Sony Vegas",
+                                "Avid Liquid": "Avid Liquid"
+                            }
                         },
                         "Gallego": {
-                            "title": "M\u00e1ster en Composici\u00f3n e VFX (600h)",
-                            "company": "Colexio Trazos - Madrid, Espa\u00f1a",
-                            "date_range": "10/2018 - 08/2019",
-                            "text_extended": "Montaxe e edici\u00f3n de v\u00eddeo con Premiere. Cor e fluxo de traballo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado procesual 3D e simulaci\u00f3n FX con Houdini."
+                            "title": "Licenciada en Comunicaci\u00f3n Audiovisual",
+                            "company": "Universidade Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                            "date_range": "2003-2009"
                         }
                     },
-                    "company": "Escuela Trazos - Madrid, Espa\u00f1a",
-                    "date_range": "10/2018 - 08/2019",
-                    "tags": [],
-                    "hide_text": false
-                },
-                {
-                    "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
-                    "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
-                    "text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales.",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Advanced virtual production with Simulcam and Unreal Engine",
-                            "_source_title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
-                            "company": "RTVE Institute",
-                            "_source_company": "RTVE Instituto",
-                            "date_range": "10/2025 - 01/2026",
-                            "_source_date_range": "10/2025 - 01/2026",
-                            "text_summary": "Technical mastery of Unreal Engine, nDisplay and device synchronization for real-time composition and integration of physical and virtual sets.",
-                            "_source_text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales."
-                        }
-                    },
-                    "company": "RTVE Instituto",
-                    "date_range": "2025 - 2026",
-                    "tags": [],
-                    "hide_text": false
+                    "company": "Universidad Pontificia de Salamanca - Salamanca, Espa\u00f1a",
+                    "date_range": "2003 \u2013 2009",
+                    "tags": [
+                        "Grabaci\u00f3n de v\u00eddeo",
+                        "Prensa escrita",
+                        "Dise\u00f1o gr\u00e1fico",
+                        "Edici\u00f3n de v\u00eddeo",
+                        "Branding",
+                        "An\u00e1lisis de datos",
+                        "Sony Vegas",
+                        "Avid Liquid"
+                    ],
+                    "hide_text": true
                 }
             ]
         },
@@ -782,17 +861,6 @@
                     }
                 },
                 {
-                    "id": "b88d158c-ad51-4286-9165-d0bbcf630940",
-                    "is_active": true,
-                    "type": "TextModule",
-                    "title": "Programaci\u00f3n Orientada a Objetos",
-                    "text_extended": "S\u00f3lida base en Programaci\u00f3n Orientada a Objetos (POO), respaldada por 710 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Experiencia demostrable aplicando C++, Python y VEX en el desarrollo de herramientas y generaci\u00f3n procedural para simulaciones de conducci\u00f3n aut\u00f3noma con IA. Capacidad avanzada para estructurar l\u00f3gicas complejas orientadas a objetos, tanto a trav\u00e9s de c\u00f3digo puro como mediante programaci\u00f3n visual con Blueprints en Unreal Engine y la creaci\u00f3n de assets en Houdini.",
-                    "text_summary": "Profesional con certificaci\u00f3n en Python (PCAP) y formaci\u00f3n avanzada en POO. Experiencia pr\u00e1ctica aplicando C++, Python y programaci\u00f3n visual (Blueprints/VEX) en el desarrollo t\u00e9cnico de entornos 3D.",
-                    "use_summary": true,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
                     "id": "bdfc6915-a098-4cab-b716-598352639153",
                     "is_active": true,
                     "type": "TextModule",
@@ -801,7 +869,14 @@
                     "text_summary": "Perfil anal\u00edtico con experiencia en la depuraci\u00f3n de bases de datos internacionales (VBA/Excel), validaci\u00f3n t\u00e9cnica de datasets para IA y evaluaci\u00f3n de m\u00e9tricas digitales orientadas a negocio.",
                     "use_summary": true,
                     "hyperlinks": [],
-                    "translations": {}
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Data analysis",
+                            "_source_title": "An\u00e1lisis de datos",
+                            "text_summary": "Analytical profile with experience in debugging international databases (VBA/Excel), technical validation of datasets for AI and evaluation of business-oriented digital metrics.",
+                            "_source_text_summary": "Perfil anal\u00edtico con experiencia en la depuraci\u00f3n de bases de datos internacionales (VBA/Excel), validaci\u00f3n t\u00e9cnica de datasets para IA y evaluaci\u00f3n de m\u00e9tricas digitales orientadas a negocio."
+                        }
+                    }
                 },
                 {
                     "id": "a004bc6f-0f8a-4725-86ba-7f1bd6d61550",
@@ -812,7 +887,32 @@
                     "text_summary": "Formaci\u00f3n t\u00e9cnica avanzada en bases de datos relacionales (programa de 710h).",
                     "use_summary": false,
                     "hyperlinks": [],
-                    "translations": {}
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Database Management",
+                            "_source_title": "Gesti\u00f3n de Bases de Datos",
+                            "text_extended": "Solid technical base in the design and administration of relational databases, supported by recent specialized training of 710 hours. Ability to structure, consult and optimize information efficiently.",
+                            "_source_text_extended": "S\u00f3lida base t\u00e9cnica en el dise\u00f1o y administraci\u00f3n de bases de datos relacionales, avalada por una reciente formaci\u00f3n especializada de 710 horas. Capacidad para estructurar, consultar y optimizar informaci\u00f3n de manera eficiente."
+                        }
+                    }
+                },
+                {
+                    "id": "b88d158c-ad51-4286-9165-d0bbcf630940",
+                    "is_active": true,
+                    "type": "TextModule",
+                    "title": "Programaci\u00f3n Orientada a Objetos",
+                    "text_extended": "S\u00f3lida base en Programaci\u00f3n Orientada a Objetos (POO), respaldada por 710 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP\u2122 en Python. Experiencia demostrable aplicando C++, Python y VEX en el desarrollo de herramientas y generaci\u00f3n procedural para simulaciones de conducci\u00f3n aut\u00f3noma con IA. Capacidad avanzada para estructurar l\u00f3gicas complejas orientadas a objetos, tanto a trav\u00e9s de c\u00f3digo puro como mediante programaci\u00f3n visual con Blueprints en Unreal Engine y la creaci\u00f3n de assets en Houdini.",
+                    "text_summary": "Profesional con certificaci\u00f3n en Python (PCAP) y formaci\u00f3n avanzada en POO. Experiencia pr\u00e1ctica aplicando C++, Python y programaci\u00f3n visual (Blueprints/VEX) en el desarrollo t\u00e9cnico de entornos 3D.",
+                    "use_summary": true,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Object Oriented Programming",
+                            "_source_title": "Programaci\u00f3n Orientada a Objetos",
+                            "text_summary": "Professional with certification in Python (PCAP) and advanced training in OOP. Practical experience applying C++, Python and visual programming (Blueprints/VEX) in the technical development of 3D environments.",
+                            "_source_text_summary": "Profesional con certificaci\u00f3n en Python (PCAP) y formaci\u00f3n avanzada en POO. Experiencia pr\u00e1ctica aplicando C++, Python y programaci\u00f3n visual (Blueprints/VEX) en el desarrollo t\u00e9cnico de entornos 3D."
+                        }
+                    }
                 },
                 {
                     "id": "a555fce7-28cf-41c8-a8de-ae4501311b74",
