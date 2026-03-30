@@ -16,7 +16,6 @@ class Module:
 
     @classmethod
     def from_dict(cls, data):
-        # Base implementation, overridden in subclasses or handled by factory
         pass
 
 @dataclass
@@ -57,7 +56,7 @@ class ExperienceModule(TextModule):
 
 @dataclass
 class EducationModule(TextModule):
-    company: str = "" # Institution
+    company: str = ""  # Institution
     date_range: str = ""
     tags: List[str] = field(default_factory=list) # List of tag IDs or Names
     hide_text: bool = False # Option to hide extended/summary text

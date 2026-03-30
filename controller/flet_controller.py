@@ -35,20 +35,14 @@ class FletController:
             print(f"Error saving autosave: {e}")
 
     def refresh_view(self):
-        # Capture current index to restore it later
         current_index = 0
         if hasattr(self.view, "get_current_tab_index"):
             current_index = self.view.get_current_tab_index()
 
         self.view.clear_tabs()
-        
-        # Add Config Tab
         self.view.add_config_tab(self.cv_data)
-        
-        # Add Templates Tab
         self.view.add_templates_tab(self.get_templates())
-        
-        # Add Section Tabs
+
         sections = [
             self.cv_data.personal_info,
             self.cv_data.experience,
@@ -57,11 +51,9 @@ class FletController:
             self.cv_data.software,
             self.cv_data.languages
         ]
-        
         for sec in sections:
             self.view.add_section_tab(sec)
-        
-        # Restore index
+
         self.view.set_tab(current_index, update_ui=False)
         self.page.update()
 
@@ -87,9 +79,6 @@ class FletController:
         elif section.type == "software" or section.type == "language":
             new_module = ImageModule(name="New Tool")
         elif section.type == "personal":
-            # Simple dialog choice? For now default to Text if personal
-            # Or simplified: Alternating? 
-            # Im implementing a simple choice here
             def on_type_chosen(type_name):
                 nonlocal new_module
                 if type_name == "Avatar":
@@ -112,7 +101,6 @@ class FletController:
                     ft.TextButton("Bio", on_click=lambda _: on_type_chosen("Bio"))
                 ]
             )
-            # Use show_dialog if available
             if hasattr(self.page, "show_dialog"):
                 self.page.show_dialog(dlg)
             else:
@@ -157,8 +145,6 @@ class FletController:
             form = ModuleForm(self.page, module, available_tags=tags, on_save=on_save_callback)
             form.show()
         except Exception as e:
-            # Avoid printing to console to prevent encoding errors
-            # Show error in a dialog which forces attention
             error_dlg = ft.AlertDialog(
                 title=ft.Text("Error"),
                 content=ft.Text(f"Could not open editor:\n{str(e)}"),
@@ -195,23 +181,15 @@ class FletController:
 
     def toggle_module(self, module, section):
         from model.modules import AvatarModule
-        # Enforce single selection for Personal Info
         if section.type == "personal" and module.is_active:
-             # Check type of module (AvatarModule vs PersonalInfoModule)
             is_avatar = isinstance(module, AvatarModule)
-            
             for m in section.modules:
                 if m != module and m.is_active:
-                    # If same type, deactivate it
                     if isinstance(m, AvatarModule) == is_avatar:
-                         m.is_active = False
-            
-            # Refresh to show changes
+                        m.is_active = False
             self.refresh_view_section(section)
 
     def refresh_view_section(self, section):
-        # Re-render the specific section view
-        # We need to find the SectionView instance.
         self.refresh_view()
 
     def show_snackbar(self, message):
@@ -219,7 +197,7 @@ class FletController:
         self.page.snack_bar.open = True
         self.page.update()
 
-    # File Operations
+    # --- File Operations ---
     def new_template(self):
         self.cv_data = CVData()
         self.refresh_view()
@@ -283,18 +261,13 @@ class FletController:
                 self.show_snackbar(f"Error exporting PDF: {ex}")
 
     def preview_pdf(self):
-        # Preview stays sync for now as it uses tempfile and os.startfile
         import tempfile
-        import os
         from utils.pdf_generator import PDFGenerator
-        
         try:
             fd, path = tempfile.mkstemp(suffix=".pdf")
             os.close(fd)
-            
             gen = PDFGenerator(self.cv_data)
             gen.generate(path)
-            
             os.startfile(path)
         except Exception as ex:
             self.show_snackbar(f"Error previewing PDF: {ex}")
@@ -318,7 +291,7 @@ class FletController:
              self.show_snackbar(f"Error saving template: {ex}")
 
     def apply_template_file(self, name):
-        # Load the template JSON but only apply active states
+        """Apply only the active/inactive states from a saved template to the current data."""
         path = os.path.join("templates", name)
         if not os.path.exists(path):
              self.show_snackbar("Template file not found.")
@@ -328,14 +301,10 @@ class FletController:
             with open(path, "r", encoding="utf-8") as f:
                 template_data = json.loads(f.read())
             
-            # Helper to map modules by ID in a section
             def map_modules(section_data):
                 return {m["id"]: m.get("is_active", True) for m in section_data.get("modules", [])}
 
             template_sections = template_data.get("sections", {})
-            
-            # Apply to current data
-            # Map section ID -> Section Object
             current_sections = {
                 "personal_info": self.cv_data.personal_info,
                 "experience": self.cv_data.experience,
@@ -348,9 +317,7 @@ class FletController:
             count = 0
             for sec_key, sec_obj in current_sections.items():
                 if sec_key in template_sections:
-                    # Get map of ID -> active state from template
                     t_mod_states = map_modules(template_sections[sec_key])
-                    
                     for m in sec_obj.modules:
                         if m.id in t_mod_states:
                             m.is_active = t_mod_states[m.id]
@@ -368,7 +335,7 @@ class FletController:
         if os.path.exists(path):
             try:
                 os.remove(path)
-                self.refresh_view() # Refresh list
+                self.refresh_view()
                 self.show_snackbar(f"Template '{name}' deleted.")
             except Exception as ex:
                 self.show_snackbar(f"Error deleting: {ex}")
