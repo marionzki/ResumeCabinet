@@ -322,6 +322,11 @@ class FletController:
                         if m.id in t_mod_states:
                             m.is_active = t_mod_states[m.id]
                             count += 1
+                        else:
+                            m.is_active = False
+                else:
+                    for m in sec_obj.modules:
+                        m.is_active = False
             
             self.save_autosave()
             self.refresh_view()
