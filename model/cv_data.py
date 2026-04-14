@@ -66,6 +66,7 @@ class HeaderInfo:
     country: str = ""
     email: str = ""
     phone: str = ""
+    others: str = ""
     linkedin: str = ""
 
     def to_dict(self):
@@ -88,6 +89,7 @@ class CVData:
         country="España",
         email="mnoriegazamora@gmail.com",
         phone="699651797",
+        others="",
         linkedin="https://www.linkedin.com/in/mario-noriega-zamora/"
     ))
     # Individual sections

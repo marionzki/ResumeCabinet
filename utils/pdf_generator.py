@@ -189,6 +189,9 @@ class PDFGenerator:
         if info.email:
             c.drawString(col1_x, y_left, info.email)
             y_left -= 12
+        if hasattr(info, 'others') and info.others:
+            c.drawString(col1_x, y_left, info.others)
+            y_left -= 12
         if info.linkedin:
             # LinkedIn supports markdown links: [PERFIL LINKEDIN](url)
             style_link = ParagraphStyle('Link', parent=self.style_body, fontSize=8, textColor=COLOR_TEXT_MAIN)

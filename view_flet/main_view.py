@@ -138,6 +138,7 @@ class FletMainWindow:
             ft.TextField(label="País", value=cv_data.header_info.country, on_change=lambda e: self.controller.update_header_info("country", e.control.value)),
             ft.TextField(label="Email", value=cv_data.header_info.email, on_change=lambda e: self.controller.update_header_info("email", e.control.value)),
             ft.TextField(label="Teléfono", value=cv_data.header_info.phone, on_change=lambda e: self.controller.update_header_info("phone", e.control.value)),
+            ft.TextField(label="Otros", value=cv_data.header_info.others, on_change=lambda e: self.controller.update_header_info("others", e.control.value)),
             ft.TextField(label="LinkedIn", value=cv_data.header_info.linkedin, on_change=lambda e: self.controller.update_header_info("linkedin", e.control.value)),
         ], scroll=ft.ScrollMode.AUTO)
         
