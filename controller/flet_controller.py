@@ -41,6 +41,7 @@ class FletController:
 
         self.view.clear_tabs()
         self.view.add_config_tab(self.cv_data)
+        self.view.add_design_tab(self.cv_data)
         self.view.add_templates_tab(self.get_templates())
 
         sections = [
@@ -62,6 +63,52 @@ class FletController:
             self.cv_data.settings.language = value
             print(f"Language updated to {value}")
             self.save_autosave()
+
+    def update_design(self, key, value):
+        if hasattr(self.cv_data.settings.design, key):
+            setattr(self.cv_data.settings.design, key, value)
+            self.save_autosave()
+
+    def update_preview_image(self):
+        import fitz
+        import tempfile
+        import base64
+        import os
+        from utils.pdf_generator import PDFGenerator
+
+        if not hasattr(self.view, 'preview_image'):
+            return
+
+        try:
+            self.show_snackbar("Generando previsualización...")
+            pdf_path = os.path.abspath("temp_preview.pdf")
+            gen = PDFGenerator(self.cv_data)
+            gen.generate(pdf_path)
+
+            doc = fitz.open(pdf_path)
+            page = doc.load_page(0)
+            pix = page.get_pixmap(dpi=150)
+            
+            img_path = os.path.abspath("temp_preview.png")
+            pix.save(img_path)
+            doc.close()
+            
+            try:
+                os.remove(pdf_path)
+            except:
+                pass
+
+            # Use a slightly un-cached path strategy if needed, but path usually works
+            # Just append a timestamp query to force cache bust
+            import time
+            bust_path = f"{img_path}?t={time.time()}"
+            
+            self.view.preview_image.src = bust_path
+            self.view.preview_image.update()
+            
+            self.show_snackbar("Previsualización actualizada")
+        except Exception as e:
+            self.show_snackbar(f"Error generando preview: {e}")
 
     def update_header_info(self, key, value):
         if hasattr(self.cv_data.header_info, key):

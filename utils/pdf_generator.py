@@ -18,13 +18,27 @@ class PDFGenerator:
     def __init__(self, cv_data):
         self.cv_data = cv_data
         self.styles = getSampleStyleSheet()
+        from reportlab.lib.colors import HexColor
+        design = self.cv_data.settings.design
+        
+        self.font_heading = design.font_heading
+        self.font_body = design.font_body
+        self.font_size_heading = float(design.font_size_heading)
+        self.font_size_body = float(design.font_size_body)
+        
+        self.color_header_bg = HexColor(design.color_header_bg)
+        self.color_header_text = HexColor(design.color_header_text)
+        self.color_text_main = HexColor(design.color_text_main)
+        self.color_text_sub = HexColor(design.color_text_sub)
+        self.color_sidebar_bg = HexColor(design.color_sidebar_bg)
+
         self.style_body = ParagraphStyle(
             'Body',
             parent=self.styles['Normal'],
-            fontName=FONT_BODY,
-            fontSize=9,
-            leading=12,
-            textColor=COLOR_TEXT_MAIN,
+            fontName=self.font_body,
+            fontSize=self.font_size_body,
+            leading=self.font_size_body * 1.3,
+            textColor=self.color_text_main,
             alignment=TA_LEFT
         )
         self.language = cv_data.settings.language if cv_data.settings.language in TRANSLATIONS else "Español"
@@ -135,6 +149,10 @@ class PDFGenerator:
         col2_x = sidebar_width + col_gap/2
         col2_w = width - sidebar_width - MARGIN
 
+        # Sidebar Area Background
+        c.setFillColor(self.color_sidebar_bg)
+        c.rect(0, 0, sidebar_width, height, fill=1, stroke=0)
+
         # Separator line
         c.setStrokeColor(COLOR_SECONDARY)
         c.line(sidebar_width, MARGIN, sidebar_width, height - MARGIN)
@@ -161,8 +179,8 @@ class PDFGenerator:
         pass
         
         # Contact info
-        c.setFont(FONT_BODY, 9)
-        c.setFillColor(COLOR_TEXT_MAIN)
+        c.setFont(self.font_body, 9)
+        c.setFillColor(self.color_text_main)
         info = self.cv_data.header_info
 
         if info.city or info.country:
@@ -179,7 +197,7 @@ class PDFGenerator:
             y_left -= 12
         if info.linkedin:
             # LinkedIn supports markdown links: [PERFIL LINKEDIN](url)
-            style_link = ParagraphStyle('Link', parent=self.style_body, fontSize=8, textColor=COLOR_TEXT_MAIN)
+            style_link = ParagraphStyle('Link', parent=self.style_body, fontSize=8, textColor=self.color_text_main)
             p = Paragraph(self._process_text_formatting(info.linkedin), style_link)
             _, h = p.wrap(col1_w, 50)
             p.drawOn(c, col1_x, y_left - h + 2)
@@ -264,22 +282,22 @@ class PDFGenerator:
         y_right = current_y - 20 # Align base for 28pt font with top of image (which is current_y + 8)
 
         # Header Info (Nombre, Puesto, Certificaciones)
-        c.setFont(FONT_HEADING, 28)
-        c.setFillColor(COLOR_HEADER_BG)
+        c.setFont(self.font_heading, 28)
+        c.setFillColor(self.color_header_bg)
         name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
-        for line in self._wrap_text(c, name.upper(), col2_w, FONT_HEADING, 28):
-            w = c.stringWidth(line, FONT_HEADING, 28)
+        for line in self._wrap_text(c, name.upper(), col2_w, self.font_heading, 28):
+            w = c.stringWidth(line, self.font_heading, 28)
             x_pos = col2_x + (col2_w - w) / 2
             c.drawString(x_pos, y_right, line)
             y_right -= 30
         y_right -= 5
         
         if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
-            c.setFont(FONT_HEADING, 20)
+            c.setFont(self.font_heading, 20)
             c.setFillColor(COLOR_TAG_BORDER)
             job_val = self._get_text(self.cv_data.header_info, "job_position")
-            for line in self._wrap_text(c, job_val.upper(), col2_w, FONT_HEADING, 20):
-                w = c.stringWidth(line, FONT_HEADING, 20)
+            for line in self._wrap_text(c, job_val.upper(), col2_w, self.font_heading, 20):
+                w = c.stringWidth(line, self.font_heading, 20)
                 x_pos = col2_x + (col2_w - w) / 2
                 c.drawString(x_pos, y_right, line)
                 y_right -= 24
@@ -296,7 +314,7 @@ class PDFGenerator:
             style_certs = ParagraphStyle(
                 'Certs', parent=self.style_body,
                 fontName="Helvetica-Oblique", fontSize=14,
-                textColor=COLOR_HEADER_BG, alignment=TA_CENTER, leading=16
+                textColor=self.color_header_bg, alignment=TA_CENTER, leading=16
             )
             
             p = Paragraph(certs_text, style_certs)
@@ -314,19 +332,19 @@ class PDFGenerator:
         c.save()
 
     def _draw_sidebar_header(self, c, title, x, y, width):
-        c.setFont(FONT_HEADING, 10)
-        c.setFillColor(COLOR_HEADER_BG)
+        c.setFont(self.font_heading, 10)
+        c.setFillColor(self.color_header_bg)
         c.drawString(x, y, title.upper())
-        c.setStrokeColor(COLOR_HEADER_BG)
+        c.setStrokeColor(self.color_header_bg)
         c.line(x, y-2, x+width, y-2)
 
     def _draw_section(self, c, section, x, y, width):
         header_height = 24
-        c.setFillColor(COLOR_HEADER_BG)
+        c.setFillColor(self.color_header_bg)
         c.rect(x - 5, y - 8, width + 10, header_height, fill=1, stroke=0)
 
-        c.setFont(FONT_HEADING, 14)
-        c.setFillColor(COLOR_HEADER_TEXT)
+        c.setFont(self.font_heading, 14)
+        c.setFillColor(self.color_header_text)
 
         # Fall back to section.title if no translation found
         title = self._t(section.id)
@@ -334,15 +352,15 @@ class PDFGenerator:
             title = section.title
 
         c.drawString(x, y, title.upper())
-        c.setFillColor(COLOR_TEXT_MAIN)
+        c.setFillColor(self.color_text_main)
         y -= 35
 
         for m in section.modules:
             if not m.is_active: continue
             
             raw_title = self._get_text(m, "title")
-            c.setFont(FONT_HEADING, 11)
-            c.setFillColor(COLOR_HEADER_BG)
+            c.setFont(self.font_heading, 11)
+            c.setFillColor(self.color_header_bg)
 
             title_text = ""
             if raw_title:
@@ -365,9 +383,9 @@ class PDFGenerator:
 
             if sub_line:
                 c.setFont("Helvetica-Oblique", 9)
-                c.setFillColor(COLOR_TEXT_SUB)
+                c.setFillColor(self.color_text_sub)
                 c.drawString(x, y, " | ".join(sub_line))
-                c.setFillColor(COLOR_TEXT_MAIN)
+                c.setFillColor(self.color_text_main)
                 y -= 10
 
             if hasattr(m, 'hide_text') and getattr(m, 'hide_text', False):

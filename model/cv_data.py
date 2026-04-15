@@ -75,8 +75,24 @@ class HeaderInfo:
         return asdict(self)
 
 @dataclass
+class DesignSettings:
+    font_heading: str = "Helvetica-Bold"
+    font_body: str = "Helvetica"
+    font_size_heading: float = 14.0
+    font_size_body: float = 9.0
+    color_header_bg: str = "#1A1F2C"
+    color_header_text: str = "#FFFFFF"
+    color_text_main: str = "#333333"
+    color_text_sub: str = "#666666"
+    color_sidebar_bg: str = "#FFFFFF"
+
+    def to_dict(self):
+        return asdict(self)
+
+@dataclass
 class Settings:
     language: str = "Español" # Español, Inglés, Gallego, Catalán
+    design: DesignSettings = field(default_factory=DesignSettings)
 
     def to_dict(self):
         return asdict(self)
@@ -235,7 +251,14 @@ class CVData:
     def from_json(cls, json_str):
         data = json.loads(json_str)
         cv = cls()
-        cv.settings = Settings(**data.get("settings", {}))
+        
+        settings_data = data.get("settings", {})
+        if "design" in settings_data and isinstance(settings_data["design"], dict):
+            design_obj = DesignSettings(**settings_data.pop("design"))
+            cv.settings = Settings(design=design_obj, **settings_data)
+        else:
+            cv.settings = Settings(**settings_data)
+
         cv.header_info = HeaderInfo(**data.get("header_info", {}))
         
         sections = data.get("sections", {})
