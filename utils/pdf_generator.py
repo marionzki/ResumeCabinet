@@ -7,7 +7,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.utils import ImageReader
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-from reportlab.lib.enums import TA_LEFT
+from reportlab.lib.enums import TA_LEFT, TA_CENTER
 
 from .pdf_styles import *
 from .translations import TRANSLATIONS
@@ -126,7 +126,7 @@ class PDFGenerator:
         c = canvas.Canvas(filepath, pagesize=A4)
         width, height = A4
 
-        sidebar_width = width * 0.27
+        sidebar_width = width * 0.34
         current_y = height - MARGIN
 
         col_gap = 20
@@ -158,22 +158,7 @@ class PDFGenerator:
             except:
                 pass
 
-        # Name
-        c.setFont(FONT_HEADING, 16)
-        c.setFillColor(COLOR_HEADER_BG)
-        name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
-        for line in self._wrap_text(c, name.upper(), col1_w, FONT_HEADING, 14):
-            c.drawString(col1_x, y_left, line)
-            y_left -= 20
-        y_left -= 4
-        
-        if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
-            c.setFont(FONT_HEADING, 16)
-            c.setFillColor(COLOR_TAG_BORDER)
-            for line in self._wrap_text(c, self.cv_data.header_info.job_position.upper(), col1_w, FONT_HEADING, 16):
-                c.drawString(col1_x, y_left, line)
-                y_left -= 14
-        y_left -= 10
+        pass
         
         # Contact info
         c.setFont(FONT_BODY, 9)
@@ -211,6 +196,23 @@ class PDFGenerator:
                 y_left = self._draw_paragraph(c, text, col1_x, y_left, col1_w)
                 y_left -= 10
         y_left -= 20
+
+        # Knowledge section (Competencias limitadas a tags)
+        has_text_knowledge = any(not isinstance(m, ImageModule) for m in self.cv_data.knowledge.modules if m.is_active)
+        if has_text_knowledge:
+            header_title_k = self._t(self.cv_data.knowledge.id)
+            self._draw_sidebar_header(c, header_title_k, col1_x, y_left, col1_w)
+            y_left -= 10
+            k_tags = []
+            for m in self.cv_data.knowledge.modules:
+                if m.is_active and not isinstance(m, ImageModule):
+                    raw_title = self._get_text(m, "title")
+                    if raw_title:
+                        k_tags.append(raw_title)
+            if k_tags:
+                y_left -= 5
+                y_left = self._draw_tags(c, k_tags, col1_x, y_left, col1_w)
+            y_left -= 20
 
         # Software section
         header_title = self._t(self.cv_data.software.id)
@@ -259,14 +261,52 @@ class PDFGenerator:
 
 
         # --- RIGHT COLUMN ---
-        y_right = current_y
+        y_right = current_y - 20 # Align base for 28pt font with top of image (which is current_y + 8)
+
+        # Header Info (Nombre, Puesto, Certificaciones)
+        c.setFont(FONT_HEADING, 28)
+        c.setFillColor(COLOR_HEADER_BG)
+        name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
+        for line in self._wrap_text(c, name.upper(), col2_w, FONT_HEADING, 28):
+            w = c.stringWidth(line, FONT_HEADING, 28)
+            x_pos = col2_x + (col2_w - w) / 2
+            c.drawString(x_pos, y_right, line)
+            y_right -= 30
+        y_right -= 5
+        
+        if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
+            c.setFont(FONT_HEADING, 20)
+            c.setFillColor(COLOR_TAG_BORDER)
+            job_val = self._get_text(self.cv_data.header_info, "job_position")
+            for line in self._wrap_text(c, job_val.upper(), col2_w, FONT_HEADING, 20):
+                w = c.stringWidth(line, FONT_HEADING, 20)
+                x_pos = col2_x + (col2_w - w) / 2
+                c.drawString(x_pos, y_right, line)
+                y_right -= 24
+            # Reduce the large gap between Job Position and Certifications
+            y_right += 15
+        else:
+            y_right -= 5
+
+        if hasattr(self.cv_data.header_info, 'certifications') and self.cv_data.header_info.certifications:
+            cert_val = self._get_text(self.cv_data.header_info, "certifications")
+            certs_text = cert_val.replace('\n', '<br/>')
+            certs_text = self._process_text_formatting(certs_text)
+            
+            style_certs = ParagraphStyle(
+                'Certs', parent=self.style_body,
+                fontName="Helvetica-Oblique", fontSize=14,
+                textColor=COLOR_HEADER_BG, alignment=TA_CENTER, leading=16
+            )
+            
+            p = Paragraph(certs_text, style_certs)
+            _, h = p.wrap(col2_w, PAGE_HEIGHT_A4)
+            p.drawOn(c, col2_x, y_right - h)
+            y_right -= (h + 15)
+
+        y_right -= 20
 
         y_right = self._draw_section(c, self.cv_data.experience, col2_x, y_right, col2_w)
-
-        has_text_knowledge = any(not isinstance(m, ImageModule) for m in self.cv_data.knowledge.modules if m.is_active)
-        if has_text_knowledge:
-            y_right -= 10
-            y_right = self._draw_section(c, self.cv_data.knowledge, col2_x, y_right, col2_w)
 
         y_right -= 10
         y_right = self._draw_section(c, self.cv_data.education, col2_x, y_right, col2_w)
@@ -303,7 +343,15 @@ class PDFGenerator:
             raw_title = self._get_text(m, "title")
             c.setFont(FONT_HEADING, 11)
             c.setFillColor(COLOR_HEADER_BG)
-            c.drawString(x, y, raw_title.upper() if raw_title else "")
+
+            title_text = ""
+            if raw_title:
+                if section.type == "education":
+                    title_text = raw_title
+                else:
+                    title_text = raw_title.upper()
+
+            c.drawString(x, y, title_text)
 
             y -= 10
             sub_line = []

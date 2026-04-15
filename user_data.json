@@ -5,12 +5,14 @@
     "header_info": {
         "name": "Mario Noriega",
         "job_position": "AI Software Developer",
+        "certifications": "[Certificaci\u00f3n de Programador Python (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertif. Nivel 3 en Programaci\u00f3n Orientada a Objetos y bbdd relacionales",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",
         "phone": "699651797",
         "others": "English B2",
-        "linkedin": "[PERFIL LINKEDIN](https://www.linkedin.com/in/mario-noriega-zamora/)"
+        "linkedin": "[PERFIL LINKEDIN](https://www.linkedin.com/in/mario-noriega-zamora/)",
+        "translations": {}
     },
     "sections": {
         "personal_info": {
@@ -99,7 +101,7 @@
                     "title": "Bio - Programador",
                     "text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable.",
                     "text_summary": "Programador certificado en Python (PCAP) con s\u00f3lida base en POO. Experiencia demostrable en automatizaci\u00f3n de procesos y desarrollo de herramientas mediante Python, C++, VBA y l\u00f3gicas visuales (Blueprints).",
-                    "use_summary": false,
+                    "use_summary": true,
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
@@ -211,9 +213,9 @@
                     "id": "622a68f3-5723-4a28-9413-6242ce4323a4",
                     "is_active": true,
                     "type": "ExperienceModule",
-                    "title": "Pr\u00e1cticas de Programaci\u00f3n y Bases de Datos",
-                    "text_extended": "Pr\u00e1cticas t\u00e9cnicas (80h) vinculadas a la especializaci\u00f3n en Programaci\u00f3n Orientada a Objetos y Bases de Datos Relacionales. Responsable de la importaci\u00f3n, auditor\u00eda y depuraci\u00f3n de bases de datos empresariales de alcance internacional (Francia, Brasil, Portugal, Alemania y EE. UU.). Ejecuci\u00f3n de limpieza sistem\u00e1tica de registros inconsistentes y mal formateados en entornos Excel. Adaptaci\u00f3n y redise\u00f1o de macros preexistentes - configuradas inicialmente para el mercado espa\u00f1ol - a las particularidades y formatos de cada nuevo pa\u00eds, desarrollando y modificando c\u00f3digo en VBA (Visual Basic for Applications) para automatizar eficientemente el tratamiento de los datos.",
-                    "text_summary": "Experiencia pr\u00e1ctica (80h) en auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales. Programaci\u00f3n y adaptaci\u00f3n de macros mediante c\u00f3digo VBA para automatizar el tratamiento masivo de datos corporativos.",
+                    "title": "Programaci\u00f3n y Bases de Datos",
+                    "text_extended": "Programaci\u00f3n Orientada a Objetos y Bases de Datos Relacionales. Responsable de la importaci\u00f3n, auditor\u00eda y depuraci\u00f3n de bases de datos empresariales de alcance internacional (Francia, Brasil, Portugal, Alemania y EE. UU.). Ejecuci\u00f3n de limpieza sistem\u00e1tica de registros inconsistentes y mal formateados en entornos Excel. Adaptaci\u00f3n y redise\u00f1o de macros preexistentes - configuradas inicialmente para el mercado espa\u00f1ol - a las particularidades y formatos de cada nuevo pa\u00eds, desarrollando y modificando c\u00f3digo en VBA (Visual Basic for Applications) para automatizar eficientemente el tratamiento de los datos.",
+                    "text_summary": "Auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales. Programaci\u00f3n y adaptaci\u00f3n de macros mediante c\u00f3digo VBA para automatizar el tratamiento masivo de datos corporativos.",
                     "use_summary": true,
                     "hyperlinks": [],
                     "translations": {
@@ -238,9 +240,9 @@
                     "company": "Pinkstone Advertisement Group - Las Rozas, Espa\u00f1a",
                     "date_range": "02/2026 - 03/2026",
                     "tags": [
+                        "An\u00e1lisis de datos",
                         "Programaci\u00f3n Orientada a Objetos",
                         "Gesti\u00f3n de Bases de Datos",
-                        "An\u00e1lisis de datos",
                         "Excel",
                         "VBA"
                     ]
@@ -249,7 +251,7 @@
                     "id": "7c830451-eede-411d-ab50-4c745b6cc12a",
                     "is_active": true,
                     "type": "ExperienceModule",
-                    "title": "Artista 3D procedural",
+                    "title": "Artista 3D Procedural",
                     "text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
                     "text_summary": "Generaci\u00f3n de entornos procedurales urbanos y naturales para escenarios de conducci\u00f3n aut\u00f3noma en [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/). Desarrollo de widgets y blueprints en Unreal integrados con Houdini. Co-autor del proyecto [Urbansyn](https://www.urbansyn.org). Generaci\u00f3n 3D procedural de un tramo de autopista a partir de datos reales siendo co-autor del proyecto [HighwayScapes](https://zenodo.org/records/15095403).",
                     "use_summary": true,

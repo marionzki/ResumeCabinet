@@ -34,8 +34,8 @@ class TranslationService:
             
             translated_parts = []
             
-            # Use 'auto' for source detection
-            translator = GoogleTranslator(source='auto', target=target_code)
+            # Use 'es' for source instead of 'auto' because the base resume is in Spanish
+            translator = GoogleTranslator(source='es', target=target_code)
             
             for part in parts:
                 if not part: continue

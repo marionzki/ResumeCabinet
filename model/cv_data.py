@@ -62,12 +62,14 @@ class Section:
 class HeaderInfo:
     name: str = ""
     job_position: str = ""
+    certifications: str = ""
     city: str = ""
     country: str = ""
     email: str = ""
     phone: str = ""
     others: str = ""
     linkedin: str = ""
+    translations: dict = field(default_factory=dict)
 
     def to_dict(self):
         return asdict(self)
@@ -85,6 +87,7 @@ class CVData:
     header_info: HeaderInfo = field(default_factory=lambda: HeaderInfo(
         name="Mario Noriega Zamora",
         job_position="Procedural 3D Artist",
+        certifications="",
         city="Madrid",
         country="España",
         email="mnoriegazamora@gmail.com",
