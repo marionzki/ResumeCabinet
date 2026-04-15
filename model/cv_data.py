@@ -75,16 +75,46 @@ class HeaderInfo:
         return asdict(self)
 
 @dataclass
+class FontSettings:
+    size: float
+    color: str
+    family: str
+
+@dataclass
+class GlobalTextDesign:
+    title: FontSettings = field(default_factory=lambda: FontSettings(size=14.0, color="#333333", family="Helvetica-Bold"))
+    subtitle: FontSettings = field(default_factory=lambda: FontSettings(size=11.0, color="#666666", family="Helvetica-Oblique"))
+    body: FontSettings = field(default_factory=lambda: FontSettings(size=9.0, color="#333333", family="Helvetica"))
+
+@dataclass
+class HeaderDesign:
+    name: FontSettings = field(default_factory=lambda: FontSettings(size=30.0, color="#FFFFFF", family="Helvetica-Bold"))
+    job: FontSettings = field(default_factory=lambda: FontSettings(size=16.0, color="#E3F2FD", family="Helvetica-Bold"))
+    certification: FontSettings = field(default_factory=lambda: FontSettings(size=12.0, color="#1A1F2C", family="Helvetica-Oblique"))
+
+@dataclass
+class LeftColDesign:
+    bg_color: str = "#FFFFFF"
+    body: FontSettings = field(default_factory=lambda: FontSettings(size=9.0, color="#333333", family="Helvetica"))
+    title: FontSettings = field(default_factory=lambda: FontSettings(size=10.0, color="#FFFFFF", family="Helvetica-Bold"))
+
+@dataclass
+class RightColDesign:
+    separator_bg_color: str = "#1A1F2C"
+    title: FontSettings = field(default_factory=lambda: FontSettings(size=14.0, color="#FFFFFF", family="Helvetica-Bold"))
+
+@dataclass
+class TagsDesign:
+    font: FontSettings = field(default_factory=lambda: FontSettings(size=8.0, color="#2196F3", family="Helvetica"))
+    bg_color: str = "#E3F2FD"
+
+@dataclass
 class DesignSettings:
-    font_heading: str = "Helvetica-Bold"
-    font_body: str = "Helvetica"
-    font_size_heading: float = 14.0
-    font_size_body: float = 9.0
-    color_header_bg: str = "#1A1F2C"
-    color_header_text: str = "#FFFFFF"
-    color_text_main: str = "#333333"
-    color_text_sub: str = "#666666"
-    color_sidebar_bg: str = "#FFFFFF"
+    global_text: GlobalTextDesign = field(default_factory=GlobalTextDesign)
+    header: HeaderDesign = field(default_factory=HeaderDesign)
+    left_col: LeftColDesign = field(default_factory=LeftColDesign)
+    right_col: RightColDesign = field(default_factory=RightColDesign)
+    tags: TagsDesign = field(default_factory=TagsDesign)
 
     def to_dict(self):
         return asdict(self)
@@ -254,7 +284,50 @@ class CVData:
         
         settings_data = data.get("settings", {})
         if "design" in settings_data and isinstance(settings_data["design"], dict):
-            design_obj = DesignSettings(**settings_data.pop("design"))
+            design_data = settings_data.pop("design")
+            if "font_heading" in design_data:
+                # Old format detected, overwrite with default DesignSettings
+                design_obj = DesignSettings()
+            else:
+                def dict_to_font(d): return FontSettings(**d) if d else None
+                try:
+                    gt_data = design_data.get("global_text", {})
+                    gt = GlobalTextDesign(
+                        title=dict_to_font(gt_data.get("title")) or GlobalTextDesign().title,
+                        subtitle=dict_to_font(gt_data.get("subtitle")) or GlobalTextDesign().subtitle,
+                        body=dict_to_font(gt_data.get("body")) or GlobalTextDesign().body
+                    )
+                    
+                    hd_data = design_data.get("header", {})
+                    hd = HeaderDesign(
+                        name=dict_to_font(hd_data.get("name")) or HeaderDesign().name,
+                        job=dict_to_font(hd_data.get("job")) or HeaderDesign().job,
+                        certification=dict_to_font(hd_data.get("certification")) or HeaderDesign().certification
+                    )
+                    
+                    lc_data = design_data.get("left_col", {})
+                    lc = LeftColDesign(
+                        bg_color=lc_data.get("bg_color", LeftColDesign().bg_color),
+                        body=dict_to_font(lc_data.get("body")) or LeftColDesign().body,
+                        title=dict_to_font(lc_data.get("title")) or LeftColDesign().title
+                    )
+                    
+                    rc_data = design_data.get("right_col", {})
+                    rc = RightColDesign(
+                        separator_bg_color=rc_data.get("separator_bg_color", RightColDesign().separator_bg_color),
+                        title=dict_to_font(rc_data.get("title")) or RightColDesign().title
+                    )
+                    
+                    tg_data = design_data.get("tags", {})
+                    tg = TagsDesign(
+                        font=dict_to_font(tg_data.get("font")) or TagsDesign().font,
+                        bg_color=tg_data.get("bg_color", TagsDesign().bg_color)
+                    )
+                    design_obj = DesignSettings(global_text=gt, header=hd, left_col=lc, right_col=rc, tags=tg)
+                except Exception as e:
+                    print("Error parsing nested Design settings:", e)
+                    design_obj = DesignSettings()
+
             cv.settings = Settings(design=design_obj, **settings_data)
         else:
             cv.settings = Settings(**settings_data)

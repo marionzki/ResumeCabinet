@@ -65,9 +65,15 @@ class FletController:
             self.save_autosave()
 
     def update_design(self, key, value):
-        if hasattr(self.cv_data.settings.design, key):
-            setattr(self.cv_data.settings.design, key, value)
+        target = self.cv_data.settings.design
+        parts = key.split(".")
+        try:
+            for part in parts[:-1]:
+                target = getattr(target, part)
+            setattr(target, parts[-1], value)
             self.save_autosave()
+        except AttributeError as e:
+            print(f"Error updating design key '{key}': {e}")
 
     def update_preview_image(self):
         import fitz
@@ -98,12 +104,11 @@ class FletController:
             except:
                 pass
 
-            # Use a slightly un-cached path strategy if needed, but path usually works
-            # Just append a timestamp query to force cache bust
-            import time
-            bust_path = f"{img_path}?t={time.time()}"
+            with open(img_path, "rb") as image_file:
+                encoded_string = base64.b64encode(image_file.read()).decode("utf-8")
             
-            self.view.preview_image.src = bust_path
+            self.view.preview_image.src_base64 = None
+            self.view.preview_image.src = f"data:image/png;base64,{encoded_string}"
             self.view.preview_image.update()
             
             self.show_snackbar("Previsualización actualizada")

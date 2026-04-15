@@ -159,32 +159,97 @@ class FletMainWindow:
 
     def add_design_tab(self, cv_data):
         design = cv_data.settings.design
-
-        def font_heading_changed(e): self.controller.update_design("font_heading", e.control.value)
-        def font_body_changed(e): self.controller.update_design("font_body", e.control.value)
-        def size_heading_changed(e): 
-            try: self.controller.update_design("font_size_heading", float(e.control.value))
-            except: pass
-        def size_body_changed(e): 
-            try: self.controller.update_design("font_size_body", float(e.control.value))
-            except: pass
-        def color_bg_changed(e): self.controller.update_design("color_header_bg", e.control.value)
-        def color_text_changed(e): self.controller.update_design("color_header_text", e.control.value)
-        def color_sidebar_changed(e): self.controller.update_design("color_sidebar_bg", e.control.value)
-        def color_main_text_changed(e): self.controller.update_design("color_text_main", e.control.value)
+        rainbow_colors = ["#F44336", "#E91E63", "#9C27B0", "#673AB7", "#3F51B5", "#2196F3", "#03A9F4", "#00BCD4", "#009688", "#4CAF50", "#8BC34A", "#CDDC39", "#FFEB3B", "#FFC107", "#FF9800", "#FF5722", "#795548", "#9E9E9E", "#607D8B", "#000000", "#FFFFFF"]
         
+        def create_color_picker(label_text, current_val, update_callback):
+            def on_hex_change(e): update_callback(e.control.value)
+            
+            hex_field = ft.TextField(value=current_val, width=100, on_change=on_hex_change, content_padding=5, text_size=12)
+            
+            def create_swatch(color_hex):
+                return ft.Container(
+                    width=20, height=20, bgcolor=color_hex, border_radius=10,
+                    border=ft.border.all(1, ft.Colors.GREY_300) if color_hex == "#FFFFFF" else None,
+                    on_click=lambda e, c=color_hex: select_color(c)
+                )
+            
+            def select_color(c_hex):
+                hex_field.value = c_hex
+                hex_field.update()
+                update_callback(c_hex)
+            
+            swatches_row1 = ft.Row([create_swatch(c) for c in rainbow_colors[:11]], spacing=5, wrap=True)
+            swatches_row2 = ft.Row([create_swatch(c) for c in rainbow_colors[11:]], spacing=5, wrap=True)
+            
+            return ft.Column([
+                ft.Row([ft.Text(label_text, weight=ft.FontWeight.BOLD), hex_field]),
+                swatches_row1, swatches_row2
+            ], spacing=5)
+
+        def create_font_settings_panel(label_text, font_obj, path_prefix):
+            def family_changed(e): self.controller.update_design(f"{path_prefix}.family", e.control.value)
+            def size_changed(e): 
+                try: self.controller.update_design(f"{path_prefix}.size", float(e.control.value))
+                except: pass
+            def color_changed(val): self.controller.update_design(f"{path_prefix}.color", val)
+            
+            return ft.Column([
+                ft.Text(label_text, weight=ft.FontWeight.W_600, size=14),
+                ft.Row([
+                    ft.Dropdown(
+                        value=font_obj.family, 
+                        options=[ft.dropdown.Option("Helvetica-Bold"), ft.dropdown.Option("Helvetica-Oblique"), ft.dropdown.Option("Helvetica"), ft.dropdown.Option("Times-Bold"), ft.dropdown.Option("Times-Roman"), ft.dropdown.Option("Courier")], 
+                        on_select=family_changed,
+                        expand=2,
+                        text_size=12,
+                        content_padding=5
+                    ),
+                    ft.TextField(value=str(font_obj.size), on_change=size_changed, expand=1, label="Tamaño", text_size=12)
+                ]),
+                create_color_picker("Color del texto", font_obj.color, color_changed),
+                ft.Divider()
+            ])
+
+        global_text_col = ft.Column([
+             create_font_settings_panel("1.1) Título", design.global_text.title, "global_text.title"),
+             create_font_settings_panel("1.2) Subtítulo", design.global_text.subtitle, "global_text.subtitle"),
+             create_font_settings_panel("1.3) Cuerpo de texto", design.global_text.body, "global_text.body")
+        ])
+        
+        header_col = ft.Column([
+             create_font_settings_panel("2.1) Nombre", design.header.name, "header.name"),
+             create_font_settings_panel("2.2) Puesto", design.header.job, "header.job"),
+             create_font_settings_panel("2.3) Certificación", design.header.certification, "header.certification")
+        ])
+
+        left_col_col = ft.Column([
+             create_color_picker("3.1) Color de fondo", design.left_col.bg_color, lambda val: self.controller.update_design("left_col.bg_color", val)),
+             ft.Divider(),
+             create_font_settings_panel("3.2) Cuerpo de texto", design.left_col.body, "left_col.body"),
+             create_font_settings_panel("3.3) Títulos secciones", design.left_col.title, "left_col.title")
+        ])
+
+        right_col_col = ft.Column([
+             create_color_picker("4.1) Color fondo separadores", design.right_col.separator_bg_color, lambda val: self.controller.update_design("right_col.separator_bg_color", val)),
+             ft.Divider(),
+             create_font_settings_panel("4.2) Títulos secciones", design.right_col.title, "right_col.title")
+        ])
+
+        tags_col = ft.Column([
+             create_font_settings_panel("Tipografía y Color Texto", design.tags.font, "tags.font"),
+             create_color_picker("5.4) Color relleno", design.tags.bg_color, lambda val: self.controller.update_design("tags.bg_color", val))
+        ])
+
+        accordion = ft.Column([
+             ft.ExpansionTile(title=ft.Text("1) Texto Global", weight=ft.FontWeight.BOLD), controls=[ft.Container(global_text_col, padding=10)]),
+             ft.ExpansionTile(title=ft.Text("2) Cabecera", weight=ft.FontWeight.BOLD), controls=[ft.Container(header_col, padding=10)]),
+             ft.ExpansionTile(title=ft.Text("3) Columna Izquierda", weight=ft.FontWeight.BOLD), controls=[ft.Container(left_col_col, padding=10)]),
+             ft.ExpansionTile(title=ft.Text("4) Columna Derecha", weight=ft.FontWeight.BOLD), controls=[ft.Container(right_col_col, padding=10)]),
+             ft.ExpansionTile(title=ft.Text("5) Tags Competencias", weight=ft.FontWeight.BOLD), controls=[ft.Container(tags_col, padding=10)])
+        ], spacing=0)
+
         controls = ft.Column([
-            ft.Text("Tipografía y Tamaños", weight=ft.FontWeight.BOLD),
-            ft.Dropdown(label="Fuente Títulos", value=design.font_heading, options=[ft.dropdown.Option("Helvetica-Bold"), ft.dropdown.Option("Times-Bold"), ft.dropdown.Option("Courier-Bold")], on_select=font_heading_changed),
-            ft.Dropdown(label="Fuente Textos", value=design.font_body, options=[ft.dropdown.Option("Helvetica"), ft.dropdown.Option("Times-Roman"), ft.dropdown.Option("Courier")], on_select=font_body_changed),
-            ft.TextField(label="Tamaño Títulos", value=str(design.font_size_heading), on_change=size_heading_changed),
-            ft.TextField(label="Tamaño Textos", value=str(design.font_size_body), on_change=size_body_changed),
-            ft.Divider(),
-            ft.Text("Colores (HEX)", weight=ft.FontWeight.BOLD),
-            ft.TextField(label="Fondo Cabeceras", value=design.color_header_bg, on_change=color_bg_changed),
-            ft.TextField(label="Texto Cabeceras", value=design.color_header_text, on_change=color_text_changed),
-            ft.TextField(label="Fondo Col. Izquierda", value=design.color_sidebar_bg, on_change=color_sidebar_changed),
-            ft.TextField(label="Color Texto Principal", value=design.color_text_main, on_change=color_main_text_changed),
+            accordion,
             ft.Divider(),
             ft.ElevatedButton("Actualizar Previsualización", on_click=lambda _: self.controller.update_preview_image())
         ], scroll=ft.ScrollMode.AUTO, expand=1)

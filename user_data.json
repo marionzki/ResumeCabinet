@@ -1,11 +1,76 @@
 {
     "settings": {
-        "language": "Ingl\u00e9s"
+        "language": "Espa\u00f1ol",
+        "design": {
+            "global_text": {
+                "title": {
+                    "size": 12.0,
+                    "color": "#333333",
+                    "family": "Helvetica-Bold"
+                },
+                "subtitle": {
+                    "size": 10.0,
+                    "color": "#666666",
+                    "family": "Helvetica-Oblique"
+                },
+                "body": {
+                    "size": 9.0,
+                    "color": "#333333",
+                    "family": "Helvetica"
+                }
+            },
+            "header": {
+                "name": {
+                    "size": 30.0,
+                    "color": "#000000",
+                    "family": "Helvetica-Bold"
+                },
+                "job": {
+                    "size": 16.0,
+                    "color": "#03A9F4",
+                    "family": "Helvetica-Bold"
+                },
+                "certification": {
+                    "size": 12.0,
+                    "color": "#1A1F2C",
+                    "family": "Helvetica-Oblique"
+                }
+            },
+            "left_col": {
+                "bg_color": "#FFFFFF",
+                "body": {
+                    "size": 9.0,
+                    "color": "#333333",
+                    "family": "Helvetica"
+                },
+                "title": {
+                    "size": 10.0,
+                    "color": "#000000",
+                    "family": "Helvetica-Bold"
+                }
+            },
+            "right_col": {
+                "separator_bg_color": "#062e42",
+                "title": {
+                    "size": 14.0,
+                    "color": "#FFFFFF",
+                    "family": "Helvetica-Bold"
+                }
+            },
+            "tags": {
+                "font": {
+                    "size": 8.0,
+                    "color": "#2196F3",
+                    "family": "Helvetica"
+                },
+                "bg_color": "#E3F2FD"
+            }
+        }
     },
     "header_info": {
         "name": "Mario Noriega",
         "job_position": "AI Software Developer",
-        "certifications": "[Certificaci\u00f3n de Programador Python (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertif. Nivel 3 en Programaci\u00f3n Orientada a Objetos y bbdd relacionales",
+        "certifications": "[Certificaci\u00f3n de Programador Python (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertif. Nivel 3 en Programaci\u00f3n Orientada a Objetos y\nbases de datos relacionales",
         "city": "Madrid",
         "country": "Espa\u00f1a",
         "email": "mnoriegazamora@gmail.com",

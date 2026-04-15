@@ -8,6 +8,7 @@ from reportlab.lib.utils import ImageReader
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_CENTER
+from reportlab.lib.colors import HexColor
 
 from .pdf_styles import *
 from .translations import TRANSLATIONS
@@ -18,29 +19,28 @@ class PDFGenerator:
     def __init__(self, cv_data):
         self.cv_data = cv_data
         self.styles = getSampleStyleSheet()
-        from reportlab.lib.colors import HexColor
-        design = self.cv_data.settings.design
+        self.design = self.cv_data.settings.design
         
-        self.font_heading = design.font_heading
-        self.font_body = design.font_body
-        self.font_size_heading = float(design.font_size_heading)
-        self.font_size_body = float(design.font_size_body)
-        
-        self.color_header_bg = HexColor(design.color_header_bg)
-        self.color_header_text = HexColor(design.color_header_text)
-        self.color_text_main = HexColor(design.color_text_main)
-        self.color_text_sub = HexColor(design.color_text_sub)
-        self.color_sidebar_bg = HexColor(design.color_sidebar_bg)
-
         self.style_body = ParagraphStyle(
             'Body',
             parent=self.styles['Normal'],
-            fontName=self.font_body,
-            fontSize=self.font_size_body,
-            leading=self.font_size_body * 1.3,
-            textColor=self.color_text_main,
+            fontName=self.design.global_text.body.family,
+            fontSize=self.design.global_text.body.size,
+            leading=self.design.global_text.body.size * 1.3,
+            textColor=HexColor(self.design.global_text.body.color),
             alignment=TA_LEFT
         )
+        
+        self.style_left_body = ParagraphStyle(
+            'LeftBody',
+            parent=self.styles['Normal'],
+            fontName=self.design.left_col.body.family,
+            fontSize=self.design.left_col.body.size,
+            leading=self.design.left_col.body.size * 1.3,
+            textColor=HexColor(self.design.left_col.body.color),
+            alignment=TA_LEFT
+        )
+        
         self.language = cv_data.settings.language if cv_data.settings.language in TRANSLATIONS else "Español"
         self.trans = TRANSLATIONS.get(self.language, TRANSLATIONS["Español"])
         self.translator = TranslationService()
@@ -63,8 +63,6 @@ class PDFGenerator:
             
         lang_trans = module.translations[self.language]
         
-        # Check for stale translation: compare stored source text with current text.
-        # If source_key is missing (legacy data), assume stale to ensure consistency.
         source_key = f"_source_{field_name}"
         stored_source = lang_trans.get(source_key)
         
@@ -72,18 +70,13 @@ class PDFGenerator:
         if source_key in lang_trans:
             if lang_trans[source_key] != original_text:
                 is_stale = True
-                logging.debug("Translation for '%s' is stale (source changed). Re-translating...", field_name)
         else:
             is_stale = True
-            logging.debug("Translation for '%s' lacks source tracking. Re-translating...", field_name)
         
-        # If valid translation exists and not stale, return it
         if not is_stale and field_name in lang_trans and lang_trans[field_name]:
             return lang_trans[field_name]
             
-        # Auto-translate if missing or stale
         if original_text:
-            logging.debug("Auto-translating '%s' to %s...", field_name, self.language)
             translated = self.translator.translate_text(original_text, self.language)
             lang_trans[field_name] = translated
             lang_trans[source_key] = original_text
@@ -108,7 +101,6 @@ class PDFGenerator:
             
         lang_trans = module.translations[self.language]
         
-
         if "tags" not in lang_trans:
             lang_trans["tags"] = {}
             
@@ -119,7 +111,6 @@ class PDFGenerator:
             if tag in tags_dict and tags_dict[tag]:
                 translated_tags.append(tags_dict[tag])
             else:
-                logging.debug("Auto-translating tag '%s' to %s...", tag, self.language)
                 translated = self.translator.translate_text(tag, self.language)
                 tags_dict[tag] = translated
                 translated_tags.append(translated)
@@ -150,7 +141,7 @@ class PDFGenerator:
         col2_w = width - sidebar_width - MARGIN
 
         # Sidebar Area Background
-        c.setFillColor(self.color_sidebar_bg)
+        c.setFillColor(HexColor(self.design.left_col.bg_color))
         c.rect(0, 0, sidebar_width, height, fill=1, stroke=0)
 
         # Separator line
@@ -176,32 +167,31 @@ class PDFGenerator:
             except:
                 pass
 
-        pass
-        
         # Contact info
-        c.setFont(self.font_body, 9)
-        c.setFillColor(self.color_text_main)
+        c.setFont(self.design.left_col.body.family, self.design.left_col.body.size)
+        c.setFillColor(HexColor(self.design.left_col.body.color))
         info = self.cv_data.header_info
+        
+        line_height = self.design.left_col.body.size * 1.3
 
         if info.city or info.country:
             c.drawString(col1_x, y_left, f"{info.city}, {info.country}".strip(", "))
-            y_left -= 12
+            y_left -= line_height
         if info.phone:
             c.drawString(col1_x, y_left, info.phone)
-            y_left -= 12
+            y_left -= line_height
         if info.email:
             c.drawString(col1_x, y_left, info.email)
-            y_left -= 12
+            y_left -= line_height
         if hasattr(info, 'others') and info.others:
             c.drawString(col1_x, y_left, info.others)
-            y_left -= 12
+            y_left -= line_height
         if info.linkedin:
-            # LinkedIn supports markdown links: [PERFIL LINKEDIN](url)
-            style_link = ParagraphStyle('Link', parent=self.style_body, fontSize=8, textColor=self.color_text_main)
+            style_link = ParagraphStyle('Link', parent=self.style_left_body, fontSize=self.design.left_col.body.size, textColor=HexColor(self.design.left_col.body.color))
             p = Paragraph(self._process_text_formatting(info.linkedin), style_link)
             _, h = p.wrap(col1_w, 50)
             p.drawOn(c, col1_x, y_left - h + 2)
-            y_left -= 12
+            y_left -= line_height
 
         y_left -= 20
         
@@ -211,7 +201,7 @@ class PDFGenerator:
         for m in self.cv_data.personal_info.modules:
             if m.is_active and not isinstance(m, AvatarModule):
                 text = self._get_text(m, "text_summary" if (hasattr(m, 'use_summary') and m.use_summary) else "text_extended")
-                y_left = self._draw_paragraph(c, text, col1_x, y_left, col1_w)
+                y_left = self._draw_paragraph(c, text, col1_x, y_left, col1_w, self.style_left_body)
                 y_left -= 10
         y_left -= 20
 
@@ -279,42 +269,44 @@ class PDFGenerator:
 
 
         # --- RIGHT COLUMN ---
-        y_right = current_y - 20 # Align base for 28pt font with top of image (which is current_y + 8)
+        y_right = current_y - 20
 
         # Header Info (Nombre, Puesto, Certificaciones)
-        c.setFont(self.font_heading, 28)
-        c.setFillColor(self.color_header_bg)
+        h_name = self.design.header.name
+        c.setFont(h_name.family, h_name.size)
+        c.setFillColor(HexColor(h_name.color))
         name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
-        for line in self._wrap_text(c, name.upper(), col2_w, self.font_heading, 28):
-            w = c.stringWidth(line, self.font_heading, 28)
+        for line in self._wrap_text(c, name.upper(), col2_w, h_name.family, h_name.size):
+            w = c.stringWidth(line, h_name.family, h_name.size)
             x_pos = col2_x + (col2_w - w) / 2
             c.drawString(x_pos, y_right, line)
-            y_right -= 30
+            y_right -= (h_name.size + 2)
         y_right -= 5
         
         if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
-            c.setFont(self.font_heading, 20)
-            c.setFillColor(COLOR_TAG_BORDER)
+            h_job = self.design.header.job
+            c.setFont(h_job.family, h_job.size)
+            c.setFillColor(HexColor(h_job.color))
             job_val = self._get_text(self.cv_data.header_info, "job_position")
-            for line in self._wrap_text(c, job_val.upper(), col2_w, self.font_heading, 20):
-                w = c.stringWidth(line, self.font_heading, 20)
+            for line in self._wrap_text(c, job_val.upper(), col2_w, h_job.family, h_job.size):
+                w = c.stringWidth(line, h_job.family, h_job.size)
                 x_pos = col2_x + (col2_w - w) / 2
                 c.drawString(x_pos, y_right, line)
-                y_right -= 24
-            # Reduce the large gap between Job Position and Certifications
+                y_right -= (h_job.size + 4)
             y_right += 15
         else:
             y_right -= 5
 
         if hasattr(self.cv_data.header_info, 'certifications') and self.cv_data.header_info.certifications:
+            h_cert = self.design.header.certification
             cert_val = self._get_text(self.cv_data.header_info, "certifications")
             certs_text = cert_val.replace('\n', '<br/>')
             certs_text = self._process_text_formatting(certs_text)
             
             style_certs = ParagraphStyle(
                 'Certs', parent=self.style_body,
-                fontName="Helvetica-Oblique", fontSize=14,
-                textColor=self.color_header_bg, alignment=TA_CENTER, leading=16
+                fontName=h_cert.family, fontSize=h_cert.size,
+                textColor=HexColor(h_cert.color), alignment=TA_CENTER, leading=h_cert.size * 1.2
             )
             
             p = Paragraph(certs_text, style_certs)
@@ -325,42 +317,45 @@ class PDFGenerator:
         y_right -= 20
 
         y_right = self._draw_section(c, self.cv_data.experience, col2_x, y_right, col2_w)
-
         y_right -= 10
         y_right = self._draw_section(c, self.cv_data.education, col2_x, y_right, col2_w)
 
         c.save()
 
     def _draw_sidebar_header(self, c, title, x, y, width):
-        c.setFont(self.font_heading, 10)
-        c.setFillColor(self.color_header_bg)
+        lc_title = self.design.left_col.title
+        c.setFont(lc_title.family, lc_title.size)
+        c.setFillColor(HexColor(lc_title.color))
         c.drawString(x, y, title.upper())
-        c.setStrokeColor(self.color_header_bg)
+        c.setStrokeColor(HexColor(lc_title.color))
         c.line(x, y-2, x+width, y-2)
 
     def _draw_section(self, c, section, x, y, width):
-        header_height = 24
-        c.setFillColor(self.color_header_bg)
+        rc_title = self.design.right_col.title
+        header_height = rc_title.size + 10
+        
+        c.setFillColor(HexColor(self.design.right_col.separator_bg_color))
         c.rect(x - 5, y - 8, width + 10, header_height, fill=1, stroke=0)
 
-        c.setFont(self.font_heading, 14)
-        c.setFillColor(self.color_header_text)
+        c.setFont(rc_title.family, rc_title.size)
+        c.setFillColor(HexColor(rc_title.color))
 
-        # Fall back to section.title if no translation found
         title = self._t(section.id)
         if title == section.id:
             title = section.title
 
         c.drawString(x, y, title.upper())
-        c.setFillColor(self.color_text_main)
-        y -= 35
+        y -= (header_height + 11)
+
+        gt_title = self.design.global_text.title
+        gt_subtitle = self.design.global_text.subtitle
 
         for m in section.modules:
             if not m.is_active: continue
             
             raw_title = self._get_text(m, "title")
-            c.setFont(self.font_heading, 11)
-            c.setFillColor(self.color_header_bg)
+            c.setFont(gt_title.family, gt_title.size)
+            c.setFillColor(HexColor(gt_title.color))
 
             title_text = ""
             if raw_title:
@@ -371,7 +366,7 @@ class PDFGenerator:
 
             c.drawString(x, y, title_text)
 
-            y -= 10
+            y -= (gt_title.size + 1)
             sub_line = []
 
             company = self._get_text(m, "company")
@@ -382,17 +377,16 @@ class PDFGenerator:
                 sub_line.append(self._translate_date(date_range))
 
             if sub_line:
-                c.setFont("Helvetica-Oblique", 9)
-                c.setFillColor(self.color_text_sub)
+                c.setFont(gt_subtitle.family, gt_subtitle.size)
+                c.setFillColor(HexColor(gt_subtitle.color))
                 c.drawString(x, y, " | ".join(sub_line))
-                c.setFillColor(self.color_text_main)
-                y -= 10
+                y -= (gt_subtitle.size + 2)
 
             if hasattr(m, 'hide_text') and getattr(m, 'hide_text', False):
                 y -= 5
             else:
                 text = self._get_text(m, "text_summary" if (hasattr(m, 'use_summary') and m.use_summary) else "text_extended")
-                y = self._draw_paragraph(c, text, x, y, width)
+                y = self._draw_paragraph(c, text, x, y, width, self.style_body)
                 y -= 12
 
             if hasattr(m, 'tags') and m.tags:
@@ -408,18 +402,19 @@ class PDFGenerator:
         return y
 
     def _draw_tags(self, c, tags, x, y, max_width):
-        c.setFont("Helvetica", 8)
+        t_font = self.design.tags.font
+        c.setFont(t_font.family, t_font.size)
         start_x = x
         current_x = x
-        row_height = 14
+        row_height = t_font.size + 6
         for tag in tags:
-            tag_w = c.stringWidth(tag, "Helvetica", 8) + 10
+            tag_w = c.stringWidth(tag, t_font.family, t_font.size) + 10
             if current_x + tag_w > start_x + max_width:
                 current_x = start_x
                 y -= row_height
-            c.setFillColor(COLOR_TAG_BG)
-            c.roundRect(current_x, y-2, tag_w-2, 11, 2, fill=1, stroke=0)
-            c.setFillColor(COLOR_TAG_BORDER)
+            c.setFillColor(HexColor(self.design.tags.bg_color))
+            c.roundRect(current_x, y-2, tag_w-2, t_font.size + 3, 2, fill=1, stroke=0)
+            c.setFillColor(HexColor(t_font.color))
             c.drawString(current_x + 4, y, tag)
             current_x += tag_w + 5
         return y - row_height
@@ -439,10 +434,10 @@ class PDFGenerator:
             lines.append(' '.join(current_line))
         return lines
 
-    def _draw_paragraph(self, c, text, x, y, width):
+    def _draw_paragraph(self, c, text, x, y, width, style=None):
         if not text: return y
         text = self._process_text_formatting(text).replace('\n', '<br/>')
-        p = Paragraph(text, self.style_body)
+        p = Paragraph(text, style if style else self.style_body)
         _, h = p.wrap(width, PAGE_HEIGHT_A4)
         p.drawOn(c, x, y - h)
         return y - h
@@ -458,5 +453,3 @@ class PDFGenerator:
             return f'<a href="{url}"><font color="blue">{translated_text}</font></a>'
             
         return re.sub(pattern, replace_match, text)
-
-
