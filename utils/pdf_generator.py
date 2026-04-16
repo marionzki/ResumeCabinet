@@ -270,23 +270,93 @@ class PDFGenerator:
 
 
         # --- RIGHT COLUMN ---
+        # We do a dry-run first to compute total content height, then redistribute
+        # leftover space from the top in priority order:
+        #   1) gap between section separator and certifications/puesto
+        #   2) gap between name and puesto
+
+        h_name = self.design.header.name
+        name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
+        has_job = hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position
+        has_certs = hasattr(self.cv_data.header_info, 'certifications') and self.cv_data.header_info.certifications
+
+        # --- Measure name block height ---
+        name_lines = self._wrap_text(c, name.upper(), col2_w, h_name.family, h_name.size)
+        name_block_h = len(name_lines) * (h_name.size + 2) + 5   # +5 is the y_right -= 5 after
+
+        # --- Measure job block height ---
+        job_block_h = 0
+        if has_job:
+            h_job = self.design.header.job
+            job_val = self._get_text(self.cv_data.header_info, "job_position")
+            job_lines = self._wrap_text(c, job_val.upper(), col2_w, h_job.family, h_job.size)
+            # The job block starts after pulling up by (h_name.size/2 - 3) and ends pulling up -18
+            job_block_h = len(job_lines) * (h_job.size + 4) - (h_name.size / 2 - 3) - 18
+        else:
+            job_block_h = 5   # the y_right -= 5 in else branch
+
+        # --- Measure certs block height ---
+        certs_block_h = 0
+        if has_certs:
+            h_cert = self.design.header.certification
+            cert_val = self._get_text(self.cv_data.header_info, "certifications")
+            certs_text = cert_val.replace('\n', '<br/>').replace('\n', '<br/>')
+            certs_text = self._process_text_formatting(certs_text)
+            style_certs_measure = ParagraphStyle(
+                'CertsMeasure', parent=self.style_body,
+                fontName=h_cert.family, fontSize=h_cert.size,
+                textColor=HexColor(h_cert.color), alignment=TA_CENTER, leading=h_cert.size * 1.2
+            )
+            p_measure = Paragraph(certs_text, style_certs_measure)
+            _, certs_h = p_measure.wrap(col2_w, PAGE_HEIGHT_A4)
+            certs_block_h = certs_h + 15
+
+        # Fixed spacing after header block before first section separator
+        header_bottom_gap = 20
+
+        # --- Measure section heights ---
+        exp_h = self._measure_section(c, self.cv_data.experience, col2_w)
+        edu_h = self._measure_section(c, self.cv_data.education, col2_w)
+
+        # Total content height in right column
+        total_h = (
+            20                    # initial top gap (y_right = current_y - 20)
+            + name_block_h
+            + job_block_h
+            + certs_block_h
+            + header_bottom_gap
+            + exp_h
+            + 10                  # gap between sections
+            + edu_h
+        )
+
+        available_h = height - 2 * MARGIN
+        leftover = max(0, available_h - total_h)
+
+        # Distribute leftover space in priority order:
+        #   Phase 1 (all leftover): gap between section separator and certs/puesto block
+        #   Phase 2 (overflow from phase 1 if capped): gap between name and puesto — currently unused
+        extra_after_separator = leftover
+        extra_name_job = 0
+
+        # --- NOW DRAW ---
         y_right = current_y - 20
 
-        # Header Info (Nombre, Puesto, Certificaciones)
-        h_name = self.design.header.name
+        # Draw Name
         c.setFont(h_name.family, h_name.size)
         c.setFillColor(HexColor(h_name.color))
-        name = self.cv_data.header_info.name if self.cv_data.header_info.name else "NOMBRE APELLIDO"
-        for line in self._wrap_text(c, name.upper(), col2_w, h_name.family, h_name.size):
+        for line in name_lines:
             w = c.stringWidth(line, h_name.family, h_name.size)
             x_pos = col2_x + (col2_w - w) / 2
             c.drawString(x_pos, y_right, line)
             y_right -= (h_name.size + 2)
         y_right -= 5
-        
-        if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
+
+        # Apply extra gap between name and job (phase 2, starts at 0)
+        y_right -= extra_name_job
+
+        if has_job:
             h_job = self.design.header.job
-            # Reduce the visual space between Name and Puesto by half, taking off a bit to add 3px gap
             y_right += (h_name.size / 2) - 3
             c.setFont(h_job.family, h_job.size)
             c.setFillColor(HexColor(h_job.color))
@@ -300,30 +370,85 @@ class PDFGenerator:
         else:
             y_right -= 5
 
-        if hasattr(self.cv_data.header_info, 'certifications') and self.cv_data.header_info.certifications:
+        if has_certs:
             h_cert = self.design.header.certification
             cert_val = self._get_text(self.cv_data.header_info, "certifications")
             certs_text = cert_val.replace('\n', '<br/>')
             certs_text = self._process_text_formatting(certs_text)
-            
             style_certs = ParagraphStyle(
                 'Certs', parent=self.style_body,
                 fontName=h_cert.family, fontSize=h_cert.size,
                 textColor=HexColor(h_cert.color), alignment=TA_CENTER, leading=h_cert.size * 1.2
             )
-            
             p = Paragraph(certs_text, style_certs)
             _, h = p.wrap(col2_w, PAGE_HEIGHT_A4)
             p.drawOn(c, col2_x, y_right - h)
             y_right -= (h + 15)
 
-        y_right -= 20
+        # Apply extra gap between header block and first section separator (phase 1)
+        y_right -= (header_bottom_gap + extra_after_separator)
 
         y_right = self._draw_section(c, self.cv_data.experience, col2_x, y_right, col2_w)
         y_right -= 10
         y_right = self._draw_section(c, self.cv_data.education, col2_x, y_right, col2_w)
 
         c.save()
+
+    def _measure_section(self, c, section, width):
+        """Dry-run of _draw_section: returns total height consumed without drawing anything."""
+        rc_title = self.design.right_col.title
+        header_height = rc_title.size + 10
+        h = header_height + 11  # separator bar + gap below
+
+        gt_title = self.design.global_text.title
+        gt_subtitle = self.design.global_text.subtitle
+
+        for m in section.modules:
+            if not m.is_active:
+                continue
+
+            # Title line
+            h += gt_title.size + 1
+
+            # Subtitle line
+            sub_parts = []
+            if self._get_text(m, "company"):
+                sub_parts.append(self._get_text(m, "company"))
+            if self._get_text(m, "date_range"):
+                sub_parts.append(self._get_text(m, "date_range"))
+            if sub_parts:
+                h += gt_subtitle.size + 2
+
+            # Body text
+            if hasattr(m, 'hide_text') and getattr(m, 'hide_text', False):
+                h += 5
+            else:
+                text = self._get_text(m, "text_summary" if (hasattr(m, 'use_summary') and m.use_summary) else "text_extended")
+                if text:
+                    formatted = self._process_text_formatting(text).replace('\n', '<br/>')
+                    p = Paragraph(formatted, self.style_body)
+                    _, ph = p.wrap(width, PAGE_HEIGHT_A4)
+                    h += ph
+                h += 12
+
+            # Tags
+            if hasattr(m, 'tags') and m.tags:
+                tags = self._get_tags(m)
+                t_font = self.design.tags.font
+                row_h = t_font.size + 6
+                current_x = 0
+                rows = 1
+                for tag in tags:
+                    tag_w = c.stringWidth(tag, t_font.family, t_font.size) + 10
+                    if current_x + tag_w > width:
+                        current_x = 0
+                        rows += 1
+                    current_x += tag_w + 5
+                h += rows * row_h + 5
+
+            h += 8
+
+        return h
 
     def _draw_sidebar_header(self, c, title, x, y, width):
         lc_title = self.design.left_col.title
