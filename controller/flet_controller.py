@@ -343,7 +343,7 @@ class FletController:
              self.show_snackbar(f"Error saving template: {ex}")
 
     def apply_template_file(self, name):
-        """Apply only the active/inactive states from a saved template to the current data."""
+        """Apply active/inactive module states AND header_info/settings from a saved template."""
         path = os.path.join("templates", name)
         if not os.path.exists(path):
              self.show_snackbar("Template file not found.")
@@ -352,7 +352,25 @@ class FletController:
         try:
             with open(path, "r", encoding="utf-8") as f:
                 template_data = json.loads(f.read())
-            
+
+            # --- Restore header_info from template ---
+            if "header_info" in template_data:
+                from model.cv_data import HeaderInfo
+                try:
+                    self.cv_data.header_info = HeaderInfo(**template_data["header_info"])
+                except Exception as e:
+                    print(f"Warning: could not restore header_info: {e}")
+
+            # --- Restore settings (language + design) from template ---
+            if "settings" in template_data:
+                from model.cv_data import CVData
+                try:
+                    tmp = CVData.from_json(json.dumps({"settings": template_data["settings"], "sections": {}, "header_info": {}}))
+                    self.cv_data.settings = tmp.settings
+                except Exception as e:
+                    print(f"Warning: could not restore settings: {e}")
+
+            # --- Restore module active/inactive states ---
             def map_modules(section_data):
                 return {m["id"]: m.get("is_active", True) for m in section_data.get("modules", [])}
 
@@ -382,7 +400,7 @@ class FletController:
             
             self.save_autosave()
             self.refresh_view()
-            self.show_snackbar(f"Template applied. Updated {count} modules.")
+            self.show_snackbar(f"Template '{name}' cargado. {count} módulos actualizados.")
             
         except Exception as ex:
             self.show_snackbar(f"Error applying template: {ex}")
