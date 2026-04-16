@@ -160,9 +160,10 @@ class PDFGenerator:
         if avatar_mod and os.path.exists(avatar_mod.image_path):
             try:
                 img = ImageReader(avatar_mod.image_path)
-                img_w = 145
-                img_h = 145
-                c.drawImage(avatar_mod.image_path, col1_x + (col1_w - img_w)/2, y_left - img_h + 8, width=img_w, height=img_h, mask='auto', preserveAspectRatio=True)
+                orig_w, orig_h = img.getSize()
+                img_w = col1_w
+                img_h = img_w * (orig_h / orig_w) if orig_w > 0 else img_w
+                c.drawImage(avatar_mod.image_path, col1_x, y_left - img_h + 8, width=img_w, height=img_h, mask='auto', preserveAspectRatio=True)
                 y_left -= (img_h + 12)
             except:
                 pass
@@ -285,6 +286,8 @@ class PDFGenerator:
         
         if hasattr(self.cv_data.header_info, 'job_position') and self.cv_data.header_info.job_position:
             h_job = self.design.header.job
+            # Reduce the visual space between Name and Puesto by half, taking off a bit to add 3px gap
+            y_right += (h_name.size / 2) - 3
             c.setFont(h_job.family, h_job.size)
             c.setFillColor(HexColor(h_job.color))
             job_val = self._get_text(self.cv_data.header_info, "job_position")
@@ -293,7 +296,7 @@ class PDFGenerator:
                 x_pos = col2_x + (col2_w - w) / 2
                 c.drawString(x_pos, y_right, line)
                 y_right -= (h_job.size + 4)
-            y_right += 15
+            y_right += 18
         else:
             y_right -= 5
 
@@ -393,7 +396,7 @@ class PDFGenerator:
                 y = self._draw_tags(c, self._get_tags(m), x, y, width)
                 y -= 5
 
-            y -= 12
+            y -= 8
 
             if y < 30:
                 c.showPage()
