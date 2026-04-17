@@ -1,6 +1,6 @@
 {
     "settings": {
-        "language": "Espa\u00f1ol",
+        "language": "Ingl\u00e9s",
         "design": {
             "global_text": {
                 "title": {
@@ -69,13 +69,13 @@
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "Data Analyst",
+        "job_position": "AI Quality Analyst",
         "certifications": "[Certificaci\u00f3n de Programador Python (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertif. Nivel 3 en Programaci\u00f3n Orientada a Objetos y\nbases de datos relacionales",
         "city": "Madrid",
-        "country": "",
+        "country": "Spain",
         "email": "mnoriegazamora@gmail.com",
-        "phone": "699651797",
-        "others": "Ingl\u00e9s B2",
+        "phone": "+34699651797",
+        "others": "English B2",
         "linkedin": "[PERFIL LINKEDIN](https://www.linkedin.com/in/mario-noriega-zamora/)",
         "translations": {
             "Ingl\u00e9s": {
@@ -113,7 +113,7 @@
                 },
                 {
                     "id": "616fafc1-cdaf-4893-bf67-b4389a0a2632",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "AvatarModule",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\profile\\profile01.jpg"
                 },
@@ -177,14 +177,14 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "text_extended": "Programmer with a solid foundation in Object Oriented Programming. Experience in logic development and process automation with Python, C#, VEX and VBA. Application in real environments through procedural generation tools, Blueprints and data processing. Focus on clean, efficient and scalable code.",
-                            "_source_text_extended": "Programador con base s\u00f3lida en Programaci\u00f3n Orientada a Objetos. Experiencia en desarrollo de l\u00f3gica y automatizaci\u00f3n de procesos con Python, C#, VEX y VBA. Aplicaci\u00f3n en entornos reales mediante herramientas de generaci\u00f3n procedural, Blueprints y tratamiento de datos. Enfoque en c\u00f3digo limpio, eficiente y escalable."
+                            "text_extended": "Programmer with a solid foundation in Object-Oriented Programming, backed by more than 700 hours of technical training and the official PCAP certification in Python. My experience covers creating complex logic and process automation using Python, C++, VEX and VBA. I have applied this knowledge in real environments, both developing procedural generation tools and Blueprints in graphics engines, and adapting macros for the processing of international data. I focus on developing clean, efficient and scalable code.",
+                            "_source_text_extended": "Programador con una s\u00f3lida base en Programaci\u00f3n Orientada a Objetos, respaldada por m\u00e1s de 700 horas de formaci\u00f3n t\u00e9cnica y la certificaci\u00f3n oficial PCAP en Python. Mi experiencia abarca la creaci\u00f3n de l\u00f3gicas complejas y automatizaci\u00f3n de procesos mediante Python, C++, VEX y VBA. He aplicado estos conocimientos en entornos reales, tanto desarrollando herramientas de generaci\u00f3n procedural y Blueprints en motores gr\u00e1ficos, como adaptando macros para el tratamiento de datos internacionales. Me enfoco en desarrollar c\u00f3digo limpio, eficiente y escalable."
                         }
                     }
                 },
                 {
                     "id": "4f5365b0-90c8-4731-bf60-7856f9e4b763",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Analista de datos",
                     "text_extended": "Especialista en bases de datos con formaci\u00f3n en BBDD relacionales y lenguajes orientados a objetos. Experiencia en auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales, optimizando procesos mediante VBA. Capacidad anal\u00edtica aplicada a m\u00e9tricas digitales, garantizando integridad de datos y soporte a la toma de decisiones.",
@@ -222,7 +222,7 @@
                 },
                 {
                     "id": "5cda1f2b-18e7-4e0f-8fa7-7836872b3cf4",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Analista IA",
                     "text_extended": "Especialista en calidad de datos con formaci\u00f3n en comunicaci\u00f3n y experiencia en redacci\u00f3n profesional. Experiencia en gesti\u00f3n de bases de datos y optimizaci\u00f3n de contenido ling\u00fc\u00edstico. Capacidad para auditar respuestas de IA, detectar sesgos y mejorar la precisi\u00f3n sem\u00e1ntica. Perfil orientado a automatizaci\u00f3n y est\u00e1ndares de calidad exigentes.",
@@ -238,7 +238,7 @@
                 },
                 {
                     "id": "24657179-6b67-4823-9269-3f63ddf16025",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "AvatarModule",
                     "image_path": "D:/Projects/Programacion/ResumeCabinet/images/profile/profile03ppp.png"
                 }
@@ -429,7 +429,7 @@
                         }
                     },
                     "company": "Ochoimedio Estudio",
-                    "date_range": "2 meses",
+                    "date_range": "2010",
                     "tags": [
                         "Dise\u00f1o gr\u00e1fico",
                         "Branding",
@@ -467,7 +467,7 @@
                         }
                     },
                     "company": "Regi\u00f3n digital / La Gaceta de Salamanca / El Peri\u00f3dico Extremadura",
-                    "date_range": "2 a\u00f1os",
+                    "date_range": "2008 \u2013 2009",
                     "tags": [
                         "Prensa escrita",
                         "Cr\u00f3nica deportiva",
@@ -497,7 +497,7 @@
                         }
                     },
                     "company": "Universidad Pontificia de Salamanca / Plateros producciones",
-                    "date_range": "2 a\u00f1os",
+                    "date_range": "2007 \u2013 2009",
                     "tags": [
                         "Grabaci\u00f3n de v\u00eddeo",
                         "Edici\u00f3n de v\u00eddeo",
@@ -558,42 +558,6 @@
                     "tags": [
                         "Cloud Computing",
                         "Seguridad y privacidad en la Nube"
-                    ],
-                    "hide_text": true
-                },
-                {
-                    "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
-                    "is_active": false,
-                    "type": "EducationModule",
-                    "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
-                    "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
-                    "text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales.",
-                    "use_summary": false,
-                    "hyperlinks": [],
-                    "translations": {
-                        "Ingl\u00e9s": {
-                            "title": "Advanced virtual production with Simulcam and Unreal Engine",
-                            "_source_title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
-                            "company": "RTVE Institute",
-                            "_source_company": "RTVE Instituto",
-                            "date_range": "10/2025 - 01/2026",
-                            "_source_date_range": "10/2025 - 01/2026",
-                            "text_summary": "Technical mastery of Unreal Engine, nDisplay and device synchronization for real-time composition and integration of physical and virtual sets.",
-                            "_source_text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales."
-                        }
-                    },
-                    "company": "RTVE Instituto",
-                    "date_range": "2025 - 2026",
-                    "tags": [
-                        "Dise\u00f1o gr\u00e1fico",
-                        "Edici\u00f3n de v\u00eddeo",
-                        "Atenci\u00f3n al detalle",
-                        "Posproducci\u00f3n de v\u00eddeo y VFX",
-                        "3D",
-                        "IA Generativa",
-                        "Houdini FX",
-                        "Unreal Engine 5.6",
-                        "DaVinci Resolve"
                     ],
                     "hide_text": true
                 },
@@ -689,8 +653,34 @@
                     "hide_text": true
                 },
                 {
-                    "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
+                    "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
                     "is_active": false,
+                    "type": "EducationModule",
+                    "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
+                    "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
+                    "text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales.",
+                    "use_summary": false,
+                    "hyperlinks": [],
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Advanced virtual production with Simulcam and Unreal Engine",
+                            "_source_title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
+                            "company": "RTVE Institute",
+                            "_source_company": "RTVE Instituto",
+                            "date_range": "10/2025 - 01/2026",
+                            "_source_date_range": "10/2025 - 01/2026",
+                            "text_summary": "Technical mastery of Unreal Engine, nDisplay and device synchronization for real-time composition and integration of physical and virtual sets.",
+                            "_source_text_summary": "Dominio t\u00e9cnico de Unreal Engine, nDisplay y sincronizaci\u00f3n de dispositivos para la composici\u00f3n e integraci\u00f3n en tiempo real de sets f\u00edsicos y virtuales."
+                        }
+                    },
+                    "company": "RTVE Instituto",
+                    "date_range": "2025 - 2026",
+                    "tags": [],
+                    "hide_text": false
+                },
+                {
+                    "id": "475d2278-2063-41d7-ba2f-1c735c1c5527",
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Creaci\u00f3n de Videojuegos con Unreal Engine (350h)",
                     "text_extended": "Modelado y texturizado con Blender 4.2. Dise\u00f1o de videojuego, programaci\u00f3n con Blueprints, VFX y Realidad Virtual con Unreal Engine 5.4.",
@@ -777,7 +767,7 @@
                 },
                 {
                     "id": "bf406fda-31de-4f3a-b701-3e0b338a5460",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Curso Superior en e-Commerce y Marketing",
                     "text_extended": "",
@@ -955,7 +945,7 @@
             "modules": [
                 {
                     "id": "2b075ee6-a647-486a-9582-426164a91247",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Grabaci\u00f3n de v\u00eddeo",
                     "text_extended": "S\u00f3lida base en captaci\u00f3n de imagen respaldada por la Licenciatura en Comunicaci\u00f3n Audiovisual y experiencia pr\u00e1ctica como operador de c\u00e1mara. Trayectoria en el rodaje de producciones documentales de \u00edndole cultural y patrimonial (\"De la dehesa a la mesa\", \"Cinco pueblos patrimonio vivo\"), as\u00ed como en la cobertura de eventos institucionales y universitarios. Capacidad integral para planificar la grabaci\u00f3n y ejecutar la toma de im\u00e1genes asegurando los est\u00e1ndares t\u00e9cnicos de composici\u00f3n e iluminaci\u00f3n requeridos.",
@@ -973,7 +963,7 @@
                 },
                 {
                     "id": "fa432d93-0faf-4845-b3e4-dd96459166ef",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Prensa escrita",
                     "text_extended": "Experiencia period\u00edstica consolidada en la redacci\u00f3n de noticias, reportajes, cr\u00f3nicas y entrevistas para medios de comunicaci\u00f3n locales y regionales de referencia (La Gaceta de Salamanca, El Peri\u00f3dico Extremadura, Regi\u00f3n Digital). Especializaci\u00f3n en la cobertura de actualidad local y eventos deportivos, demostrando alta capacidad de adaptaci\u00f3n, seguimiento de competiciones en tiempo real y generaci\u00f3n \u00e1gil de contenidos informativos bajo la estricta presi\u00f3n de los cierres de edici\u00f3n.",
@@ -991,7 +981,7 @@
                 },
                 {
                     "id": "7faac449-b133-47a7-b60c-63356f9f0e9b",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Dise\u00f1o gr\u00e1fico",
                     "text_extended": "Formaci\u00f3n t\u00e9cnica especializada (programa de 500 horas) combinada con experiencia pr\u00e1ctica en agencias creativas. Dominio de herramientas del entorno Adobe, especialmente Photoshop e Illustrator, aplicado a la creaci\u00f3n de recursos visuales orientados a resultados. Experiencia profesional en la conceptualizaci\u00f3n, dise\u00f1o y adaptaci\u00f3n de carteler\u00eda y elementos gr\u00e1ficos para campa\u00f1as publicitarias de alcance regional (Consejer\u00eda de Extremadura), asegurando la correcta transmisi\u00f3n del mensaje institucional.",
@@ -1010,7 +1000,7 @@
                 },
                 {
                     "id": "cc1284c3-040c-4dc2-aa62-96476d666ddb",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Edici\u00f3n de v\u00eddeo",
                     "text_extended": "Perfil t\u00e9cnico en montaje audiovisual con capacidad para estructurar narrativas visuales coherentes e impactantes. Experiencia en la edici\u00f3n de piezas para televisi\u00f3n y eventos corporativos e institucionales, manejando herramientas de edici\u00f3n profesional como DaVinci Resolve, Adobe Premiere Pro, Avid Liquid y Sony Vegas. Conocimiento integral del flujo de trabajo de postproducci\u00f3n, desde la ingesta de material hasta la entrega del producto final optimizado para su emisi\u00f3n.",
@@ -1047,7 +1037,7 @@
                 },
                 {
                     "id": "18178a0f-d677-4acc-bb51-4736b188019b",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Redes sociales",
                     "text_extended": "Especialista en la gesti\u00f3n de canales digitales respaldado por un Curso Superior en Community Management. Experiencia de m\u00e1s de cinco a\u00f1os en la atenci\u00f3n directa al cliente a trav\u00e9s de redes sociales (Twitter, Facebook) en entornos de alta demanda comunicativa. Habilidad anal\u00edtica para la monitorizaci\u00f3n de canales, la recopilaci\u00f3n de feedback de usuarios y el an\u00e1lisis de datos de tr\u00e1fico web para el dise\u00f1o y optimizaci\u00f3n de la estrategia global de Social Media.",
@@ -1100,17 +1090,6 @@
                     }
                 },
                 {
-                    "id": "a555fce7-28cf-41c8-a8de-ae4501311b74",
-                    "is_active": true,
-                    "type": "TextModule",
-                    "title": "Atenci\u00f3n al cliente",
-                    "text_extended": "S\u00f3lida trayectoria de m\u00e1s de seis a\u00f1os en atenci\u00f3n al cliente multicanal, abarcando desde el soporte digital corporativo hasta la asistencia telef\u00f3nica en sectores cr\u00edticos. Capacidad demostrada para la resoluci\u00f3n \u00e1gil de incidencias y la toma de decisiones inmediatas bajo presi\u00f3n, destacando la gesti\u00f3n de emergencias de seguridad (Securitas) y la coordinaci\u00f3n integral de pacientes a nivel nacional (Quir\u00f3n Salud). Orientaci\u00f3n a la excelencia en el servicio, combinando la comunicaci\u00f3n efectiva con el an\u00e1lisis del feedback del usuario en redes sociales para optimizar su experiencia.",
-                    "text_summary": "Profesional con m\u00e1s de seis a\u00f1os de experiencia en soporte multicanal y resoluci\u00f3n de incidencias. Especialista en atenci\u00f3n digital, gesti\u00f3n telef\u00f3nica y toma de decisiones \u00e1giles en sectores de seguridad y salud.",
-                    "use_summary": true,
-                    "hyperlinks": [],
-                    "translations": {}
-                },
-                {
                     "id": "5c8d0063-38b7-4982-9889-dbd16a77cd57",
                     "is_active": false,
                     "type": "TextModule",
@@ -1123,7 +1102,7 @@
                 },
                 {
                     "id": "91e59496-e214-4306-8b28-11fdd8d5d7a5",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "Posproducci\u00f3n de v\u00eddeo y VFX",
                     "text_extended": "S\u00f3lida experiencia en postproducci\u00f3n audiovisual y composici\u00f3n de efectos visuales (VFX) para cine y videojuegos, respaldada por un M\u00e1ster espec\u00edfico de 600 horas en la materia. Dominio t\u00e9cnico de herramientas est\u00e1ndar de la industria como Nuke, DaVinci Resolve y Adobe Premiere Pro. Trayectoria integral que abarca desde la edici\u00f3n, etalonaje y montaje de piezas documentales e institucionales, hasta la integraci\u00f3n compleja de efectos visuales, garantizando un acabado profesional y adaptado a los m\u00e1s altos est\u00e1ndares t\u00e9cnicos del sector.",
@@ -1144,7 +1123,7 @@
                 },
                 {
                     "id": "a6c11ab6-ed73-47b3-95c9-6ff985867138",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "3D",
                     "text_extended": "Artista 3D especializado en la generaci\u00f3n procedural de geometr\u00eda y la creaci\u00f3n de entornos fotorrealistas con m\u00e1s de cinco a\u00f1os de experiencia. Dominio avanzado de Houdini, Unreal Engine 5 y Blender para el desarrollo de simulaciones orientadas a IA y conducci\u00f3n aut\u00f3noma (proyectos UrbanSyn y CARLA). Capacidad demostrada para dise\u00f1ar sistemas de distribuci\u00f3n procedural a gran escala, logrando la regeneraci\u00f3n optimizada de mapas completos de hasta 10x10 kil\u00f3metros (edificios, vegetaci\u00f3n, iluminaci\u00f3n) mediante el desarrollo de assets propios y Blueprints.",
@@ -1160,6 +1139,17 @@
                             "title": "3D"
                         }
                     }
+                },
+                {
+                    "id": "a555fce7-28cf-41c8-a8de-ae4501311b74",
+                    "is_active": false,
+                    "type": "TextModule",
+                    "title": "Atenci\u00f3n al cliente",
+                    "text_extended": "S\u00f3lida trayectoria de m\u00e1s de seis a\u00f1os en atenci\u00f3n al cliente multicanal, abarcando desde el soporte digital corporativo hasta la asistencia telef\u00f3nica en sectores cr\u00edticos. Capacidad demostrada para la resoluci\u00f3n \u00e1gil de incidencias y la toma de decisiones inmediatas bajo presi\u00f3n, destacando la gesti\u00f3n de emergencias de seguridad (Securitas) y la coordinaci\u00f3n integral de pacientes a nivel nacional (Quir\u00f3n Salud). Orientaci\u00f3n a la excelencia en el servicio, combinando la comunicaci\u00f3n efectiva con el an\u00e1lisis del feedback del usuario en redes sociales para optimizar su experiencia.",
+                    "text_summary": "Profesional con m\u00e1s de seis a\u00f1os de experiencia en soporte multicanal y resoluci\u00f3n de incidencias. Especialista en atenci\u00f3n digital, gesti\u00f3n telef\u00f3nica y toma de decisiones \u00e1giles en sectores de seguridad y salud.",
+                    "use_summary": true,
+                    "hyperlinks": [],
+                    "translations": {}
                 },
                 {
                     "id": "b88d158c-ad51-4286-9165-d0bbcf630940",
@@ -1284,7 +1274,7 @@
                 },
                 {
                     "id": "8b3378c1-b4cc-46d9-bf6f-fa8adc9373bc",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Atenci\u00f3n en redes sociales",
                     "text_extended": "",
@@ -1361,7 +1351,7 @@
             "modules": [
                 {
                     "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Adobe Photoshop",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\phtshp_logo.png"
@@ -1382,7 +1372,7 @@
                 },
                 {
                     "id": "c840a062-60d2-4293-a310-8fb3078b1ce0",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Houdini FX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\houdini_logo.png"
@@ -1403,7 +1393,7 @@
                 },
                 {
                     "id": "6d313b2f-4ee5-4dad-bf46-871b344799d9",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Unreal Engine 5.6",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\unreal_logo.png"
@@ -1424,7 +1414,7 @@
                 },
                 {
                     "id": "5604960d-d4dc-4953-80a3-d85bc18d9bdb",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Blender",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\blender_logo.png"
@@ -1438,14 +1428,14 @@
                 },
                 {
                     "id": "6b6d0d4b-51a1-4431-8811-d949d76b0fae",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Adobe Audition",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\audition_logo.png"
                 },
                 {
                     "id": "00b1c08d-4a16-486b-9da2-110f3d7baa1a",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "NukeX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\nuke_logo.png"
@@ -1466,7 +1456,7 @@
                 },
                 {
                     "id": "e373d189-58a1-43c6-813c-8afbddc19838",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Jira",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\jira_logo.png"
@@ -1494,7 +1484,7 @@
                 },
                 {
                     "id": "a466d5ee-5d00-4f74-ba59-9869b12b49b3",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "C++",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\cplus_logo.png"
@@ -1515,7 +1505,7 @@
                 },
                 {
                     "id": "276b4a81-5845-427f-97f5-558993d88325",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "VBA",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\vba_logo.png"
