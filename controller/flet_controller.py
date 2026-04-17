@@ -259,7 +259,9 @@ class FletController:
         from tkinter import filedialog
         root = tk.Tk()
         root.withdraw()
+        root.attributes('-topmost', True)
         path = filedialog.askopenfilename(
+            parent=root,
             title="Open Template",
             filetypes=[("JSON Files", "*.json")]
         )
@@ -277,7 +279,9 @@ class FletController:
         from tkinter import filedialog
         root = tk.Tk()
         root.withdraw()
+        root.attributes('-topmost', True)
         path = filedialog.asksaveasfilename(
+            parent=root,
             title="Save Template",
             defaultextension=".json",
             filetypes=[("JSON Files", "*.json")],
@@ -296,7 +300,9 @@ class FletController:
         from tkinter import filedialog
         root = tk.Tk()
         root.withdraw()
+        root.attributes('-topmost', True)
         path = filedialog.asksaveasfilename(
+            parent=root,
             title="Export to PDF",
             defaultextension=".pdf",
             filetypes=[("PDF Files", "*.pdf")],
