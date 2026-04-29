@@ -1,5 +1,7 @@
 import flet as ft
 from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule, EducationModule
+from utils.asset_paths import normalize_asset_reference
+from utils.dialog_cleanup import register_dialog_root, unregister_dialog_root
 
 class ModuleForm:
     def __init__(self, page: ft.Page, module, available_tags=None, on_save=None):
@@ -120,20 +122,29 @@ class ModuleForm:
         from tkinter import filedialog
         root = tk.Tk()
         root.withdraw()
-        path = filedialog.askopenfilename(
-            title="Select Image",
-            filetypes=[("Image Files", "*.jpg *.png *.jpeg")]
-        )
+        root.attributes("-topmost", True)
+        root.lift()
+        root.focus_force()
+        register_dialog_root(root)
+        try:
+            path = filedialog.askopenfilename(
+                parent=root,
+                title="Select Image",
+                filetypes=[("Image Files", "*.jpg *.png *.jpeg")]
+            )
+        finally:
+            unregister_dialog_root(root)
+            root.destroy()
         if path:
             if self.img_field:
-                self.img_field.value = path
+                self.img_field.value = normalize_asset_reference(path)
                 self.img_field.update()
 
     def save(self, e):
         # Update module
         if self.title_field: self.module.title = self.title_field.value
         if self.name_field: self.module.name = self.name_field.value
-        if self.img_field: self.module.image_path = self.img_field.value
+        if self.img_field: self.module.image_path = normalize_asset_reference(self.img_field.value)
         if self.company_field: self.module.company = self.company_field.value
         if self.date_field: self.module.date_range = self.date_field.value
         if self.text_ext_field: 

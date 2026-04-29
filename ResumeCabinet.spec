@@ -1,24 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
-
 from PyInstaller.utils.hooks import collect_data_files
 
-app_datas = [
-    ('images', 'images'),
-    ('model', 'model'),
-    ('utils', 'utils'),
-    ('view_flet', 'view_flet'),
-    ('controller', 'controller'),
-    ('references', 'references'),
-    ('templates', 'templates'),
-]
-app_datas += collect_data_files('flet_desktop')
-app_datas += collect_data_files('flet')
+datas = [('images', 'images'), ('model', 'model'), ('utils', 'utils'), ('view_flet', 'view_flet'), ('controller', 'controller'), ('references', 'references'), ('templates', 'templates')]
+datas += collect_data_files('flet_desktop')
+datas += collect_data_files('flet')
+
 
 a = Analysis(
     ['main_flet.py'],
     pathex=[],
     binaries=[],
-    datas=app_datas,
+    datas=datas,
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
@@ -32,26 +24,20 @@ pyz = PYZ(a.pure)
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.datas,
     [],
-    exclude_binaries=True,
-    name='main_flet',
+    name='ResumeCabinet',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
     upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
     console=False,
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-)
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='main_flet',
 )

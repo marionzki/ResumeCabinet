@@ -1,0 +1,5 @@
+flet
+reportlab
+deep-translator
+PyMuPDF
+pyinstaller

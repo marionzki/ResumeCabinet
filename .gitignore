@@ -1,0 +1,27 @@
+# PyInstaller / builds
+build/
+dist/
+*.spec.bak
+*.pkg
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.venv/
+venv/
+.env
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# App temp / local artifacts (optional, keep if you want these tracked)
+temp_preview.pdf
+temp_preview.png
+user_data.json

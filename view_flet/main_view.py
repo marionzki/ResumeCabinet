@@ -89,7 +89,7 @@ class FletMainWindow:
 
         content = ft.Column([
             ft.Text("Manage Templates", size=20, weight=ft.FontWeight.BOLD),
-            ft.Text("Save current module configuration as a template. Loading a template will only affect which modules are active/inactive."),
+            ft.Text("Save and load complete profiles. Templates include texts, images, settings and module activation."),
             ft.Divider(),
             ft.Row([
                 name_field,
@@ -132,7 +132,12 @@ class FletMainWindow:
             ),
             ft.Divider(),
             ft.Text("Datos de Cabecera (Contacto):", size=16, weight=ft.FontWeight.BOLD),
-            ft.TextField(label="Nombre Completo", value=cv_data.header_info.name, on_change=lambda e: self.controller.update_header_info("name", e.control.value)),
+            ft.TextField(
+                label="Nombre Completo",
+                value=cv_data.header_info.name,
+                on_blur=lambda e: self.controller.update_header_info("name", e.control.value),
+                on_submit=lambda e: self.controller.update_header_info("name", e.control.value)
+            ),
             ft.TextField(label="Puesto", value=cv_data.header_info.job_position, on_change=lambda e: self.controller.update_header_info("job_position", e.control.value)),
             ft.TextField(label="Certificaciones", value=getattr(cv_data.header_info, "certifications", ""), multiline=True, min_lines=2, on_change=lambda e: self.controller.update_header_info("certifications", e.control.value)),
             ft.TextField(label="Ciudad", value=cv_data.header_info.city, on_change=lambda e: self.controller.update_header_info("city", e.control.value)),

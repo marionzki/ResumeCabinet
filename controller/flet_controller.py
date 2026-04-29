@@ -4,23 +4,133 @@ import flet as ft
 import json
 import os
 import re
+import sys
+from utils.asset_paths import normalize_asset_reference
+from utils.dialog_cleanup import register_dialog_root, unregister_dialog_root, close_all_dialog_roots
 
 class FletController:
     def __init__(self, page: ft.Page):
         self.page = page
         self.cv_data = CVData()
+        self.base_dir = getattr(sys, "_MEIPASS", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        self.user_data_dir = os.path.join(os.getenv("APPDATA", os.path.expanduser("~")), "ResumeCabinet")
+        self.users_root_dir = os.path.join(self.user_data_dir, "users")
+        self.legacy_autosave_path = os.path.join(self.user_data_dir, "user_data.json")
+        self.legacy_templates_dir = os.path.join(self.user_data_dir, "templates")
+        self.project_legacy_autosave_path = os.path.abspath("user_data.json")
+        self.project_legacy_templates_dir = os.path.abspath("templates")
+        self.active_user_key = ""
+        self.user_templates_dir = ""
+        self.bundled_templates_dir = os.path.join(self.base_dir, "templates")
+        self.autosave_path = ""
+
+        os.makedirs(self.users_root_dir, exist_ok=True)
+        self._set_active_user_paths(self.cv_data.header_info.name)
+        self._migrate_legacy_data_if_needed()
+
         self.view = FletMainWindow(page, self)
         self.current_action = None
-        
-        self.refresh_view()
+        self._bind_app_shutdown_hooks()
         self.load_autosave()
+        self.refresh_view()
+
+    def _bind_app_shutdown_hooks(self):
+        if hasattr(self.page, "on_disconnect"):
+            self.page.on_disconnect = lambda e: self.cleanup_before_exit()
+        if hasattr(self.page, "window") and hasattr(self.page.window, "on_event"):
+            self.page.window.on_event = self._on_window_event
+
+    def _on_window_event(self, e):
+        if getattr(e, "data", "") == "close":
+            self.cleanup_before_exit()
+
+    def cleanup_before_exit(self):
+        close_all_dialog_roots()
+
+    def _sanitize_user_key(self, raw_name):
+        name = (raw_name or "").strip()
+        if not name:
+            name = "usuario_sin_nombre"
+        safe = re.sub(r"\s+", "_", name.lower())
+        safe = re.sub(r"[^a-z0-9_\-]", "", safe)
+        return safe or "usuario_sin_nombre"
+
+    def _set_active_user_paths(self, user_name):
+        self.active_user_key = self._sanitize_user_key(user_name)
+        user_root = os.path.join(self.users_root_dir, self.active_user_key)
+        self.autosave_path = os.path.join(user_root, "user_data.json")
+        self.user_templates_dir = os.path.join(user_root, "templates")
+        os.makedirs(self.user_templates_dir, exist_ok=True)
+
+    def _copy_json_templates(self, src_dir, dst_dir):
+        if not os.path.exists(src_dir):
+            return
+        os.makedirs(dst_dir, exist_ok=True)
+        for file_name in os.listdir(src_dir):
+            if not file_name.endswith(".json"):
+                continue
+            src = os.path.join(src_dir, file_name)
+            dst = os.path.join(dst_dir, file_name)
+            if os.path.isfile(src) and not os.path.exists(dst):
+                try:
+                    with open(src, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    with open(dst, "w", encoding="utf-8") as f:
+                        f.write(content)
+                except Exception as ex:
+                    print(f"Template migration warning for '{file_name}': {ex}")
+
+    def _migrate_legacy_data_if_needed(self):
+        has_user_profiles = os.path.exists(self.users_root_dir) and any(
+            os.path.isdir(os.path.join(self.users_root_dir, d))
+            for d in os.listdir(self.users_root_dir)
+        )
+        if has_user_profiles and os.path.exists(self.autosave_path):
+            return
+
+        legacy_candidates = [self.legacy_autosave_path, self.project_legacy_autosave_path]
+        migrated = False
+        for candidate in legacy_candidates:
+            if not os.path.exists(candidate):
+                continue
+            try:
+                with open(candidate, "r", encoding="utf-8") as f:
+                    loaded = CVData.from_json(f.read())
+                self.cv_data = loaded
+                self._set_active_user_paths(self.cv_data.header_info.name)
+                if not os.path.exists(self.autosave_path):
+                    with open(self.autosave_path, "w", encoding="utf-8") as f:
+                        f.write(self.cv_data.to_json())
+                migrated = True
+                break
+            except Exception as ex:
+                print(f"Legacy autosave migration warning for '{candidate}': {ex}")
+
+        # Migrate legacy templates into currently active user workspace
+        self._copy_json_templates(self.legacy_templates_dir, self.user_templates_dir)
+        self._copy_json_templates(self.project_legacy_templates_dir, self.user_templates_dir)
+
+        if migrated:
+            print("Legacy data migrated to per-user storage.")
+
+    def _switch_user_storage(self, new_name):
+        old_key = self.active_user_key
+        self._set_active_user_paths(new_name)
+        if old_key == self.active_user_key:
+            return
+        if os.path.exists(self.autosave_path):
+            self.load_autosave()
+            self.show_snackbar(f"Perfil cargado: {new_name}")
+        else:
+            self.save_autosave()
+            self.show_snackbar(f"Nuevo perfil creado: {new_name}")
 
     def load_autosave(self):
-        autosave_path = "user_data.json"
-        if os.path.exists(autosave_path):
+        if os.path.exists(self.autosave_path):
             try:
-                with open(autosave_path, "r", encoding="utf-8") as f:
+                with open(self.autosave_path, "r", encoding="utf-8") as f:
                     self.cv_data = CVData.from_json(f.read())
+                self._normalize_cv_image_paths()
                 print("Autosave loaded")
                 self.refresh_view()
             except Exception as e:
@@ -28,11 +138,26 @@ class FletController:
 
     def save_autosave(self):
         try:
-            with open("user_data.json", "w", encoding="utf-8") as f:
+            self._normalize_cv_image_paths()
+            with open(self.autosave_path, "w", encoding="utf-8") as f:
                 f.write(self.cv_data.to_json())
             print("Autosave updated")
         except Exception as e:
             print(f"Error saving autosave: {e}")
+
+    def _normalize_cv_image_paths(self):
+        sections = [
+            self.cv_data.personal_info,
+            self.cv_data.experience,
+            self.cv_data.education,
+            self.cv_data.knowledge,
+            self.cv_data.software,
+            self.cv_data.languages,
+        ]
+        for section in sections:
+            for module in section.modules:
+                if hasattr(module, "image_path"):
+                    module.image_path = normalize_asset_reference(module.image_path)
 
     def refresh_view(self):
         current_index = 0
@@ -119,6 +244,8 @@ class FletController:
         if hasattr(self.cv_data.header_info, key):
             setattr(self.cv_data.header_info, key, value)
             print(f"Header info {key} updated to {value}")
+            if key == "name":
+                self._switch_user_storage(value)
             self.save_autosave()
 
 
@@ -249,22 +376,29 @@ class FletController:
         self.page.snack_bar.open = True
         self.page.update()
 
+    def _create_foreground_dialog_root(self):
+        import tkinter as tk
+        root = tk.Tk()
+        root.withdraw()
+        root.attributes("-topmost", True)
+        root.lift()
+        root.focus_force()
+        register_dialog_root(root)
+        return root
+
     # --- File Operations ---
     def new_template(self):
         self.cv_data = CVData()
         self.refresh_view()
 
     def load_template(self):
-        import tkinter as tk
         from tkinter import filedialog
-        root = tk.Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        path = filedialog.askopenfilename(
-            parent=root,
-            title="Open Template",
-            filetypes=[("JSON Files", "*.json")]
-        )
+        root = self._create_foreground_dialog_root()
+        try:
+            path = filedialog.askopenfilename(parent=root, title="Open Template", filetypes=[("JSON Files", "*.json")])
+        finally:
+            unregister_dialog_root(root)
+            root.destroy()
         if path:
             try:
                 with open(path, "r", encoding="utf-8") as f:
@@ -275,18 +409,19 @@ class FletController:
                 self.show_snackbar(f"Error loading: {ex}")
 
     def save_template(self):
-        import tkinter as tk
         from tkinter import filedialog
-        root = tk.Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        path = filedialog.asksaveasfilename(
-            parent=root,
-            title="Save Template",
-            defaultextension=".json",
-            filetypes=[("JSON Files", "*.json")],
-            initialfile="resume.json"
-        )
+        root = self._create_foreground_dialog_root()
+        try:
+            path = filedialog.asksaveasfilename(
+                parent=root,
+                title="Save Template",
+                defaultextension=".json",
+                filetypes=[("JSON Files", "*.json")],
+                initialfile="resume.json"
+            )
+        finally:
+            unregister_dialog_root(root)
+            root.destroy()
         if path:
             try:
                 with open(path, "w", encoding="utf-8") as f:
@@ -296,18 +431,19 @@ class FletController:
                 self.show_snackbar(f"Error saving: {ex}")
 
     def export_pdf(self, e=None):
-        import tkinter as tk
         from tkinter import filedialog
-        root = tk.Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        path = filedialog.asksaveasfilename(
-            parent=root,
-            title="Export to PDF",
-            defaultextension=".pdf",
-            filetypes=[("PDF Files", "*.pdf")],
-            initialfile="resume.pdf"
-        )
+        root = self._create_foreground_dialog_root()
+        try:
+            path = filedialog.asksaveasfilename(
+                parent=root,
+                title="Export to PDF",
+                defaultextension=".pdf",
+                filetypes=[("PDF Files", "*.pdf")],
+                initialfile="resume.pdf"
+            )
+        finally:
+            unregister_dialog_root(root)
+            root.destroy()
         if path:
             from utils.pdf_generator import PDFGenerator
             try:
@@ -335,11 +471,8 @@ class FletController:
         if not name: return
         file_name = f"{name}.json"
         file_name = re.sub(r'[<>:"/\\|?*]', '', file_name)
-        
-        path = os.path.join("templates", file_name)
-        if not os.path.exists("templates"):
-            os.makedirs("templates")
-            
+
+        path = os.path.join(self.user_templates_dir, file_name)
         try:
             with open(path, "w", encoding="utf-8") as f:
                 f.write(self.cv_data.to_json())
@@ -349,70 +482,30 @@ class FletController:
              self.show_snackbar(f"Error saving template: {ex}")
 
     def apply_template_file(self, name):
-        """Apply active/inactive module states AND header_info/settings from a saved template."""
-        path = os.path.join("templates", name)
+        """Load a full template (sections, texts, images, settings, and header)."""
+        path = os.path.join(self.user_templates_dir, name)
         if not os.path.exists(path):
-             self.show_snackbar("Template file not found.")
-             return
+            path = os.path.join(self.bundled_templates_dir, name)
+            if not os.path.exists(path):
+                self.show_snackbar("Template file not found.")
+                return
 
         try:
             with open(path, "r", encoding="utf-8") as f:
-                template_data = json.loads(f.read())
+                loaded_cv = CVData.from_json(f.read())
 
-            # --- Restore header_info from template ---
-            if "header_info" in template_data:
-                from model.cv_data import HeaderInfo
-                try:
-                    self.cv_data.header_info = HeaderInfo(**template_data["header_info"])
-                except Exception as e:
-                    print(f"Warning: could not restore header_info: {e}")
-
-            # --- Restore settings (language + design) from template ---
-            if "settings" in template_data:
-                from model.cv_data import CVData
-                try:
-                    tmp = CVData.from_json(json.dumps({"settings": template_data["settings"], "sections": {}, "header_info": {}}))
-                    self.cv_data.settings = tmp.settings
-                except Exception as e:
-                    print(f"Warning: could not restore settings: {e}")
-
-            # --- Restore module active/inactive states ---
-            def map_modules(section_data):
-                return {m["id"]: m.get("is_active", True) for m in section_data.get("modules", [])}
-
-            template_sections = template_data.get("sections", {})
-            current_sections = {
-                "personal_info": self.cv_data.personal_info,
-                "experience": self.cv_data.experience,
-                "education": self.cv_data.education,
-                "knowledge": self.cv_data.knowledge,
-                "software": self.cv_data.software,
-                "languages": self.cv_data.languages
-            }
-            
-            count = 0
-            for sec_key, sec_obj in current_sections.items():
-                if sec_key in template_sections:
-                    t_mod_states = map_modules(template_sections[sec_key])
-                    for m in sec_obj.modules:
-                        if m.id in t_mod_states:
-                            m.is_active = t_mod_states[m.id]
-                            count += 1
-                        else:
-                            m.is_active = False
-                else:
-                    for m in sec_obj.modules:
-                        m.is_active = False
-            
+            self.cv_data = loaded_cv
+            self._normalize_cv_image_paths()
+            self._set_active_user_paths(self.cv_data.header_info.name)
             self.save_autosave()
             self.refresh_view()
-            self.show_snackbar(f"Template '{name}' cargado. {count} módulos actualizados.")
-            
+            self.show_snackbar(f"Template '{name}' cargado con toda la información.")
+
         except Exception as ex:
             self.show_snackbar(f"Error applying template: {ex}")
 
     def delete_template_file(self, name):
-        path = os.path.join("templates", name)
+        path = os.path.join(self.user_templates_dir, name)
         if os.path.exists(path):
             try:
                 os.remove(path)
@@ -420,9 +513,12 @@ class FletController:
                 self.show_snackbar(f"Template '{name}' deleted.")
             except Exception as ex:
                 self.show_snackbar(f"Error deleting: {ex}")
+        else:
+            self.show_snackbar("Only user templates can be deleted.")
 
     def get_templates(self):
-        if not os.path.exists("templates"):
-            return []
-        files = [f for f in os.listdir("templates") if f.endswith(".json")]
-        return files
+        template_names = set()
+        for folder in [self.bundled_templates_dir, self.user_templates_dir]:
+            if os.path.exists(folder):
+                template_names.update([f for f in os.listdir(folder) if f.endswith(".json")])
+        return sorted(template_names)

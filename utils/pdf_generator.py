@@ -13,6 +13,7 @@ from reportlab.lib.colors import HexColor
 from .pdf_styles import *
 from .translations import TRANSLATIONS
 from .translator import TranslationService
+from .asset_paths import resolve_asset_path
 from model.modules import AvatarModule, ImageModule
 
 class PDFGenerator:
@@ -143,9 +144,10 @@ class PDFGenerator:
             def _draw(c, y, _row=row):
                 for i, m in enumerate(_row):
                     x_off = col1_x + i * (logo_size + gap)
-                    if m.image_path and os.path.exists(m.image_path):
+                    resolved = resolve_asset_path(m.image_path)
+                    if resolved and os.path.exists(resolved):
                         try:
-                            c.drawImage(m.image_path, x_off, y - logo_size,
+                            c.drawImage(resolved, x_off, y - logo_size,
                                         width=logo_size, height=logo_size,
                                         mask='auto', preserveAspectRatio=True)
                         except Exception:
@@ -161,13 +163,14 @@ class PDFGenerator:
             if isinstance(m, AvatarModule) and m.is_active:
                 avatar_mod = m
                 break
-        if avatar_mod and os.path.exists(avatar_mod.image_path):
+        avatar_path = resolve_asset_path(avatar_mod.image_path) if avatar_mod else ""
+        if avatar_mod and avatar_path and os.path.exists(avatar_path):
             try:
-                img = ImageReader(avatar_mod.image_path)
+                img = ImageReader(avatar_path)
                 orig_w, orig_h = img.getSize()
                 img_w = col1_w
                 img_h = img_w * (orig_h / orig_w) if orig_w > 0 else img_w
-                path = avatar_mod.image_path
+                path = avatar_path
                 def _draw_avatar(c, y, _p=path, _iw=img_w, _ih=img_h):
                     c.drawImage(_p, col1_x, y - _ih + 8, width=_iw, height=_ih,
                                 mask='auto', preserveAspectRatio=True)
