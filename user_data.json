@@ -1,6 +1,6 @@
 {
     "settings": {
-        "language": "Espa\u00f1ol",
+        "language": "Ingl\u00e9s",
         "design": {
             "global_text": {
                 "title": {
@@ -63,24 +63,24 @@
                     "color": "#2196F3",
                     "family": "Helvetica"
                 },
-                "bg_color": "#e0f5ff"
+                "bg_color": "#edf7fe"
             }
         }
     },
     "header_info": {
         "name": "Mario Noriega",
-        "job_position": "Technical Artist",
+        "job_position": "Python developer",
         "certifications": "[Certificaci\u00f3n de Programador Python (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertif. Nivel 3 en Programaci\u00f3n Orientada a Objetos y\nbases de datos relacionales",
         "city": "Madrid",
         "country": "",
         "email": "mnoriegazamora@gmail.com",
         "phone": "699651797",
-        "others": "Ingl\u00e9s B2",
+        "others": "English B2",
         "linkedin": "[PERFIL LINKEDIN](https://www.linkedin.com/in/mario-noriega-zamora/)",
         "translations": {
             "Ingl\u00e9s": {
-                "job_position": "AI Quality Analyst",
-                "_source_job_position": "AI Quality Analyst",
+                "job_position": "Python developer",
+                "_source_job_position": "Python developer",
                 "certifications": "[Python Programmer Certification (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertificate Level 3 in Object Oriented Programming and\nrelational databases",
                 "_source_certifications": "[Certificaci\u00f3n de Programador Python (PCAP)](https://www.credly.com/badges/fe03e296-8dfd-4137-835b-3e731a4a3d35/linked_in_profile)\nCertif. Nivel 3 en Programaci\u00f3n Orientada a Objetos y\nbases de datos relacionales"
             }
@@ -113,13 +113,13 @@
                 },
                 {
                     "id": "616fafc1-cdaf-4893-bf67-b4389a0a2632",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "AvatarModule",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\profile\\profile01.jpg"
                 },
                 {
                     "id": "3f2edc88-8f49-4bdf-804a-5573c65773f7",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Audiovisual (V\u00eddeo y VFX)",
                     "text_extended": "Profesional audiovisual con formaci\u00f3n en Comunicaci\u00f3n y M\u00e1ster en Composici\u00f3n y VFX. Experiencia en grabaci\u00f3n en set y montaje narrativo, as\u00ed como en integraci\u00f3n de efectos visuales mediante flujos de trabajo basados en nodos (Nuke y HoudiniFX). Perfil que combina creatividad narrativa y rigor t\u00e9cnico, orientado a producciones audiovisuales y proyectos interactivos.",
@@ -168,7 +168,7 @@
                 },
                 {
                     "id": "e97cb11e-160b-46c9-a5c3-6b002e4f4667",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "PersonalInfoModule",
                     "title": "Bio - Programador",
                     "text_extended": "Programador con base s\u00f3lida en Programaci\u00f3n Orientada a Objetos. Experiencia en desarrollo de l\u00f3gica y automatizaci\u00f3n de procesos con Python, C#, VEX y VBA. Aplicaci\u00f3n en entornos reales mediante herramientas de generaci\u00f3n procedural, Blueprints y tratamiento de datos. Enfoque en c\u00f3digo limpio, eficiente y escalable.",
@@ -193,8 +193,8 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "text_extended": "Technical database specialist with advanced training in relational databases and object-oriented languages. My profile stands out for the practical experience in auditing, cleaning and massive structuring of international corporate databases, automating and optimizing their treatment through macros and VBA programming. I also provide a solid analytical capacity applied to the interpretation of digital metrics (Social Media), always guaranteeing the technical integrity of the information and its real value for making strategic business decisions.",
-                            "_source_text_extended": "Especialista t\u00e9cnico en bases de datos con formaci\u00f3n avanzada en BBDD relacionales y lenguajes orientados a objetos. Mi perfil destaca por la experiencia pr\u00e1ctica en la auditor\u00eda, limpieza y estructuraci\u00f3n masiva de bases de datos corporativas internacionales, automatizando y optimizando su tratamiento mediante macros y programaci\u00f3n en VBA. Aporto, adem\u00e1s, una s\u00f3lida capacidad anal\u00edtica aplicada a la interpretaci\u00f3n de m\u00e9tricas digitales (Social Media), garantizando siempre la integridad t\u00e9cnica de la informaci\u00f3n y su valor real para la toma de decisiones estrat\u00e9gicas de negocio."
+                            "text_extended": "Database specialist with training in relational databases and object-oriented languages. Experience in auditing, cleaning and structuring international databases, optimizing processes using VBA. Analytical capacity applied to digital metrics, guaranteeing data integrity and support for decision making.",
+                            "_source_text_extended": "Especialista en bases de datos con formaci\u00f3n en BBDD relacionales y lenguajes orientados a objetos. Experiencia en auditor\u00eda, limpieza y estructuraci\u00f3n de bases de datos internacionales, optimizando procesos mediante VBA. Capacidad anal\u00edtica aplicada a m\u00e9tricas digitales, garantizando integridad de datos y soporte a la toma de decisiones."
                         }
                     }
                 },
@@ -238,7 +238,7 @@
                 },
                 {
                     "id": "24657179-6b67-4823-9269-3f63ddf16025",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "AvatarModule",
                     "image_path": "D:/Projects/Programacion/ResumeCabinet/images/profile/profile03ppp.png"
                 }
@@ -251,7 +251,7 @@
             "modules": [
                 {
                     "id": "622a68f3-5723-4a28-9413-6242ce4323a4",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ExperienceModule",
                     "title": "Programaci\u00f3n y Bases de Datos",
                     "text_extended": "Programaci\u00f3n Orientada a Objetos y Bases de Datos Relacionales. Responsable de la importaci\u00f3n, auditor\u00eda y depuraci\u00f3n de bases de datos empresariales de alcance internacional (Francia, Brasil, Portugal, Alemania y EE. UU.). Ejecuci\u00f3n de limpieza sistem\u00e1tica de registros inconsistentes y mal formateados en entornos Excel. Adaptaci\u00f3n y redise\u00f1o de macros preexistentes - configuradas inicialmente para el mercado espa\u00f1ol - a las particularidades y formatos de cada nuevo pa\u00eds, desarrollando y modificando c\u00f3digo en VBA (Visual Basic for Applications) para automatizar eficientemente el tratamiento de los datos.",
@@ -304,8 +304,8 @@
                             "_source_title": "Artista 3D Procedural",
                             "company": "Computer Vision Center / CITIC",
                             "_source_company": "Computer Visi\u00f3n Center / CITIC",
-                            "date_range": "2020 - 2025",
-                            "_source_date_range": "2020 - 2025",
+                            "date_range": "5 years",
+                            "_source_date_range": "5 a\u00f1os",
                             "text_extended": "Procedural generation of urban and natural environments for the autonomous driving project of [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) in version 0.9.15. Development of own widgets and blueprints in Unreal and HDAs in Houdini FX.\n\nCo-author on the dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
                             "_source_text_extended": "Generaci\u00f3n procedural de entornos urbanos y naturales para el proyecto de conducci\u00f3n aut\u00f3noma de [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/) en su versi\u00f3n 0.9.15. Desarrollo de widgets y blueprints propios en Unreal y HDAs en Houdini FX.\n\nCo-autor en el dataset: \"All for One, and One for All: [UrbanSyn](https://www.urbansyn.org) Dataset, the third Musketeer of Synthetic Driving Scenes\".",
                             "text_summary": "Generation of urban and natural procedural environments for autonomous driving scenarios in [CARLA.org](https://carla.org/2023/11/10/release-0.9.15/). Development of widgets and blueprints in Unreal integrated with Houdini. Co-author of the project [Urbansyn](https://www.urbansyn.org). Procedural 3D generation of a highway section from real data, being co-author of the project [HighwayScapes](https://zenodo.org/records/15095403).",
@@ -477,7 +477,7 @@
                 },
                 {
                     "id": "49834115-0966-4ab4-930c-2dece1aa6b8d",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ExperienceModule",
                     "title": "Operador de c\u00e1mara",
                     "text_extended": "Grabaci\u00f3n de eventos y edici\u00f3n de piezas con Avid Liquid y Sony Vegas. Grabaci\u00f3n de piezas audiovisuales para los documentales: \"De la dehesa a la mesa\" y \"Cinco pueblos patrimonio vivo\" de [Plateros Multimedia](http://platerosmultimedia.com/documentales/).",
@@ -532,7 +532,7 @@
             "modules": [
                 {
                     "id": "92f3ed80-ce52-4303-8e5e-6088ccbdc04a",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Tecnolog\u00eda Cloud",
                     "text_extended": "",
@@ -563,7 +563,7 @@
                 },
                 {
                     "id": "a0a3d614-b0f6-4b4d-a692-d5aed9ea7fed",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "Producci\u00f3n virtual avanzada con Simulcam y Unreal Engine",
                     "text_extended": "Especializaci\u00f3n t\u00e9cnica en Producci\u00f3n Virtual y tecnolog\u00eda Simulcam. Formaci\u00f3n avanzada en integraci\u00f3n de imagen real y virtual en directo mediante Unreal Engine, nDisplay y chroma key. Dominio de sincronizaci\u00f3n (timecode/genlock), renderizado en tiempo real y optimizaci\u00f3n de flujos de trabajo 3D desde Blender para cine y televisi\u00f3n.",
@@ -651,7 +651,7 @@
                 },
                 {
                     "id": "e355fcc0-3f70-4881-adb3-56f618b1c1ce",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "EducationModule",
                     "title": "Inteligencia Artificial Generativa (22h)",
                     "text_extended": "",
@@ -735,7 +735,7 @@
                 },
                 {
                     "id": "548c1964-a219-4b23-9cbd-3c317cc78deb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "EducationModule",
                     "title": "M\u00e1ster en Composici\u00f3n y VFX (600h)",
                     "text_extended": "Montaje y edici\u00f3n de v\u00eddeo con Premiere. Color y flujo de trabajo con DaVinci Resolve. Composici\u00f3n de v\u00eddeo con NukeX. Modelado 3D procedural y simulaci\u00f3n de FX's con Houdini.",
@@ -784,7 +784,19 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
-                    "translations": {},
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "company": "Barcelona European Business School",
+                            "_source_company": "Escuela de Negocios Europea de Barcelona",
+                            "date_range": "2018",
+                            "_source_date_range": "2018",
+                            "tags": {
+                                "Google Analytics": "Google Analytics"
+                            },
+                            "title": "Higher Course in e-Commerce and Marketing",
+                            "_source_title": "Curso Superior en e-Commerce y Marketing"
+                        }
+                    },
                     "company": "Escuela de Negocios Europea de Barcelona",
                     "date_range": "2018",
                     "tags": [
@@ -955,7 +967,7 @@
             "modules": [
                 {
                     "id": "2b075ee6-a647-486a-9582-426164a91247",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Grabaci\u00f3n de v\u00eddeo",
                     "text_extended": "S\u00f3lida base en captaci\u00f3n de imagen respaldada por la Licenciatura en Comunicaci\u00f3n Audiovisual y experiencia pr\u00e1ctica como operador de c\u00e1mara. Trayectoria en el rodaje de producciones documentales de \u00edndole cultural y patrimonial (\"De la dehesa a la mesa\", \"Cinco pueblos patrimonio vivo\"), as\u00ed como en la cobertura de eventos institucionales y universitarios. Capacidad integral para planificar la grabaci\u00f3n y ejecutar la toma de im\u00e1genes asegurando los est\u00e1ndares t\u00e9cnicos de composici\u00f3n e iluminaci\u00f3n requeridos.",
@@ -991,7 +1003,7 @@
                 },
                 {
                     "id": "7faac449-b133-47a7-b60c-63356f9f0e9b",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Dise\u00f1o gr\u00e1fico",
                     "text_extended": "Formaci\u00f3n t\u00e9cnica especializada (programa de 500 horas) combinada con experiencia pr\u00e1ctica en agencias creativas. Dominio de herramientas del entorno Adobe, especialmente Photoshop e Illustrator, aplicado a la creaci\u00f3n de recursos visuales orientados a resultados. Experiencia profesional en la conceptualizaci\u00f3n, dise\u00f1o y adaptaci\u00f3n de carteler\u00eda y elementos gr\u00e1ficos para campa\u00f1as publicitarias de alcance regional (Consejer\u00eda de Extremadura), asegurando la correcta transmisi\u00f3n del mensaje institucional.",
@@ -1010,7 +1022,7 @@
                 },
                 {
                     "id": "cc1284c3-040c-4dc2-aa62-96476d666ddb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Edici\u00f3n de v\u00eddeo",
                     "text_extended": "Perfil t\u00e9cnico en montaje audiovisual con capacidad para estructurar narrativas visuales coherentes e impactantes. Experiencia en la edici\u00f3n de piezas para televisi\u00f3n y eventos corporativos e institucionales, manejando herramientas de edici\u00f3n profesional como DaVinci Resolve, Adobe Premiere Pro, Avid Liquid y Sony Vegas. Conocimiento integral del flujo de trabajo de postproducci\u00f3n, desde la ingesta de material hasta la entrega del producto final optimizado para su emisi\u00f3n.",
@@ -1031,7 +1043,7 @@
                 },
                 {
                     "id": "93144b9d-b88a-478c-8d6d-5c644b76f857",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Branding",
                     "text_extended": "Experiencia aplicada en la construcci\u00f3n y consolidaci\u00f3n de la identidad visual corporativa. Participaci\u00f3n activa en estudios creativos desarrollando la imagen y la papeler\u00eda corporativa para campa\u00f1as publicitarias del sector p\u00fablico (Junta de Extremadura). Enfoque estrat\u00e9gico orientado a garantizar la coherencia gr\u00e1fica y visual de la marca en todos los soportes de comunicaci\u00f3n, alineando el dise\u00f1o con los valores e identidad de la instituci\u00f3n o cliente.",
@@ -1047,7 +1059,7 @@
                 },
                 {
                     "id": "18178a0f-d677-4acc-bb51-4736b188019b",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Redes sociales",
                     "text_extended": "Especialista en la gesti\u00f3n de canales digitales respaldado por un Curso Superior en Community Management. Experiencia de m\u00e1s de cinco a\u00f1os en la atenci\u00f3n directa al cliente a trav\u00e9s de redes sociales (Twitter, Facebook) en entornos de alta demanda comunicativa. Habilidad anal\u00edtica para la monitorizaci\u00f3n de canales, la recopilaci\u00f3n de feedback de usuarios y el an\u00e1lisis de datos de tr\u00e1fico web para el dise\u00f1o y optimizaci\u00f3n de la estrategia global de Social Media.",
@@ -1056,8 +1068,8 @@
                     "hyperlinks": [],
                     "translations": {
                         "Ingl\u00e9s": {
-                            "title": "Social media",
-                            "_source_title": "Medios sociales",
+                            "title": "Social networks",
+                            "_source_title": "Redes sociales",
                             "text_summary": "Digital community manager with a higher degree in Community Management. Experience in corporate customer service, metrics analytics and Social Media strategy design.",
                             "_source_text_summary": "Gestor de comunidades digitales con titulaci\u00f3n superior en Community Management. Experiencia en atenci\u00f3n al cliente corporativa, anal\u00edtica de m\u00e9tricas y dise\u00f1o de estrategia Social Media."
                         }
@@ -1065,7 +1077,7 @@
                 },
                 {
                     "id": "bdfc6915-a098-4cab-b716-598352639153",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "TextModule",
                     "title": "An\u00e1lisis de datos",
                     "text_extended": "Experiencia transversal en el procesamiento, auditor\u00eda y an\u00e1lisis de datos para diversos sectores. Capacidad t\u00e9cnica demostrada en la depuraci\u00f3n, limpieza y estructuraci\u00f3n de bases de datos internacionales mediante programaci\u00f3n en VBA y automatizaci\u00f3n en Excel. Perfil anal\u00edtico aplicado a la validaci\u00f3n rigurosa de grandes datasets fotorrealistas orientados a Inteligencia Artificial (proyecto UrbanSyn) garantizando la integridad y calidad de la informaci\u00f3n.",
@@ -1108,7 +1120,12 @@
                     "text_summary": "Profesional con m\u00e1s de seis a\u00f1os de experiencia en soporte multicanal y resoluci\u00f3n de incidencias. Especialista en atenci\u00f3n digital, gesti\u00f3n telef\u00f3nica y toma de decisiones \u00e1giles en sectores de seguridad y salud.",
                     "use_summary": true,
                     "hyperlinks": [],
-                    "translations": {}
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Customer service",
+                            "_source_title": "Atenci\u00f3n al cliente"
+                        }
+                    }
                 },
                 {
                     "id": "5c8d0063-38b7-4982-9889-dbd16a77cd57",
@@ -1123,7 +1140,7 @@
                 },
                 {
                     "id": "91e59496-e214-4306-8b28-11fdd8d5d7a5",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "Posproducci\u00f3n de v\u00eddeo y VFX",
                     "text_extended": "S\u00f3lida experiencia en postproducci\u00f3n audiovisual y composici\u00f3n de efectos visuales (VFX) para cine y videojuegos, respaldada por un M\u00e1ster espec\u00edfico de 600 horas en la materia. Dominio t\u00e9cnico de herramientas est\u00e1ndar de la industria como Nuke, DaVinci Resolve y Adobe Premiere Pro. Trayectoria integral que abarca desde la edici\u00f3n, etalonaje y montaje de piezas documentales e institucionales, hasta la integraci\u00f3n compleja de efectos visuales, garantizando un acabado profesional y adaptado a los m\u00e1s altos est\u00e1ndares t\u00e9cnicos del sector.",
@@ -1144,7 +1161,7 @@
                 },
                 {
                     "id": "a6c11ab6-ed73-47b3-95c9-6ff985867138",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "TextModule",
                     "title": "3D",
                     "text_extended": "Artista 3D especializado en la generaci\u00f3n procedural de geometr\u00eda y la creaci\u00f3n de entornos fotorrealistas con m\u00e1s de cinco a\u00f1os de experiencia. Dominio avanzado de Houdini, Unreal Engine 5 y Blender para el desarrollo de simulaciones orientadas a IA y conducci\u00f3n aut\u00f3noma (proyectos UrbanSyn y CARLA). Capacidad demostrada para dise\u00f1ar sistemas de distribuci\u00f3n procedural a gran escala, logrando la regeneraci\u00f3n optimizada de mapas completos de hasta 10x10 kil\u00f3metros (edificios, vegetaci\u00f3n, iluminaci\u00f3n) mediante el desarrollo de assets propios y Blueprints.",
@@ -1291,7 +1308,12 @@
                     "text_summary": "",
                     "use_summary": false,
                     "hyperlinks": [],
-                    "translations": {}
+                    "translations": {
+                        "Ingl\u00e9s": {
+                            "title": "Attention on social networks",
+                            "_source_title": "Atenci\u00f3n en redes sociales"
+                        }
+                    }
                 },
                 {
                     "id": "83c67d37-3aa7-454d-8eb9-ceb3e7846a38",
@@ -1361,14 +1383,14 @@
             "modules": [
                 {
                     "id": "37f27122-c4dd-4430-9f6d-ce0e181b91e2",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Photoshop",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\phtshp_logo.png"
                 },
                 {
                     "id": "0aad998d-8f2e-40b0-ac91-8b6df0dacbf3",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Premiere Pro",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\premiere_logo.png"
@@ -1389,14 +1411,14 @@
                 },
                 {
                     "id": "7708f4fb-01cc-45d0-a929-1b42d5e5c6e0",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Sony Vegas",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\sonyVegas_logo.png"
                 },
                 {
                     "id": "aa23d2a0-4cf3-49b5-b74e-91e5864ae42d",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Avid Liquid",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\avid_logo.png"
@@ -1410,7 +1432,7 @@
                 },
                 {
                     "id": "23aa1b06-4dd6-4596-b666-a577feed3dd7",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "Power BI",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\powerBi_logo.png"
@@ -1424,7 +1446,7 @@
                 },
                 {
                     "id": "5604960d-d4dc-4953-80a3-d85bc18d9bdb",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Blender",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\blender_logo.png"
@@ -1438,28 +1460,28 @@
                 },
                 {
                     "id": "6b6d0d4b-51a1-4431-8811-d949d76b0fae",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Audition",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\audition_logo.png"
                 },
                 {
                     "id": "00b1c08d-4a16-486b-9da2-110f3d7baa1a",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "NukeX",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\nuke_logo.png"
                 },
                 {
                     "id": "5d5fa1d9-951a-45ba-8d5d-40606dc4877b",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "Adobe Illustrator",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\illstrtr_logo.png"
                 },
                 {
                     "id": "90235af1-94ac-4c2f-90f5-f7ab9e7c443c",
-                    "is_active": true,
+                    "is_active": false,
                     "type": "ImageModule",
                     "name": "DaVinci Resolve",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\daVinci_logo.png"
@@ -1494,7 +1516,7 @@
                 },
                 {
                     "id": "a466d5ee-5d00-4f74-ba59-9869b12b49b3",
-                    "is_active": false,
+                    "is_active": true,
                     "type": "ImageModule",
                     "name": "C++",
                     "image_path": "D:\\Projects\\Programacion\\ResumeCabinet\\images\\logo\\cplus_logo.png"
