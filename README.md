@@ -56,9 +56,17 @@ python main_flet.py
 
 ## Construcción de Ejecutable (Windows)
 
-El proyecto incluye scripts `.bat` para generar un ejecutable utilizando PyInstaller:
-* `build_windows.bat`: Construye la aplicación en formato de directorio.
-* `build_windows_onefile.bat`: Construye la aplicación empaquetada en un único archivo `.exe`.
+El proyecto incluye dos scripts `.bat` que automatizan la instalación de dependencias y la generación de un ejecutable nativo para Windows utilizando **PyInstaller**. Los ejecutables generados se guardarán automáticamente en la carpeta `dist/`.
+
+Opciones de compilación:
+
+1. **Un solo archivo (Recomendado)**:
+   Ejecuta `build_windows_onefile.bat`. Este script empaquetará toda la aplicación y sus recursos en un único archivo ejecutable (`dist\ResumeCabinet.exe`), lo que facilita mucho compartir el programa.
+
+2. **Formato directorio**:
+   Ejecuta `build_windows.bat`. Este script generará una carpeta en `dist\main_flet\` con el ejecutable y todas sus dependencias desempaquetadas. Es útil si el modo de "un solo archivo" tarda mucho en arrancar o tiene problemas de rendimiento.
+
+*Nota: Asegúrate de ejecutar estos scripts desde la raíz del proyecto. Los scripts instalarán las dependencias necesarias de forma automática antes de compilar.*
 
 ## Licencia
 
