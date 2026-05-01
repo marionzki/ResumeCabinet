@@ -1,11 +1,11 @@
-from model.cv_data import CVData
+from model.cv_data import CVData, Section
 from view_flet.main_view import FletMainWindow
 import flet as ft
 import json
 import os
 import re
 import sys
-from utils.asset_paths import normalize_asset_reference
+from utils.asset_paths import materialize_user_media_path, normalize_asset_reference
 from utils.dialog_cleanup import register_dialog_root, unregister_dialog_root, close_all_dialog_roots
 
 class FletController:
@@ -132,6 +132,7 @@ class FletController:
                     self.cv_data = CVData.from_json(f.read())
                 self._normalize_cv_image_paths()
                 print("Autosave loaded")
+                self.save_autosave()
                 self.refresh_view()
             except Exception as e:
                 print(f"Error loading autosave: {e}")
@@ -145,6 +146,11 @@ class FletController:
         except Exception as e:
             print(f"Error saving autosave: {e}")
 
+    def _keep_current_personal_info_on_loaded_cv(self, loaded_cv: CVData) -> None:
+        """Preserve edited personal section when replacing cv_data from a template file."""
+        kept = self.cv_data.personal_info.to_dict()
+        loaded_cv.personal_info = Section.from_dict(kept)
+
     def _normalize_cv_image_paths(self):
         sections = [
             self.cv_data.personal_info,
@@ -157,7 +163,9 @@ class FletController:
         for section in sections:
             for module in section.modules:
                 if hasattr(module, "image_path"):
-                    module.image_path = normalize_asset_reference(module.image_path)
+                    module.image_path = materialize_user_media_path(
+                        normalize_asset_reference(module.image_path)
+                    )
 
     def refresh_view(self):
         current_index = 0
@@ -212,6 +220,7 @@ class FletController:
 
         try:
             self.show_snackbar("Generando previsualización...")
+            self._normalize_cv_image_paths()
             pdf_path = os.path.abspath("temp_preview.pdf")
             gen = PDFGenerator(self.cv_data)
             gen.generate(pdf_path)
@@ -402,7 +411,12 @@ class FletController:
         if path:
             try:
                 with open(path, "r", encoding="utf-8") as f:
-                    self.cv_data = CVData.from_json(f.read())
+                    loaded_cv = CVData.from_json(f.read())
+                self._keep_current_personal_info_on_loaded_cv(loaded_cv)
+                self.cv_data = loaded_cv
+                self._normalize_cv_image_paths()
+                self._set_active_user_paths(self.cv_data.header_info.name)
+                self.save_autosave()
                 self.refresh_view()
                 self.show_snackbar("Template loaded successfully")
             except Exception as ex:
@@ -447,6 +461,7 @@ class FletController:
         if path:
             from utils.pdf_generator import PDFGenerator
             try:
+                self._normalize_cv_image_paths()
                 gen = PDFGenerator(self.cv_data)
                 gen.generate(path)
                 self.save_autosave()
@@ -460,6 +475,7 @@ class FletController:
         try:
             fd, path = tempfile.mkstemp(suffix=".pdf")
             os.close(fd)
+            self._normalize_cv_image_paths()
             gen = PDFGenerator(self.cv_data)
             gen.generate(path)
             os.startfile(path)
@@ -493,7 +509,7 @@ class FletController:
         try:
             with open(path, "r", encoding="utf-8") as f:
                 loaded_cv = CVData.from_json(f.read())
-
+            self._keep_current_personal_info_on_loaded_cv(loaded_cv)
             self.cv_data = loaded_cv
             self._normalize_cv_image_paths()
             self._set_active_user_paths(self.cv_data.header_info.name)
