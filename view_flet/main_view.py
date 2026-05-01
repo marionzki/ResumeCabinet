@@ -116,6 +116,42 @@ class FletMainWindow:
 
     def add_config_tab(self, cv_data):
         # Implementation for config tab
+        profile_names = self.controller.get_profile_display_names()
+        profile_name_field = ft.TextField(
+            label="Nombre Completo",
+            value=cv_data.header_info.name,
+            expand=True,
+            on_blur=lambda e: self.controller.schedule_profile_name_prompt(e.control),
+            on_submit=lambda e: self.controller.schedule_profile_name_prompt(e.control),
+        )
+
+        suggestions_col = ft.Column(spacing=4)
+
+        def refresh_profile_suggestions(value):
+            query = (value or "").strip().lower()
+            suggestions_col.controls.clear()
+            if not query:
+                suggestions_col.update()
+                return
+            matches = [name for name in profile_names if query in name.lower() and name.lower() != query][:5]
+            for name in matches:
+                suggestions_col.controls.append(
+                    ft.TextButton(
+                        content=ft.Text(name),
+                        on_click=lambda _, n=name: _apply_profile_suggestion(n),
+                    )
+                )
+            suggestions_col.update()
+
+        def _apply_profile_suggestion(name):
+            self.controller.cancel_profile_name_scheduled_blur()
+            profile_name_field.value = name
+            profile_name_field.update()
+            refresh_profile_suggestions(name)
+            self.controller.schedule_profile_name_prompt(profile_name_field)
+
+        profile_name_field.on_change = lambda e: refresh_profile_suggestions(e.control.value)
+
         content = ft.Column([
             ft.Text("Configuración", size=20, weight=ft.FontWeight.BOLD),
             ft.Divider(),
@@ -132,12 +168,11 @@ class FletMainWindow:
             ),
             ft.Divider(),
             ft.Text("Datos de Cabecera (Contacto):", size=16, weight=ft.FontWeight.BOLD),
-            ft.TextField(
-                label="Nombre Completo",
-                value=cv_data.header_info.name,
-                on_blur=lambda e: self.controller.update_header_info("name", e.control.value),
-                on_submit=lambda e: self.controller.update_header_info("name", e.control.value)
-            ),
+            ft.Row([
+                profile_name_field,
+                ft.ElevatedButton("Importar pestañas desde otro perfil", on_click=lambda _: self.controller.open_import_tabs_dialog()),
+            ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN),
+            suggestions_col,
             ft.TextField(label="Puesto", value=cv_data.header_info.job_position, on_change=lambda e: self.controller.update_header_info("job_position", e.control.value)),
             ft.TextField(label="Certificaciones", value=getattr(cv_data.header_info, "certifications", ""), multiline=True, min_lines=2, on_change=lambda e: self.controller.update_header_info("certifications", e.control.value)),
             ft.TextField(label="Ciudad", value=cv_data.header_info.city, on_change=lambda e: self.controller.update_header_info("city", e.control.value)),

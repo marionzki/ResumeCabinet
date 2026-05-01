@@ -5,12 +5,15 @@ import shutil
 import sys
 
 
-def _appdata_dir():
+def _storage_root_dir():
+    configured = (os.getenv("RESUMECABINET_DATA_ROOT") or "").strip()
+    if configured:
+        return configured
     return os.path.join(os.getenv("APPDATA", os.path.expanduser("~")), "ResumeCabinet")
 
 
 def external_assets_dir():
-    return os.path.join(_appdata_dir(), "assets")
+    return os.path.join(_storage_root_dir(), "assets")
 
 
 def runtime_base_dir():
@@ -78,7 +81,7 @@ def _ingest_file_into_user_assets(src_abs: str) -> str:
 
 def materialize_user_media_path(path_value: str) -> str:
     """
-    Copy disk files selected by the user into %APPDATA%/ResumeCabinet/assets/user/
+    Copy disk files selected by the user into <storage_root>/assets/user/
     and return a stable relative reference (user/...).
 
     Bundled templates use images/... inside the PyInstaller bundle; user picks should
