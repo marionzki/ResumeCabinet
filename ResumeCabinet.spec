@@ -1,7 +1,7 @@
 # -*- mode: python ; coding: utf-8 -*-
 from PyInstaller.utils.hooks import collect_data_files
 
-datas = [('images', 'images'), ('model', 'model'), ('utils', 'utils'), ('view_flet', 'view_flet'), ('controller', 'controller'), ('references', 'references'), ('templates', 'templates')]
+datas = [('images', 'images'), ('model', 'model'), ('utils', 'utils'), ('view_flet', 'view_flet'), ('controller', 'controller'), ('references', 'references')]
 datas += collect_data_files('flet_desktop')
 datas += collect_data_files('flet')
 

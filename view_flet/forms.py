@@ -1,16 +1,33 @@
+import os
+
 import flet as ft
 from model.modules import ExperienceModule, ImageModule, PersonalInfoModule, AvatarModule, TextModule, EducationModule
-from utils.asset_paths import materialize_user_media_path, normalize_asset_reference
+from utils.asset_paths import materialize_media_path, normalize_asset_reference
 from utils.dialog_cleanup import register_dialog_root, unregister_dialog_root
 
 class ModuleForm:
-    def __init__(self, page: ft.Page, module, available_tags=None, on_save=None):
+    def __init__(
+        self,
+        page: ft.Page,
+        module,
+        available_tags=None,
+        on_save=None,
+        media_ingest=None,
+        pick_image_initial_dir=None,
+        active_user_key=None,
+        pre_save_validator=None,
+    ):
         self.page = page
         self.module = module
         self.available_tags = available_tags or []
         self.on_save = on_save
+        self.media_ingest = media_ingest
+        self.pick_image_initial_dir = pick_image_initial_dir
+        self.active_user_key = active_user_key
+        self.pre_save_validator = pre_save_validator
         
         self.dialog = None
+        self._committed = False
         
         # Controls references
         self.title_field = None
@@ -38,7 +55,7 @@ class ModuleForm:
                 ft.ElevatedButton(content=ft.Text("Save"), on_click=self.save)
             ],
             actions_alignment=ft.MainAxisAlignment.END,
-            on_dismiss=lambda e: self.cleanup()
+            on_dismiss=lambda e: self._on_overlay_dismiss(),
         )
         
         # Try page.show_dialog() as seen in dir(page)
@@ -49,13 +66,16 @@ class ModuleForm:
             self.dialog.open = True
             self.page.update()
 
+    def _on_overlay_dismiss(self):
+        """Cierre fuera del diálogo (ESC/backdrop): no guardamos cambios."""
+        pass
+
     def cleanup(self):
         pass
 
     def close(self, e=None):
         self.dialog.open = False
         self.page.update()
-        self.cleanup()
 
     def build_form_fields(self):
         controls = []
@@ -127,17 +147,29 @@ class ModuleForm:
         root.focus_force()
         register_dialog_root(root)
         try:
-            path = filedialog.askopenfilename(
+            initialdir = (
+                self.pick_image_initial_dir
+                if self.pick_image_initial_dir and os.path.isdir(self.pick_image_initial_dir)
+                else None
+            )
+            kwargs = dict(
                 parent=root,
                 title="Select Image",
-                filetypes=[("Image Files", "*.jpg *.png *.jpeg")]
+                filetypes=[("Image Files", "*.jpg *.png *.jpeg")],
             )
+            if initialdir:
+                kwargs["initialdir"] = initialdir
+            path = filedialog.askopenfilename(**kwargs)
         finally:
             unregister_dialog_root(root)
             root.destroy()
         if path:
             if self.img_field:
-                self.img_field.value = materialize_user_media_path(normalize_asset_reference(path))
+                self.img_field.value = materialize_media_path(
+                    normalize_asset_reference(path),
+                    ingest=self.media_ingest,
+                    user_key=self.active_user_key,
+                )
                 self.img_field.update()
 
     def save(self, e):
@@ -147,7 +179,13 @@ class ModuleForm:
         if self.img_field:
             raw = (self.img_field.value or "").strip()
             self.module.image_path = (
-                materialize_user_media_path(normalize_asset_reference(raw)) if raw else ""
+                materialize_media_path(
+                    normalize_asset_reference(raw),
+                    ingest=self.media_ingest,
+                    user_key=self.active_user_key,
+                )
+                if raw
+                else ""
             )
         if self.company_field: self.module.company = self.company_field.value
         if self.date_field: self.module.date_range = self.date_field.value
@@ -165,7 +203,11 @@ class ModuleForm:
             new_tags = [tag for tag, chk in self.tags_checks if chk.value]
             self.module.tags = new_tags
 
+        if self.pre_save_validator and not self.pre_save_validator(self.module):
+            return
+
+        self._committed = True
         if self.on_save:
             self.on_save(self.module)
-            
+
         self.close()

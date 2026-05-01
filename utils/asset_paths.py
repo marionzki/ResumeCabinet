@@ -22,28 +22,74 @@ def runtime_base_dir():
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+def global_software_media_dir():
+    return os.path.join(_storage_root_dir(), "global", "software")
+
+
+def global_languages_media_dir():
+    return os.path.join(_storage_root_dir(), "global", "languages")
+
+
+def user_avatar_media_dir(user_key: str):
+    return os.path.join(_storage_root_dir(), "users", user_key or "", "avatar")
+
+
+def ensure_category_media_dirs(user_key: str | None = None):
+    os.makedirs(global_software_media_dir(), exist_ok=True)
+    os.makedirs(global_languages_media_dir(), exist_ok=True)
+    root = external_assets_dir()
+    os.makedirs(root, exist_ok=True)
+    os.makedirs(os.path.join(root, "user"), exist_ok=True)
+    if user_key:
+        os.makedirs(user_avatar_media_dir(user_key), exist_ok=True)
+
+
+_USER_AVATAR_PREFIX_RE = re.compile(r"^users/[^/]+/avatar/", re.I)
+
+
+def is_storage_managed_media_ref(path_posix: str) -> bool:
+    if not path_posix:
+        return False
+    return (
+        path_posix.startswith("global/software/")
+        or path_posix.startswith("global/languages/")
+        or bool(_USER_AVATAR_PREFIX_RE.match(path_posix))
+    )
+
+
 def normalize_asset_reference(path_value):
     if not path_value:
         return path_value
 
-    path_value = path_value.strip().replace("\\", "/")
+    stripped = path_value.strip()
+    posix = stripped.replace("\\", "/")
 
-    # Bundled or materialized user assets (stable after first save)
-    if path_value.startswith("images/") or path_value.startswith("user/"):
-        return path_value
+    if posix.startswith("images/") or posix.startswith("user/"):
+        return posix
 
-    # Convert absolute legacy paths ending in images/logo|profile/...
-    match = re.search(r"images/(logo|profile)/(.+)$", path_value, re.IGNORECASE)
+    if posix.startswith("global/software/") or posix.startswith("global/languages/"):
+        return posix
+
+    if _USER_AVATAR_PREFIX_RE.match(posix):
+        return posix
+
+    sr_norm = os.path.normpath(_storage_root_dir())
+    fs_abs = os.path.normpath(os.path.abspath(stripped.replace("/", os.sep)))
+    if os.path.isfile(fs_abs) and _is_under_dir(fs_abs, sr_norm):
+        try:
+            return os.path.relpath(fs_abs, sr_norm).replace("\\", "/")
+        except ValueError:
+            pass
+
+    match = re.search(r"images/(logo|profile)/(.+)$", posix, re.IGNORECASE)
     if match:
         return f"images/{match.group(1).lower()}/{match.group(2)}"
 
-    # Convert absolute paths inside external assets override
     ext_assets = external_assets_dir().replace("\\", "/")
-    if path_value.lower().startswith(ext_assets.lower() + "/"):
-        rel = path_value[len(ext_assets) + 1 :]
-        return rel
+    if posix.lower().startswith(ext_assets.lower() + "/"):
+        return posix[len(ext_assets) + 1 :].lstrip("/")
 
-    return path_value
+    return posix
 
 
 def _is_under_dir(path, root):
@@ -69,23 +115,34 @@ def _safe_user_asset_filename(src_abs: str) -> str:
     return f"{stem_clean}__{digest}{ext}"
 
 
-def _ingest_file_into_user_assets(src_abs: str) -> str:
+def _ingest_into_folder_return_storage_rel(src_abs: str, dest_folder_abs: str) -> str:
+    os.makedirs(dest_folder_abs, exist_ok=True)
+    name = _safe_user_asset_filename(src_abs)
+    dest = os.path.join(dest_folder_abs, name)
+    shutil.copy2(src_abs, dest)
+    sr = os.path.normpath(_storage_root_dir())
+    dest_n = os.path.normpath(dest)
+    try:
+        return os.path.relpath(dest_n, sr).replace("\\", "/")
+    except ValueError:
+        return dest_n.replace("\\", "/")
+
+
+def _ingest_legacy_user_assets(src_abs: str) -> str:
     ext_root = external_assets_dir()
     user_root = os.path.join(ext_root, "user")
     os.makedirs(user_root, exist_ok=True)
     name = _safe_user_asset_filename(src_abs)
     dest = os.path.join(user_root, name)
     shutil.copy2(src_abs, dest)
-    return f"user/{name.replace(os.sep, '/')}"
+    rel_assets = os.path.relpath(dest, ext_root).replace("\\", "/")
+    return rel_assets
 
 
-def materialize_user_media_path(path_value: str) -> str:
+def materialize_media_path(path_value: str, ingest=None, user_key=None) -> str:
     """
-    Copy disk files selected by the user into <storage_root>/assets/user/
-    and return a stable relative reference (user/...).
-
-    Bundled templates use images/... inside the PyInstaller bundle; user picks should
-    not depend on cwd or exe location, so previews and PDFs keep working after compile.
+    Convierte rutas absolutas externas en referencias bajo RESUMECABINET_DATA_ROOT.
+    ingest: "software" | "language" | "avatar" | None (fallback legacy assets/user/)
     """
     if path_value is None or not str(path_value).strip():
         return path_value
@@ -94,26 +151,61 @@ def materialize_user_media_path(path_value: str) -> str:
     if not n:
         return n
 
-    ext_root = external_assets_dir()
-
     if n.startswith("images/"):
-        return n
-
-    if n.startswith("user/"):
-        full = os.path.join(ext_root, n.replace("/", os.sep))
         return n.replace("\\", "/")
 
-    fs_path = os.path.normpath(n.replace("/", os.sep))
-    if os.path.isfile(fs_path) and os.path.isabs(fs_path):
-        if _is_under_dir(fs_path, ext_root):
+    sr = os.path.normpath(_storage_root_dir())
+    ext_root_abs = os.path.normpath(external_assets_dir())
+
+    if is_storage_managed_media_ref(n):
+        cand = os.path.join(sr, n.replace("/", os.sep))
+        if os.path.isfile(cand):
+            return n.replace("\\", "/")
+        full_assets = os.path.join(ext_root_abs, n.replace("/", os.sep))
+        if os.path.isfile(full_assets):
+            return n.replace("\\", "/")
+
+    if n.startswith("user/"):
+        full = os.path.join(ext_root_abs, n.replace("/", os.sep))
+        if os.path.isfile(full):
+            return n.replace("\\", "/")
+
+    abs_src = os.path.normpath(raw.replace("/", os.sep))
+    if os.path.isfile(abs_src) and os.path.isabs(abs_src):
+        if _is_under_dir(abs_src, ext_root_abs):
             try:
-                rel = os.path.relpath(fs_path, ext_root).replace("\\", "/")
-                return rel
+                return os.path.relpath(abs_src, ext_root_abs).replace("\\", "/")
             except ValueError:
                 pass
-        return _ingest_file_into_user_assets(fs_path)
+        if _is_under_dir(abs_src, sr):
+            try:
+                return os.path.relpath(abs_src, sr).replace("\\", "/")
+            except ValueError:
+                pass
+
+        if ingest == "software":
+            return _ingest_into_folder_return_storage_rel(abs_src, global_software_media_dir())
+        if ingest == "language":
+            return _ingest_into_folder_return_storage_rel(abs_src, global_languages_media_dir())
+        if ingest == "avatar" and user_key:
+            return _ingest_into_folder_return_storage_rel(abs_src, user_avatar_media_dir(user_key))
+
+        return _ingest_legacy_user_assets(abs_src)
+
+    rel_fs = os.path.normpath(n.replace("/", os.sep))
+    if os.path.isfile(rel_fs) and os.path.isabs(rel_fs):
+        if _is_under_dir(rel_fs, sr):
+            try:
+                return os.path.relpath(rel_fs, sr).replace("\\", "/")
+            except ValueError:
+                pass
 
     return n.replace("\\", "/")
+
+
+def materialize_user_media_path(path_value: str) -> str:
+    """Retrocompatibilidad: copia arbitraria en assets/user cuando no hay contexto."""
+    return materialize_media_path(path_value, ingest=None, user_key=None)
 
 
 def resolve_asset_path(path_value):
@@ -124,12 +216,15 @@ def resolve_asset_path(path_value):
 
     if os.path.isabs(normalized.replace("/", os.sep)):
         ap = os.path.normpath(normalized.replace("/", os.sep))
-        return ap
+        return ap if os.path.isfile(ap) else normalized
 
+    sr = os.path.normpath(_storage_root_dir())
+    replacements = normalized.replace("/", os.sep)
     candidates = [
-        os.path.join(external_assets_dir(), normalized),
-        os.path.join(runtime_base_dir(), normalized),
-        os.path.abspath(os.path.normpath(normalized.replace("/", os.sep))),
+        os.path.join(sr, replacements),
+        os.path.join(external_assets_dir(), replacements),
+        os.path.join(runtime_base_dir(), replacements),
+        os.path.abspath(os.path.normpath(replacements)),
     ]
     for candidate in candidates:
         cand = os.path.normpath(candidate)

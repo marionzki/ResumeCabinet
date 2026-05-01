@@ -77,13 +77,23 @@ class FletMainWindow:
         for t_name in templates_list:
             template_items.append(
                 ft.Container(
-                    ft.Row([
-                        ft.Text(t_name, expand=True, size=16),
-                        ft.ElevatedButton("Load", on_click=lambda _, n=t_name: self.controller.apply_template_file(n)),
-                        ft.IconButton(icon=ft.icons.Icons.DELETE, on_click=lambda _, n=t_name: self.controller.delete_template_file(n))
-                    ]),
+                    ft.Row(
+                        [
+                            ft.Text(t_name, expand=True, size=16),
+                            ft.ElevatedButton(
+                                "Load",
+                                on_click=lambda e, n=t_name: self.controller.apply_template_file(n),
+                            ),
+                            ft.IconButton(
+                                icon=ft.icons.Icons.DELETE,
+                                icon_color=ft.Colors.RED,
+                                tooltip="Eliminar plantilla de este perfil",
+                                on_click=lambda e, n=t_name: self.controller.delete_template_file(n),
+                            ),
+                        ],
+                    ),
                     padding=10,
-                    border=ft.border.only(bottom=ft.border.BorderSide(1, ft.Colors.GREY_300))
+                    border=ft.border.only(bottom=ft.border.BorderSide(1, ft.Colors.GREY_300)),
                 )
             )
 

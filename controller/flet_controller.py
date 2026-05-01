@@ -1,26 +1,38 @@
 import asyncio
 from copy import deepcopy
 from model.cv_data import CVData, Section, Settings
+from model.modules import AvatarModule
 from view_flet.main_view import FletMainWindow
 import flet as ft
 import json
 import os
 import re
 import sys
-from utils.asset_paths import materialize_user_media_path, normalize_asset_reference
+from utils.asset_paths import materialize_media_path, normalize_asset_reference, runtime_base_dir
+from utils.portable_media_bootstrap import (
+    bootstrap_portable_asset_tree,
+    seed_defaults_example_templates_into_storage,
+    seed_user_avatars_from_defaults,
+    seed_user_templates_folder_if_empty,
+)
 from utils.dialog_cleanup import register_dialog_root, unregister_dialog_root, close_all_dialog_roots
+
+_CONTROLLER_DIR = os.path.dirname(os.path.abspath(__file__))
+
 
 class FletController:
     def __init__(self, page: ft.Page):
         self.page = page
         self.cv_data = CVData()
         self.base_dir = getattr(sys, "_MEIPASS", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        self.app_root_dir = os.path.dirname(sys.executable) if getattr(sys, "frozen", False) else os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.project_root_dev = os.path.dirname(_CONTROLLER_DIR)
+        self.app_root_dir = os.path.dirname(sys.executable) if getattr(sys, "frozen", False) else self.project_root_dev
         self.legacy_user_data_dir = os.path.join(os.getenv("APPDATA", os.path.expanduser("~")), "ResumeCabinet")
         self.legacy_autosave_path = os.path.join(self.legacy_user_data_dir, "user_data.json")
         self.legacy_templates_dir = os.path.join(self.legacy_user_data_dir, "templates")
         self.project_legacy_autosave_path = os.path.abspath("user_data.json")
-        self.project_legacy_templates_dir = os.path.abspath("templates")
+        self.project_legacy_templates_dir = os.path.join(self.project_root_dev, "defaults", "example_templates")
+        self.project_legacy_templates_old_cwd = os.path.abspath("templates")
         self.storage_root_dir = self._resolve_storage_root_dir()
         os.environ["RESUMECABINET_DATA_ROOT"] = self.storage_root_dir
         self.global_root_dir = os.path.join(self.storage_root_dir, "global")
@@ -32,7 +44,7 @@ class FletController:
         self.active_user_key = ""
         self.user_templates_dir = ""
         self.user_profile_meta_path = ""
-        self.bundled_templates_dir = os.path.join(self.base_dir, "templates")
+        self.user_avatar_dir = ""
         self.autosave_path = ""
         self._pending_profile_name = ""
         self._pending_name_control = None
@@ -41,6 +53,12 @@ class FletController:
         os.makedirs(self.global_root_dir, exist_ok=True)
         os.makedirs(self.users_root_dir, exist_ok=True)
         os.makedirs(self.defaults_root_dir, exist_ok=True)
+        bootstrap_portable_asset_tree(
+            self.storage_root_dir,
+            os.path.join(runtime_base_dir(), "images"),
+        )
+        repo_for_defaults = None if getattr(sys, "frozen", False) else self.project_root_dev
+        seed_defaults_example_templates_into_storage(self.storage_root_dir, repo_for_defaults)
         self._ensure_default_seed_files()
         self._set_active_user_paths(self.cv_data.header_info.name)
         self._migrate_legacy_data_if_needed()
@@ -108,9 +126,10 @@ class FletController:
         }
 
     def _get_seed_cvdata(self):
+        examples_dir = os.path.join(self.defaults_root_dir, "example_templates")
         template_candidates = [
-            os.path.join(self.bundled_templates_dir, "Python_Developer.json"),
-            os.path.join(self.bundled_templates_dir, "Data_Analyst.json"),
+            os.path.join(examples_dir, "Python_Developer.json"),
+            os.path.join(examples_dir, "Data_Analyst.json"),
         ]
         for candidate in template_candidates:
             if not os.path.exists(candidate):
@@ -163,6 +182,13 @@ class FletController:
             self.user_profile_meta_path,
             {"display_name": display_name, "user_key": self.active_user_key},
         )
+        self._seed_user_example_templates_if_needed()
+
+    def _seed_user_example_templates_if_needed(self):
+        seed_user_templates_folder_if_empty(
+            self.user_templates_dir,
+            os.path.join(self.defaults_root_dir, "example_templates"),
+        )
 
     def _list_profile_keys(self):
         if not os.path.exists(self.users_root_dir):
@@ -187,6 +213,27 @@ class FletController:
                 continue
             current.modules.append(module)
             signatures.add(sig)
+
+    def _library_module_public_label(self, module):
+        if getattr(module, "title", "").strip():
+            return module.title.strip()
+        if getattr(module, "name", "").strip():
+            return module.name.strip()
+        return "Este elemento"
+
+    def _ensure_library_slot_unique_or_snackbar(self, section, proposed_module) -> bool:
+        """True si puede guardarse; False si hay colisión por título/nombre (competencias, software, lenguajes)."""
+        sec_type = getattr(section, "type", "") or ""
+        if sec_type not in ("generic", "software", "language"):
+            return True
+        new_key = self._canonical_library_item_key(section, proposed_module)
+        for m in section.modules:
+            if m is proposed_module:
+                continue
+            if self._canonical_library_item_key(section, m) == new_key:
+                self.show_snackbar("Ya existe un elemento con el mismo nombre en esta sección.")
+                return False
+        return True
 
     def _canonical_library_item_key(self, section, module):
         sec_type = getattr(section, "type", "") or ""
@@ -228,15 +275,6 @@ class FletController:
                 kept.append(m)
             sec.modules = kept
 
-    def _merge_library_payload_additive(self, base_payload, incoming_payload):
-        base_cv = self._compose_cv_from_profile_and_library({}, base_payload or {})
-        incoming_cv = self._compose_cv_from_profile_and_library({}, incoming_payload or {})
-        self._extend_library_section_without_dupes(base_cv.knowledge, incoming_cv.knowledge)
-        self._extend_library_section_without_dupes(base_cv.software, incoming_cv.software)
-        self._extend_library_section_without_dupes(base_cv.languages, incoming_cv.languages)
-        self._dedupe_global_library_on_cv(base_cv)
-        return self._library_payload_from_cv(base_cv)
-
     def _module_signature(self, module):
         m_type = type(module).__name__
         title = (getattr(module, "title", "") or "").strip().lower()
@@ -247,13 +285,109 @@ class FletController:
         image_path = (getattr(module, "image_path", "") or "").strip().lower()
         return f"{m_type}|{title}|{name}|{company}|{date_range}|{text_extended[:80]}|{image_path}"
 
+    def _personal_module_merge_key(self, module):
+        from model.modules import AvatarModule, PersonalInfoModule
+
+        if isinstance(module, AvatarModule):
+            return ("AvatarModule",)
+        if isinstance(module, PersonalInfoModule):
+            title = (getattr(module, "title", "") or "").strip().lower()
+            return ("PersonalInfoModule", title if title else "__default_bio__")
+        return ("misc", type(module).__name__, getattr(module, "id", "") or "")
+
+    def _experience_merge_key(self, module):
+        title = (getattr(module, "title", "") or "").strip().lower()
+        company = (getattr(module, "company", "") or "").strip().lower()
+        return ("ExperienceModule", title, company)
+
+    def _education_merge_key(self, module):
+        title = (getattr(module, "title", "") or "").strip().lower()
+        company = (getattr(module, "company", "") or "").strip().lower()
+        return ("EducationModule", title, company)
+
+    def _merge_section_modules_for_template(self, cur_sec, tmpl_sec, key_fn):
+        """
+        Fusiona listas de módulos: no borra ítems del usuario; sólo sincroniza is_active desde
+        plantilla cuando la clave coincide; añade al final ítems que sólo estén en la plantilla.
+        """
+        tmpl_by_key = {}
+        for m in tmpl_sec.modules:
+            tmpl_by_key[key_fn(m)] = m
+
+        user_keys = {key_fn(m) for m in cur_sec.modules}
+        merged_modules = []
+
+        for m in cur_sec.modules:
+            k = key_fn(m)
+            t_mod = tmpl_by_key.get(k)
+            if t_mod is not None:
+                m.is_active = t_mod.is_active
+            merged_modules.append(m)
+
+        added_tpl = set()
+        for tm in tmpl_sec.modules:
+            k = key_fn(tm)
+            if k in user_keys or k in added_tpl:
+                continue
+            merged_modules.append(deepcopy(tm))
+            added_tpl.add(k)
+
+        out = Section(id=cur_sec.id, title=cur_sec.title, type=cur_sec.type)
+        out.modules = merged_modules
+        return out
+
+    def _merge_template_into_current_cv(self, current: CVData, template_cv: CVData) -> CVData:
+        """Sustituye configuración/visual (settings + cabecera) con la plantilla y fusiona módulos preservando contenido del usuario."""
+        merged = deepcopy(current)
+
+        merged.settings = deepcopy(template_cv.settings)
+        merged.header_info = deepcopy(template_cv.header_info)
+
+        merged.knowledge = self._merge_section_modules_for_template(
+            merged.knowledge,
+            template_cv.knowledge,
+            lambda m: self._canonical_library_item_key(merged.knowledge, m),
+        )
+        merged.software = self._merge_section_modules_for_template(
+            merged.software,
+            template_cv.software,
+            lambda m: self._canonical_library_item_key(merged.software, m),
+        )
+        merged.languages = self._merge_section_modules_for_template(
+            merged.languages,
+            template_cv.languages,
+            lambda m: self._canonical_library_item_key(merged.languages, m),
+        )
+
+        merged.experience = self._merge_section_modules_for_template(
+            merged.experience,
+            template_cv.experience,
+            self._experience_merge_key,
+        )
+        merged.education = self._merge_section_modules_for_template(
+            merged.education,
+            template_cv.education,
+            self._education_merge_key,
+        )
+        merged.personal_info = self._merge_section_modules_for_template(
+            merged.personal_info,
+            template_cv.personal_info,
+            self._personal_module_merge_key,
+        )
+
+        return merged
+
     def _set_active_user_paths(self, user_name):
         self.active_user_key = self._sanitize_user_key(user_name)
         user_root = os.path.join(self.users_root_dir, self.active_user_key)
+        os.makedirs(user_root, exist_ok=True)
         self.autosave_path = os.path.join(user_root, "user_data.json")
         self.user_templates_dir = os.path.join(user_root, "templates")
         self.user_profile_meta_path = os.path.join(user_root, "profile_meta.json")
+        self.user_avatar_dir = os.path.join(user_root, "avatar")
         os.makedirs(self.user_templates_dir, exist_ok=True)
+        os.makedirs(self.user_avatar_dir, exist_ok=True)
+        seed_user_avatars_from_defaults(self.storage_root_dir, self.active_user_key)
 
     def _copy_json_templates(self, src_dir, dst_dir):
         if not os.path.exists(src_dir):
@@ -305,6 +439,8 @@ class FletController:
         # Migrate legacy templates into currently active user workspace
         self._copy_json_templates(self.legacy_templates_dir, self.user_templates_dir)
         self._copy_json_templates(self.project_legacy_templates_dir, self.user_templates_dir)
+        self._copy_json_templates(self.project_legacy_templates_old_cwd, self.user_templates_dir)
+        self._seed_user_example_templates_if_needed()
 
         if migrated:
             print("Legacy data migrated to per-user storage.")
@@ -328,10 +464,14 @@ class FletController:
             if not os.path.exists(self.autosave_path):
                 self._create_empty_profile(self.cv_data.header_info.name or "usuario_sin_nombre")
             profile_payload = self._read_json_file(self.autosave_path) or self._profile_payload_from_cv(CVData())
-            library_payload = self._read_json_file(self.global_library_path) or {}
-            seed_library = self._read_json_file(self.defaults_library_path) or self._library_payload_from_cv(self._get_seed_cvdata())
-            library_payload = self._merge_library_payload_additive(seed_library, library_payload)
-            self._atomic_write_json(self.global_library_path, library_payload)
+            library_payload = self._read_json_file(self.global_library_path)
+            if library_payload is None:
+                seed_fallback = (
+                    self._read_json_file(self.defaults_library_path)
+                    or self._library_payload_from_cv(self._get_seed_cvdata())
+                )
+                library_payload = deepcopy(seed_fallback)
+                self._atomic_write_json(self.global_library_path, library_payload)
             self.cv_data = self._compose_cv_from_profile_and_library(profile_payload, library_payload)
             self._dedupe_global_library_on_cv(self.cv_data)
             self._normalize_cv_image_paths()
@@ -346,9 +486,7 @@ class FletController:
             self._normalize_cv_image_paths()
             self._dedupe_global_library_on_cv(self.cv_data)
             self._atomic_write_json(self.autosave_path, self._profile_payload_from_cv(self.cv_data))
-            current_global = self._read_json_file(self.global_library_path) or {}
-            merged_global = self._merge_library_payload_additive(current_global, self._library_payload_from_cv(self.cv_data))
-            self._atomic_write_json(self.global_library_path, merged_global)
+            self._atomic_write_json(self.global_library_path, self._library_payload_from_cv(self.cv_data))
             self._atomic_write_json(
                 self.user_profile_meta_path,
                 {"display_name": self.cv_data.header_info.name, "user_key": self.active_user_key},
@@ -482,11 +620,6 @@ class FletController:
         self.refresh_view()
         self.show_snackbar("Pestañas importadas (sin Templates).")
 
-    def _keep_current_personal_info_on_loaded_cv(self, loaded_cv: CVData) -> None:
-        """Preserve edited personal section when replacing cv_data from a template file."""
-        kept = self.cv_data.personal_info.to_dict()
-        loaded_cv.personal_info = Section.from_dict(kept)
-
     def _normalize_cv_image_paths(self):
         sections = [
             self.cv_data.personal_info,
@@ -499,9 +632,47 @@ class FletController:
         for section in sections:
             for module in section.modules:
                 if hasattr(module, "image_path"):
-                    module.image_path = materialize_user_media_path(
-                        normalize_asset_reference(module.image_path)
+                    ingest = None
+                    if isinstance(module, AvatarModule):
+                        ingest = "avatar"
+                    elif getattr(section, "type", "") == "software":
+                        ingest = "software"
+                    elif getattr(section, "type", "") == "language":
+                        ingest = "language"
+                    module.image_path = materialize_media_path(
+                        normalize_asset_reference(module.image_path),
+                        ingest=ingest,
+                        user_key=self.active_user_key if ingest == "avatar" else None,
                     )
+
+    def _image_editor_context(self, module, section):
+        from utils.asset_paths import (
+            ensure_category_media_dirs,
+            global_languages_media_dir,
+            global_software_media_dir,
+            user_avatar_media_dir,
+        )
+
+        ensure_category_media_dirs(self.active_user_key)
+        if isinstance(module, AvatarModule):
+            return {
+                "ingest": "avatar",
+                "pick_dir": user_avatar_media_dir(self.active_user_key),
+                "user_key": self.active_user_key,
+            }
+        if getattr(section, "type", "") == "software":
+            return {
+                "ingest": "software",
+                "pick_dir": global_software_media_dir(),
+                "user_key": None,
+            }
+        if getattr(section, "type", "") == "language":
+            return {
+                "ingest": "language",
+                "pick_dir": global_languages_media_dir(),
+                "user_key": None,
+            }
+        return {"ingest": None, "pick_dir": None, "user_key": None}
 
     def refresh_view(self):
         current_index = 0
@@ -651,9 +822,7 @@ class FletController:
                 self.page.update()
                 
                 if new_module:
-                    section.modules.append(new_module)
-                    self.save_autosave()
-                    self.edit_module(new_module, section)
+                    self.edit_module(new_module, section, pending_new=True)
 
             dlg = ft.AlertDialog(
                 title=ft.Text("Choose Type"),
@@ -676,17 +845,9 @@ class FletController:
             new_module = TextModule(title="New Item")
             
         if new_module:
-            if section.type in ("generic", "software", "language"):
-                new_key = self._canonical_library_item_key(section, new_module)
-                for m in section.modules:
-                    if self._canonical_library_item_key(section, m) == new_key:
-                        self.show_snackbar("Ya existe un elemento con el mismo nombre en esta sección.")
-                        return
-            section.modules.append(new_module)
-            self.save_autosave()
-            self.edit_module(new_module, section)
+            self.edit_module(new_module, section, pending_new=True)
 
-    def edit_module(self, module, section):
+    def edit_module(self, module, section, pending_new=False):
         try:
             self.page.snack_bar = ft.SnackBar(content=ft.Text("Opening editor..."), duration=1000)
             self.page.snack_bar.open = True
@@ -705,11 +866,31 @@ class FletController:
                 for m in self.cv_data.languages.modules:
                     if m.name: tags.append(m.name)
             
+            val_lib = getattr(section, "type", "") in ("generic", "software", "language")
+
             def on_save_callback(mod):
+                if pending_new and mod not in section.modules:
+                    section.modules.append(mod)
                 self.save_autosave()
                 self.refresh_view_section(section)
-                
-            form = ModuleForm(self.page, module, available_tags=tags, on_save=on_save_callback)
+
+            pre_save_validator = None
+            if val_lib:
+
+                def pre_save_validator(mod):
+                    return self._ensure_library_slot_unique_or_snackbar(section, mod)
+
+            ctx = self._image_editor_context(module, section)
+            form = ModuleForm(
+                self.page,
+                module,
+                available_tags=tags,
+                on_save=on_save_callback,
+                media_ingest=ctx["ingest"],
+                pick_image_initial_dir=ctx["pick_dir"],
+                active_user_key=ctx["user_key"],
+                pre_save_validator=pre_save_validator,
+            )
             form.show()
         except Exception as e:
             error_dlg = ft.AlertDialog(
@@ -725,6 +906,52 @@ class FletController:
                 self.page.update()
 
     def delete_module(self, module, section):
+        sec_type = getattr(section, "type", "") or ""
+        if sec_type in ("generic", "software", "language"):
+            label = self._library_module_public_label(module)
+
+            dlg_ref = []
+
+            def on_cancel(btn_e=None):
+                if dlg_ref:
+                    dlg_ref[0].open = False
+                    self.page.update()
+
+            def on_confirm(btn_e=None):
+                if dlg_ref:
+                    dlg_ref[0].open = False
+                    self.page.update()
+                self._finalize_delete_shared_module(module, section)
+
+            dlg = ft.AlertDialog(
+                title=ft.Text("Eliminar de la librería compartida"),
+                content=ft.Text(
+                    f"Se eliminará «{label}» para todos los perfiles.\n\n"
+                    "Competencias, Software y Lenguajes son datos globales compartidos."
+                ),
+                actions=[
+                    ft.TextButton("Cancelar", on_click=on_cancel),
+                    ft.TextButton(
+                        "Eliminar",
+                        on_click=on_confirm,
+                        style=ft.ButtonStyle(color=ft.Colors.RED),
+                    ),
+                ],
+                actions_alignment=ft.MainAxisAlignment.END,
+            )
+            dlg_ref.append(dlg)
+
+            if hasattr(self.page, "show_dialog"):
+                self.page.show_dialog(dlg)
+            else:
+                self.page.dialog = dlg
+                dlg.open = True
+                self.page.update()
+            return
+
+        self._finalize_delete_shared_module(module, section)
+
+    def _finalize_delete_shared_module(self, module, section):
         if module in section.modules:
             section.modules.remove(module)
             self.save_autosave()
@@ -791,8 +1018,7 @@ class FletController:
             try:
                 with open(path, "r", encoding="utf-8") as f:
                     loaded_cv = CVData.from_json(f.read())
-                self._keep_current_personal_info_on_loaded_cv(loaded_cv)
-                self.cv_data = loaded_cv
+                self.cv_data = self._merge_template_into_current_cv(self.cv_data, loaded_cv)
                 self._normalize_cv_image_paths()
                 self.save_autosave()
                 self.refresh_view()
@@ -876,42 +1102,46 @@ class FletController:
              self.show_snackbar(f"Error saving template: {ex}")
 
     def apply_template_file(self, name):
-        """Load a full template (sections, texts, images, settings, and header)."""
-        path = os.path.join(self.user_templates_dir, name)
-        if not os.path.exists(path):
-            path = os.path.join(self.bundled_templates_dir, name)
-            if not os.path.exists(path):
-                self.show_snackbar("Template file not found.")
-                return
+        """Aplica idioma, diseño y cabecera de la plantilla; fusiona competencias/software/lenguajes y secciones de perfil sin borrar módulos del usuario (sólo sincroniza activo/inactivo por coincidencias)."""
+        safe_name = os.path.basename((name or "").strip())
+        path = os.path.join(self.user_templates_dir, safe_name)
+        if not os.path.isfile(path):
+            self.show_snackbar("Plantilla no encontrada (sólo se cargan ficheros del perfil en templates/).")
+            return
 
         try:
             with open(path, "r", encoding="utf-8") as f:
                 loaded_cv = CVData.from_json(f.read())
-            self._keep_current_personal_info_on_loaded_cv(loaded_cv)
-            self.cv_data = loaded_cv
+            self.cv_data = self._merge_template_into_current_cv(self.cv_data, loaded_cv)
             self._normalize_cv_image_paths()
             self.save_autosave()
             self.refresh_view()
-            self.show_snackbar(f"Template '{name}' cargado con toda la información.")
+            self.show_snackbar(
+                f"Plantilla '{safe_name}' aplicada (cabecera y diseño; módulos de usuario preservados)."
+            )
 
         except Exception as ex:
             self.show_snackbar(f"Error applying template: {ex}")
 
     def delete_template_file(self, name):
-        path = os.path.join(self.user_templates_dir, name)
-        if os.path.exists(path):
+        safe_name = os.path.basename((name or "").strip())
+        if not safe_name or not safe_name.endswith(".json"):
+            self.show_snackbar("Nombre de plantilla no válido.")
+            return
+        path = os.path.join(self.user_templates_dir, safe_name)
+        if os.path.isfile(path):
             try:
                 os.remove(path)
                 self.refresh_view()
-                self.show_snackbar(f"Template '{name}' deleted.")
+                self.show_snackbar(f"Plantilla '{safe_name}' eliminada.")
             except Exception as ex:
-                self.show_snackbar(f"Error deleting: {ex}")
+                self.show_snackbar(f"No se pudo eliminar: {ex}")
         else:
-            self.show_snackbar("Only user templates can be deleted.")
+            self.show_snackbar("No existe esa plantilla en tu perfil.")
 
     def get_templates(self):
-        template_names = set()
-        for folder in [self.bundled_templates_dir, self.user_templates_dir]:
-            if os.path.exists(folder):
-                template_names.update([f for f in os.listdir(folder) if f.endswith(".json")])
-        return sorted(template_names)
+        if not self.user_templates_dir or not os.path.isdir(self.user_templates_dir):
+            return []
+        return sorted(
+            [f for f in os.listdir(self.user_templates_dir) if f.endswith(".json")]
+        )

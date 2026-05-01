@@ -9,7 +9,6 @@ app_datas = [
     ('view_flet', 'view_flet'),
     ('controller', 'controller'),
     ('references', 'references'),
-    ('templates', 'templates'),
 ]
 app_datas += collect_data_files('flet_desktop')
 app_datas += collect_data_files('flet')

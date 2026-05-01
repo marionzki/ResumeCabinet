@@ -17,7 +17,6 @@ python -m PyInstaller --noconfirm --clean --windowed --onefile --name ResumeCabi
  --add-data "view_flet;view_flet" ^
  --add-data "controller;controller" ^
  --add-data "references;references" ^
- --add-data "templates;templates" ^
  --collect-data "flet_desktop" ^
  --collect-data "flet" ^
  main_flet.py
