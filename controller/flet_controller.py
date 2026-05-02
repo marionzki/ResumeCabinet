@@ -22,6 +22,13 @@ _CONTROLLER_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class FletController:
     def __init__(self, page: ft.Page):
+        # --- Bootstrap order (portable / first run) ---
+        # 1. Resolve storage_root and export RESUMECABINET_DATA_ROOT for path helpers.
+        # 2. Materialize logo/profile PNGs via bootstrap_portable_asset_tree (images/).
+        # 3. Copy repo defaults/example_templates into data/defaults/ (dev only writes from project root).
+        # 4. Ensure initial_profile / initial_library / global library JSON seeds exist.
+        # 5. Point autosave/templates/avatar paths at active user slug, seed avatars/examples if needed.
+        # 6. One-shot legacy APPDATA/project migration, then compose UI + load_autosave.
         self.page = page
         self.cv_data = CVData()
         self.base_dir = getattr(sys, "_MEIPASS", os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -306,6 +313,8 @@ class FletController:
         return ("EducationModule", title, company)
 
     def _merge_section_modules_for_template(self, cur_sec, tmpl_sec, key_fn):
+        # --- Per-section template merge ---
+        # Preserves modules only on disk/user side; aligns is_active where keys match template; appends template-only tails.
         """
         Fusiona listas de módulos: no borra ítems del usuario; sólo sincroniza is_active desde
         plantilla cuando la clave coincide; añade al final ítems que sólo estén en la plantilla.
@@ -338,6 +347,9 @@ class FletController:
 
     def _merge_template_into_current_cv(self, current: CVData, template_cv: CVData) -> CVData:
         """Sustituye configuración/visual (settings + cabecera) con la plantilla y fusiona módulos preservando contenido del usuario."""
+        # --- Apply CV JSON template ---
+        # Replace settings/header wholesale (user expects job/config refresh).
+        # For section modules: keep user-only rows, overlay is_active from template keys, append template-only rows.
         merged = deepcopy(current)
 
         merged.settings = deepcopy(template_cv.settings)
@@ -460,6 +472,9 @@ class FletController:
             self.show_snackbar(f"Nuevo perfil creado: {new_name}")
 
     def load_autosave(self):
+        # --- Load ---
+        # Profile JSON owns per-user sections; global library owns knowledge/software/languages.
+        # Missing global file on disk: clone defaults seed once, then hydrate cv_data and re-save canonical state.
         try:
             if not os.path.exists(self.autosave_path):
                 self._create_empty_profile(self.cv_data.header_info.name or "usuario_sin_nombre")
@@ -482,6 +497,9 @@ class FletController:
             print(f"Error loading autosave: {e}")
 
     def save_autosave(self):
+        # --- Persist ---
+        # user_data.json: profile-local payload only.
+        # global/library.json: full snapshot from current cv_data shared sections (NOT merged with stale disk — deletions persist).
         try:
             self._normalize_cv_image_paths()
             self._dedupe_global_library_on_cv(self.cv_data)
@@ -754,7 +772,7 @@ class FletController:
             
             self.show_snackbar("Previsualización actualizada")
         except Exception as e:
-            self.show_snackbar(f"Error generando preview: {e}")
+            self.show_snackbar(f"Error al generar la previsualización: {e}")
 
     def update_header_info(self, key, value):
         if hasattr(self.cv_data.header_info, key):
@@ -906,6 +924,8 @@ class FletController:
                 self.page.update()
 
     def delete_module(self, module, section):
+        # --- Deletes ---
+        # Global library tabs affect every profile — require explicit confirmation (Spanish UI strings).
         sec_type = getattr(section, "type", "") or ""
         if sec_type in ("generic", "software", "language"):
             label = self._library_module_public_label(module)
@@ -1121,7 +1141,7 @@ class FletController:
             )
 
         except Exception as ex:
-            self.show_snackbar(f"Error applying template: {ex}")
+            self.show_snackbar(f"Error al aplicar la plantilla: {ex}")
 
     def delete_template_file(self, name):
         safe_name = os.path.basename((name or "").strip())

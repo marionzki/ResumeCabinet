@@ -1,6 +1,8 @@
 # ResumeCabinet
 
-ResumeCabinet es una aplicación de escritorio en Python con [Flet](https://flet.dev/) para crear, personalizar y exportar currículums en PDF. En su versión actual funciona en **modo portable**: los datos viven en una carpeta **`data/`** junto al ejecutable (o en el directorio del proyecto al desarrollar), de modo que puedes copiar toda la carpeta a un USB u otro PC y seguir donde lo dejaste.
+ResumeCabinet es una aplicación de escritorio en Python con [Flet](https://flet.dev/) para crear, personalizar y exportar currículos vitae en PDF. En su versión actual funciona en **modo portable**: los datos viven en una carpeta **`data/`** junto al ejecutable (o en el directorio del proyecto al desarrollar), de modo que puedes copiar toda la carpeta a un USB u otro PC y seguir donde lo dejaste.
+
+**Contrato técnico y agentes:** [`spec.md`](spec.md) (comportamiento y datos esperados), [`agents.md`](agents.md) (flujo de trabajo para desarrolladores / herramientas de IA).
 
 ## Características principales
 
@@ -15,7 +17,7 @@ ResumeCabinet es una aplicación de escritorio en Python con [Flet](https://flet
 ## Requisitos
 
 * **Desarrollo**: Python 3.x y dependencias de `requirements.txt` (entre ellas `flet` y librerías de PDF).
-* **Uso sólo ejecutable**: no hace falta Python en la máquina destino si repartís el paquete portable ya construido (`.exe` + `data/`).
+* **Uso sólo ejecutable**: no hace falta Python en la máquina destino si repartís el paquete portable ya compilado (`.exe` + `data/`).
 
 ## Instalación (desde código)
 
@@ -26,6 +28,13 @@ python -m venv venv
 # Windows:
 venv\Scripts\activate
 pip install -r requirements.txt
+```
+
+**Tests automatizados (opcional):**
+
+```bash
+pip install -r requirements-dev.txt
+python -m pytest
 ```
 
 ## Uso en desarrollo
@@ -87,11 +96,11 @@ Sin `data/` pregenerada al lado del ejecutable, la app creará carpetas vacías 
    - Ejecuta **`python tools\prepare_distribution_data.py`** → crea **`dist\data\`** con `global/software`, `global/languages`, `defaults/avatars`, **`defaults/example_templates`**, etc.  
    **Reparto:** Zip con `ResumeCabinet.exe` y **`data\`** dentro del mismo nivel (el contenido típico de `dist\` después del script).
 
-2. **`build_windows_onefile.bat`**  
-   Genera un único `.exe` en `dist/` con PyInstaller desde línea de comandos. **Importante:** si quieres el mismo comportamiento portable que Arriba, tras el build copia/alinea manualmente **`data/`** usando `prepare_distribution_data.py` (apuntando a la carpeta `data` donde vaya el exe) o reutiliza el flujo del `.bat` portable.
+2. **`build_windows.bat`** (opcional — depuración)  
+   Genera carpeta **`dist\main_flet\`** con ejecutable “desempaquetado” vía **`main_flet.spec`** (arranque más rápido en algunos entornos).
 
-3. **`build_windows.bat`**  
-   Build en modo carpeta COLLECT (`main_flet.spec`/`dist/main_flet/` según proyecto); útil si preferís ejecutable “desempaquetado”.
+3. **Sólo ejecutable uno sin el `.bat` portable** — equivalente manual:  
+   `pyinstaller --noconfirm ResumeCabinet.spec` y luego, si distribuís al usuario final y queréis `data/` de ejemplo igual que arriba, ejecutad `python tools\prepare_distribution_data.py` adaptando los destinos a vuestra carpeta de salida (el propio **`build_portable.bat`** ya hace ambos pasos contra `dist\`).
 
 *`build/` y `dist/` están en `.gitignore`: no forman parte del histórico de Git por defecto.*
 
@@ -101,9 +110,9 @@ Sin `data/` pregenerada al lado del ejecutable, la app creará carpetas vacías 
 
 * Todo el proyecto **excepto** artefactos de build (`build/`, `dist/`).
 * `defaults/example_templates/` con tus JSON de muestra (ya versionados).
-* `images/`, `requirements.txt`, `*.spec`, `build_*.bat`, `tools/prepare_distribution_data.py`.
+* `images/`, `requirements.txt`, `requirements-dev.txt`, `pytest.ini`, `spec.md`, `agents.md`, tests en `tests/`, `*.spec`, `build_*.bat`, `tools/prepare_distribution_data.py`.
 
-*Opcional:* si en desarrollo usás `data/` en la raíz del repo para pruebas y no querés que esos perfiles/cachés locales entren en el commit, puedes añadir la carpeta `data/` al `.gitignore`.
+*Opcional:* si en desarrollo utilizáis `data/` en la raíz del repositorio para pruebas y no queréis que esos perfiles o cachés locales entren en el commit, podéis añadir la carpeta `data/` al `.gitignore`.
 
 Quien clone el repo puede:
 
@@ -114,18 +123,18 @@ build_portable.bat
 
 y obtendrá en `dist/` un **`.exe`** + **`data/`** reproducibles para probar el portable localmente **sin subir binarios**.
 
-### Opciones si quieres que “solo descargar y usar” no requiera compilar
+### Opciones si queréis que “solo descargar y usar” no requiera compilar
 
 1. **GitHub Releases (recomendado)**  
-   - No subís el ejecutable dentro del mismo commit del código.  
-   - En una **Release**, adjuntás un **`ResumeCabinet_portable.zip`** con `ResumeCabinet.exe` + `data/`.  
-   - Ventaja: repo ligero y clonar rápido; los usuarios finales pillan el ZIP desde Releases.
+   - No subáis el ejecutable dentro del mismo commit del código.  
+   - En una **Release**, adjuntad un **`ResumeCabinet_portable.zip`** con `ResumeCabinet.exe` + `data/`.  
+   - Ventaja: repo ligero y clonar rápido; los usuarios finales pueden descargar el ZIP desde Releases.
 
 2. **Subir una carpeta “portable” dentro del mismo repo**  
    - Pesada: el `.exe` y datos duplicados en cada commit.  
-   - Además **`dist/`** está ignorado por `.gitignore`; tendrías que o bien **quitar esa regla** para una carpeta concreta (p. ej. `release/portable/`) usando reglas específicas, o bien hacer `git add -f release/portable/...` (funciona pero es fácil olvidarlo al actualizar).  
+   - Además **`dist/`** está ignorado por `.gitignore`; tendríais que o bien **quitar esa regla** para una carpeta concreta (p. ej. `release/portable/`) usando reglas específicas, o bien hacer `git add -f release/portable/...` (funciona, pero os es fácil olvidarlo al actualizar).  
    - **Git LFS** ayuda si el exe supera el lím cómodo para GitHub (~100 MB típico recomendación), pero añade complejidad.  
-   - Úsalos solo si tienes muy pocos usuarios técnicos y quieres un único lugar de descarga; para la mayoría, **Release + ZIP es más limpio**.
+   - Reservad esto sólo si tenéis muy pocos usuarios técnicos y queréis un único punto de descarga; para la mayoría, **Release + ZIP es más limpio**.
 
 3. **Rama o repo paralelo sólo distribución**  
    - Menos habitual; mismo problema de binarios grandes en historia Git.
@@ -136,8 +145,10 @@ y obtendrá en `dist/` un **`.exe`** + **`data/`** reproducibles para probar el 
 |----------|--------|
 | Colaboradores / código abierto | Repo con fuente + `defaults/example_templates` + README; Releases con ZIP opcional |
 | Usuario final sin compilar | Subir **`ResumeCabinet.exe` + `data/`** (misma carpeta madre que el exe) vía Release o servidor |
-| Mantener igualdad con lo que compilas vos | Ejecutá siempre **`build_portable.bat`** antes de crear el ZIP de distribución |
+| Mantener la misma build que compiléis vosotros | Ejecutad siempre **`build_portable.bat`** antes de crear el ZIP de distribución |
 
 ## Licencia
 
-Este proyecto es de código abierto (ajustá aquí tu licencia concreta si usás SPDX o archivo `LICENSE`).
+El código de este repositorio se publica bajo la **licencia MIT**. Consulta [`LICENSE`](LICENSE).
+
+Las dependencias de terceros (p. ej. `flet`, `reportlab`, `deep-translator`, `PyMuPDF`, `PyInstaller`) y sus dependencias transitivas conservan **sus propias licencias**; el mismo archivo incluye un resumen orientativo para cumplimiento al distribuir el ejecutable o el proyecto empaquetado.

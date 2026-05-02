@@ -1,0 +1,42 @@
+MIT License
+
+Copyright (c) 2026 ResumeCabinet Mario Noriega Zamora
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Third-party software (declare dependencies — see LICENSE files in distributions)
+
+ResumeCabinet is built with libraries that retain their own terms. Listed below
+are the direct runtime dependencies declared in requirements.txt together with the
+upstream license summaries commonly associated with those projects. If you embed,
+redistribute binaries, or provide this application to others, verify compliance with
+those licenses (sources: PyPI project pages or official repositories).
+
+| Dependency     | Typical upstream license        | Remarks |
+|----------------|----------------------------------|---------|
+| flet           | Apache License 2.0               | UI framework (may transitively pull other OSS). |
+| reportlab      | BSD-style                          | PDF generation (`reportlab` package). |
+| deep-translator| MIT                               | Translation helper; may invoke external translation services at runtime — network/privacy considerations are separate from license text. |
+| PyMuPDF        | GNU AGPL v3 (+ MuPDF copyrights) | **Copyleft**: bundling/linking implications for AGPL differ from permissive stacks; review AGPL if you distribute combined works. Copyright also applies to Artifex/MuPDF components; see upstream notices. |
+| PyInstaller    | GPLv2 (+ bootloader exemption)    | GPLv2 applies to tooling; bootloader exception permits distributing frozen apps built with PyInstaller subject to GPLv2 bootloader terms — read PyInstaller’s current license wording. |
+
+Flet/pyinstaller toolchain may install additional transitive dependencies at build or
+install time; those packages are governed by their own licenses and metadata.

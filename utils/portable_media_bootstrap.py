@@ -1,6 +1,15 @@
 """
-Copia inicial de PNG empaquetados (images/logo, images/profile) y plantillas de ejemplo
-(defaults/example_templates → data/defaults/example_templates → templates del usuario cuando está vacío).
+First-run / distribution seeding into the writable portable tree under RESUMECABINET_DATA_ROOT.
+
+Rules shared by all helpers here:
+    * Never overwrite an existing destination file (idempotent, safe on relaunch).
+    * Logo PNGs route to global/software vs global/languages via LANGUAGE_LOGO_STEMS.
+
+Pipeline:
+    bootstrap_portable_asset_tree  -> copies bundled images/logo + images/profile subsets
+    seed_defaults_example_templates_into_storage -> JSON examples into defaults/example_templates/
+    seed_user_templates_folder_if_empty          -> clones examples only when profile has zero .json
+    seed_user_avatars_from_defaults              -> clones stock avatars when profile avatar folder empty
 """
 import os
 import shutil

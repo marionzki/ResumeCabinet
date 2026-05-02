@@ -1,3 +1,12 @@
+"""
+Portable asset path helpers used by CV editors and PDF rendering.
+
+Stable relative prefixes (under RESUMECABINET_DATA_ROOT / storage root):
+    global/software/, global/languages/, users/<key>/avatar/
+Legacy transports still accepted: images/..., user/..., and absolute picks under legacy assets/*.
+Resolution order is implemented in resolve_asset_path().
+"""
+
 import hashlib
 import os
 import re
